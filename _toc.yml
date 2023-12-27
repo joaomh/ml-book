@@ -7,3 +7,13 @@ chapters:
 - file: markdown
 - file: notebooks
 - file: markdown-notebooks
+caption: Introduction 
+  chapters:
+  - file: docs/01-intro/
+    sections:
+    - file: docs/01-intro/01-history
+    - file: docs/01-intro/02-ambient
+    - file: docs/01-intro/03-python
+      sections:
+      - file: docs/01-intro/03-python/01-intro-python/intro
+      - file: docs/01-intro/03-python/02-list/list
