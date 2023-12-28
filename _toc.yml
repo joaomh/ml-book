@@ -3,11 +3,8 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
-title: Introduction 
+options:  # The options key will be applied to all chapters, but not sub-sections
+  numbered: True
 chapters:
 - file: docs/01-intro/intro
   sections:
@@ -17,3 +14,15 @@ chapters:
     sections:
     - file: docs/01-intro/03-python/01-intro-python/intro
     - file: docs/01-intro/03-python/02-list/list
+  - file: docs/01-intro/04-bigdata/bigdata
+  - file: docs/01-intro/05-sql/sql
+  - file: docs/01-intro/06-statistics/statistics
+  - file: docs/01-intro/07-math-algebra/math
+- file: docs/02-prep/prep
+- file: docs/03-supervised/supervised
+- file: docs/04-unsupervised/unsupervised
+- file: docs/05-deep/deep
+- file: docs/06-rl/rl
+- file: docs/07-cv/cv
+- file: docs/08-nlp/nlp
+- file: docs/09-time/time
