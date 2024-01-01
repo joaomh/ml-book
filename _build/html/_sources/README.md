@@ -25,7 +25,6 @@ To build locally, `pip install -r requirements.txt` and then `jupyter-book build
 
 **Follow the build instructions on the Jupyter Book guide**. The guide has information on how to use the Jupyter Book CLI to build this book. You can find the [Jupyter Book build instructions here](https://jupyterbook.org/start/build.html).
 
-
 ```
 ghp-import -n -p -f _build/html
 ```
