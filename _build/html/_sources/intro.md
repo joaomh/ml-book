@@ -13,5 +13,10 @@ Check out the content pages bundled with this book to see more.
 # License and Copyright Notice
 The contents of this book are licensed for free consumption under the following license: [Attribution-NonCommercial-ShareAlike 4.0 International  (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en).
 
+# Contribute
+This is an open-source material on machine learning, covering the foundations of machine learning and its new applications. The goal is to make it accessible to everyone, utilizing only free software. If you find this book valuable and wish to support it, you can become a member of my [YouTube channel](https://www.youtube.com/@2001Engenharia). However, if you are not ready to support financially, you can still subscribe to my [YouTube channel](https://www.youtube.com/@2001Engenharia), give a star on [Github](https://github.com/joaomh/ml-book), or help by fixing typos, suggesting edits, or providing feedback.
+
+Please share it with others who might find it helpful.
+
 # References
 - [Mitchell, T. M. (1997), Machine learning , Vol. 1 , McGraw-hill New York .](https://www.cs.cmu.edu/~tom/mlbook.html)
