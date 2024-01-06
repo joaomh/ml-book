@@ -13,7 +13,6 @@ This repository holds the Jupyter Book source for An Introduction to Machine Lea
 3. Push your change back to the `ml-book` repository (ideally via a pull request).
 4. That's it a GitHub Action will build the book and deploy it to [ml-book](https://joaomh.github.io/ml-book/intro.html)
 
-
 ## How this repository is deployed
 
 * When you make a change to this repository and push it to the `main` branch, the book's HTML will automatically be pushed.
