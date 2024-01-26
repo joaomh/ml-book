@@ -20,3 +20,6 @@ Please share it with others who might find it helpful.
 
 # References
 - [Mitchell, T. M. (1997), Machine learning , Vol. 1 , McGraw-hill New York .](https://www.cs.cmu.edu/~tom/mlbook.html)
+- [Trevor Hastie , Robert Tibshirani , Jerome Friedman (2009), The Elements of Statistical Learning , Vol. 1 , Springer New York, NY .](https://hastie.su.domains/Papers/ESLII.pdf)
+- [Stuart Russell, Peter Norvig  (2020), Artificial Intelligence: A Modern Approach, Global Edition, Ed. 4 , Pearson .](https://aima.cs.berkeley.edu/)
+- [Sutton, Richard S. and Barto, Andrew G.  (2018), Reinforcement Learning: An Introduction, A Bradford Book .](https://aima.cs.berkeley.edu/)
