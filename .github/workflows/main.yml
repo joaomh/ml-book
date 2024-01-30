@@ -1,42 +1,59 @@
-name: Publish JupyterBook to GitHub Pages
+name: deploy-book
 
-on: 
-  push: # trigger build only when push to master
+# Run this when the master or main branch changes
+on:
+  push:
     branches:
-      - master
+    - main
+    # If your git repository has the Jupyter Book within some-subfolder next to
+    # unrelated files, you can make this run only if a file within that specific
+    # folder has been modified.
+    #
+    # paths:
+    # - some-subfolder/**
 
+# This job installs dependencies, builds the book, and pushes it to `gh-pages`
 jobs:
-  build:
+  deploy-book:
     runs-on: ubuntu-latest
-
+    permissions:
+      pages: write
+      id-token: write
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v1
+    - uses: actions/checkout@v3
+
+    # Install dependencies
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
       with:
-        python-version: 3.7 
-    - name: Install Python dependencies
+        python-version: 3.11
+
+    - name: Install dependencies
       run: |
-        sudo apt-get install python3-pip
-        pip install git+git://github.com/executablebookproject/cli.git#egg=master
-        pip install ghp-import
-        PATH="${PATH}:${HOME}/.local/bin"
+        pip install -r requirements.txt
 
-    - name: Build book TOC file 
+    # (optional) Cache your executed notebooks between runs
+    # if you have config:
+    # execute:
+    #   execute_notebooks: cache
+    - name: cache executed notebooks
+      uses: actions/cache@v3
+      with:
+        path: _build/.jupyter_cache
+        key: jupyter-book-cache-${{ hashFiles('requirements.txt') }}
+
+    # Build the book
+    - name: Build the book
       run: |
-        jupyter-book toc ./content
+        jupyter-book build .
 
-    - name: Build book HTML 
-      run: |
-        jupyter-book build ./content
+    # Upload the book's HTML as an artifact
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: "_build/html"
 
-    - name: Push _build/html to gh-pages
-      run: |
-        sudo chown -R $(whoami):$(whoami) .
-        git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
-        git config --global user.name "$GITHUB_ACTOR"
-        git remote set-url origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY"
-
-        ghp-import ./content/_build/html -f -p -n
-      
-
+    # Deploy the book's HTML to GitHub Pages
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2
