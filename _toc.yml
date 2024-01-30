@@ -14,15 +14,14 @@ chapters:
     sections:
     - file: docs/01-intro/03-python/01-intro-python/intro
     - file: docs/01-intro/03-python/02-list/list
-  - file: docs/01-intro/04-bigdata/bigdata
-  - file: docs/01-intro/05-sql/sql
-  - file: docs/01-intro/06-statistics/statistics
-  - file: docs/01-intro/07-math-algebra/math
-- file: docs/02-prep/prep
-- file: docs/03-supervised/supervised
-- file: docs/04-unsupervised/unsupervised
-- file: docs/05-deep/deep
-- file: docs/06-rl/rl
-- file: docs/07-cv/cv
-- file: docs/08-nlp/nlp
-- file: docs/09-time/time
+  - file: docs/01-intro/04-statistics/statistics
+  - file: docs/01-intro/05-math-algebra/math
+- file: docs/02-data/data
+- file: docs/03-prep/prep
+- file: docs/04-supervised/supervised
+- file: docs/05-unsupervised/unsupervised
+- file: docs/06-deep/deep
+- file: docs/07-rl/rl
+- file: docs/08-cv/cv
+- file: docs/09-nlp/nlp
+- file: docs/10-time/time
