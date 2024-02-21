@@ -98,7 +98,7 @@ pi = 3.14294
 
 So instead of hard-code our value we create an algorithm that estimates this value using some math and probability; that is the idea of machine learning. In that case, we use Monte Carlo algorithms (NOT A MACHINE LEARNING) to create this example if you want to find out about this algorithm and Monte Carlo methods, the links are below.
 
-*"A computer program is said to learn from experience $\mathcal{E}$ with respect to some class of task $\mathcal{T}$ and perfomance measure $\mathcal{P}$, if its performance at task $\mathcal{T}$, as measured by $\mathcal{P}$, improves with experience $\mathcal{E}$"*
+*"A computer program is said to learn from experience $\mathcal{E}$ with respect to some class of task $\mathcal{T}$ and perfomance measure $\mathcal{P}$, if its performance at task $\mathcal{T}$, as measured by $\mathcal{P}$, improves with experience $\mathcal{E}$"* {cite:p}`russell2020artificial`
 
 There are some key concepts about this:
 
@@ -113,7 +113,7 @@ In each machine learning we may deal with different performance metrics, but in 
 
 ### Turing Test
 In 1950 Alan Turing proposed the Turing test "Can a machine think?"
-A computer passes the test if a human interrogator, after asking some written questions, cannot tell whether the written responses come from a person or a computer.
+A computer passes the test if a human interrogator, after asking some written questions, cannot tell whether the written responses come from a person or a computer {cite:p}`russell2020artificial`.
 
 The computer would need the following capabilities:
 * **speech recognition** to understand the voice of humans
@@ -141,7 +141,7 @@ $$
 $$
 
 
-For each input $x^{(i)}$ where $x^{(i)}\in\mathbb{R}$ we want to find a function $f'(x^{(i)})$ that give as $y^{(i)}$
+For each input $x^{(i)}$ where $x^{(i)}\in\mathbb{R}$ we want to find a function $f'(x^{(i)})$ that give as $y^{(i)}$ * {cite:p}`hastie2009elements`.
 
 ## Task of Machine Learning
 
@@ -164,3 +164,6 @@ Sometimes, and most of the projects in this book, you tread this kind of task se
 
 ![](./img/draw.png)
 
+
+```{bibliography}
+```

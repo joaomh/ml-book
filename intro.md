@@ -14,23 +14,20 @@ Check out the content pages bundled with this book to see more.
 The contents of this book are licensed for free consumption under the following license: [Attribution-NonCommercial-ShareAlike 4.0 International  (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en).
 
 # Contribute
-This is an open-source material on machine learning, covering the foundations of machine learning and its new applications. The goal is to make it accessible to everyone, utilizing only free software. If you find this book valuable and wish to support it, you can become a member of my [YouTube channel](https://www.youtube.com/@2001Engenharia). However, if you are not ready to support financially, you can still subscribe to my [YouTube channel](https://www.youtube.com/@2001Engenharia), give a star on [Github](https://github.com/joaomh/ml-book), or help by fixing typos, suggesting edits, or providing feedback.
+This is an open-source material on machine learning, covering the foundations of machine learning and its new applications. The goal is to make it accessible to everyone, utilizing only free software. If you find this book valuable and wish to support it, you can become a member of my [YouTube channel](https://www.youtube.com/@2001Engenharia). However, if you are not ready to support me financially, you can still subscribe to my [YouTube channel](https://www.youtube.com/@2001Engenharia), give a star on [Github](https://github.com/joaomh/ml-book), or help by fixing typos, suggesting edits, or providing feedback.
 
 # References
-## Artificial Intelligence and Machine Learning
-- [Mitchell, T. M. (1997), Machine learning. Vol. 1 , McGraw-hill New York .](https://www.cs.cmu.edu/~tom/mlbook.html)
-- [Trevor Hastie , Robert Tibshirani , Jerome Friedman (2009). The Elements of Statistical Learning , Vol. 1 , Springer New York, NY .](https://hastie.su.domains/Papers/ESLII.pdf)
-- [Stuart Russell, Peter Norvig  (2020), Artificial Intelligence: A Modern Approach, Global Edition, Ed. 4 , Pearson .](https://aima.cs.berkeley.edu/)
-- [Sutton, Richard S. and Barto, Andrew G.  (2018), Reinforcement Learning: An Introduction, A Bradford Book .](https://aima.cs.berkeley.edu/)
+In all sections, we will have other references to check out. The main references in Machine Learning/Artificial intelligence are:
+ 
+* {cite:p}`mitchell1997machine`
+* {cite:p}`hastie2009elements`
+* {cite:p}`russell2020artificial`
+* {cite:p}`sutton2018reinforcement`
 
-## Data Engineering and Big Data
-- [Bill Chambers, Matei Zaharia (2018). Spark: The Definitive Guide Spark: The Definitive Guide,O'Reilly Media, Inc.](https://www.oreilly.com/library/view/spark-the-definitive/9781491912201/)
-- [Tom White (2009). Hadoop: The Definitive Guide,O'Reilly Media, Inc.](https://www.oreilly.com/library/view/hadoop-the-definitive/9780596521974/)
+For Big Data and Data Engineering
 
-- The citation `` {cite:p}`perez2011python` `` results in {cite:p}`perez2011python`
-- The citation `` {cite:t}`perez2011python` `` results in {cite:t}`perez2011python`
-- The citation `` {cite:ps}`perez2011python` `` results in {cite:ps}`perez2011python`
-- The citation `` {cite:ts}`perez2011python` `` results in {cite:ts}`perez2011python`
+* {cite:p}`chambers2018spark`
+* {cite:p}`white2012hadoop`
 
 
 ```{bibliography}
