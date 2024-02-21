@@ -164,9 +164,3 @@ Sometimes, and most of the projects in this book, you tread this kind of task se
 
 ![](./img/draw.png)
 
-{cite:p}`russel2010`
-
-{cite:p}`mitchell1997machine` 
-
-```{bibliography}
-```
