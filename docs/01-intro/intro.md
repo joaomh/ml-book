@@ -163,3 +163,10 @@ For each input $x^{(i)}$ where $x^{(i)}\in\mathbb{R}$ we want to find a function
 Sometimes, and most of the projects in this book, you tread this kind of task separately, but in real life, they are just a means to solve a problem, sometimes your problem may require some part of supervised learning with unsupervised learning or an unsupervised learning with reinforcement, you can build a 'hybrid' model.
 
 ![](./img/draw.png)
+
+{cite:p}`russel2010`
+
+{cite:p}`mitchell1997machine` 
+
+```{bibliography}
+```
