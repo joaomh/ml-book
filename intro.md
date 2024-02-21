@@ -18,9 +18,12 @@ This is an open-source material on machine learning, covering the foundations of
 
 Please share it with others who might find it helpful.
 
-Here is my nifty citation {cite}`mitchell1997machine`!.
+Here is my nifty citation {cite}`holdgraf_rapid_2016`
+Here is my nifty citation {cite:p}`holdgraf_rapid_2016`
+{cite}`perez2011python,holdgraf_rapid_2016,RePEc:the:publsh:1367,caporaso2010qiime`!
 
-@mitchell1997machine
+@holdgraf_rapid_2016
+
 
 # References
 ## Artificial Intelligence and Machine Learning
