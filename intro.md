@@ -18,6 +18,10 @@ This is an open-source material on machine learning, covering the foundations of
 
 Please share it with others who might find it helpful.
 
+Here is my nifty citation {cite}`mitchell1997machine`.
+
+@mitchell1997machine
+
 # References
 ## Artificial Intelligence and Machine Learning
 - [Mitchell, T. M. (1997), Machine learning. Vol. 1 , McGraw-hill New York .](https://www.cs.cmu.edu/~tom/mlbook.html)
