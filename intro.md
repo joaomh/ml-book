@@ -18,7 +18,7 @@ This is an open-source material on machine learning, covering the foundations of
 
 Please share it with others who might find it helpful.
 
-Here is my nifty citation {cite}`mitchell1997machine`.
+Here is my nifty citation {cite}`mitchell1997machine`!.
 
 @mitchell1997machine
 
@@ -32,3 +32,10 @@ Here is my nifty citation {cite}`mitchell1997machine`.
 ## Data Engineering and Big Data
 - [Bill Chambers, Matei Zaharia (2018). Spark: The Definitive Guide Spark: The Definitive Guide,O'Reilly Media, Inc.](https://www.oreilly.com/library/view/spark-the-definitive/9781491912201/)
 - [Tom White (2009). Hadoop: The Definitive Guide,O'Reilly Media, Inc.](https://www.oreilly.com/library/view/hadoop-the-definitive/9780596521974/)
+
+
+```{bibliography}
+```
+
+```{footbibliography}
+```
