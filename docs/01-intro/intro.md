@@ -98,6 +98,10 @@ pi = 3.14294
 
 So instead of hard-code our value we create an algorithm that estimates this value using some math and probability; that is the idea of machine learning. In that case, we use Monte Carlo algorithms (NOT A MACHINE LEARNING) to create this example if you want to find out about this algorithm and Monte Carlo methods, the links are below.
 
+* [Monte Carlo Simulation: an Overview](https://www.sciencedirect.com/topics/economics-econometrics-and-finance/monte-carlo-simulation)
+* [Estimating the value of Pi using Monte Carlo](https://www.geeksforgeeks.org/estimating-value-pi-using-monte-carlo/)
+
+
 *"A computer program is said to learn from experience $\mathcal{E}$ with respect to some class of task $\mathcal{T}$ and perfomance measure $\mathcal{P}$, if its performance at task $\mathcal{T}$, as measured by $\mathcal{P}$, improves with experience $\mathcal{E}$"* {cite:p}`russell2020artificial`
 
 There are some key concepts about this:
@@ -147,7 +151,7 @@ For each input $x^{(i)}$ where $x^{(i)}\in\mathbb{R}$ we want to find a function
 
 * **Supervised Learning**: is a type of machine learning in which the algorithm learns from labeled data, that is, each input data point is paired with a corresponding output label. The goal is to learn a mapping from the input features to output labels, based on examples provided in the training data.
 
-* **Examples**: spam filters, classifing images, house pricing, sentiment analysis.
+* **Examples**: spam filters, classifying images, house pricing, and sentiment analysis.
 
 * **Unsupervised learning**: is a type of machine learning in which the algorithm learns patterns and structures in the data without explicit supervision or labeled outputs. Instead, the algorithm seeks to uncover hidden relationships or groupings within the data.
 
@@ -163,7 +167,3 @@ For each input $x^{(i)}$ where $x^{(i)}\in\mathbb{R}$ we want to find a function
 Sometimes, and most of the projects in this book, you tread this kind of task separately, but in real life, they are just a means to solve a problem, sometimes your problem may require some part of supervised learning with unsupervised learning or an unsupervised learning with reinforcement, you can build a 'hybrid' model.
 
 ![](./img/draw.png)
-
-
-```{bibliography}
-```
