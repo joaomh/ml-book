@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: An Introduction to Machine Learning
-author: João Pinheiro
+author: João Manoel Herrera Pinheiro
 copyright: "2023"
 logo: logo.png
 
@@ -36,3 +36,4 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+
