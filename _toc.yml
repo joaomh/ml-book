@@ -21,7 +21,6 @@ chapters:
 - file: docs/04-supervised/supervised
 - file: docs/05-unsupervised/unsupervised
 - file: docs/06-deep/deep
-- file: docs/07-rl/rl
-- file: docs/08-cv/cv
-- file: docs/09-nlp/nlp
-- file: docs/10-time/time
+- file: docs/07-cv/cv
+- file: docs/08-nlp/nlp
+- file: docs/09-llm/llm
