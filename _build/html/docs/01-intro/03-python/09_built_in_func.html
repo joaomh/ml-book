@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3.15. Essential Built-in Functions in Python &#8212; An Introduction to Machine Learning</title>
+    <title>4.9. Essential Built-in Functions in Python &#8212; An Introduction to Machine Learning</title>
   
   
   
@@ -52,7 +52,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/01-intro/03-python/09_built_in_func';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="3.16. Packages and Libraries in Python" href="10_install_import_lib.html" />
-    <link rel="prev" title="3.14. Creating Functions in Python" href="08_create_func.html" />
+    <link rel="next" title="4.10. Packages and Libraries in Python" href="10_install_import_lib.html" />
+    <link rel="prev" title="4.8. Creating Functions in Python" href="08_create_func.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,25 +180,19 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../intro.html">1. Introduction to Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../01-basic-concepts/basics.html">1.13. Basic Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-basic-concepts/basics.html">1. Basic Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-ambient/ambient.html">2. The Python Environment: Anaconda, Colab, and Kaggle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="00-python/python.html">3. Introduction to Python</a></li>
 
-
-
-<li class="toctree-l2"><a class="reference internal" href="../02-ambient/ambient.html">1.17. The Python Environment: Anaconda, Colab, and Kaggle</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1"><a class="reference internal" href="00-python/python.html">2. Introduction to Python</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../../02-data/data.html">4. Big Data - Intro Data Engineering using Spark and Hadoop</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../03-prep/prep.html">5. Data Preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../04-supervised/supervised.html">6. Supervised Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../05-unsupervised/unsupervised.html">7. Unsupervised Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../06-deep/deep.html">8. Deep Learning and Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../07-cv/cv.html">9. Computer Vision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../08-nlp/nlp.html">10. Natural Language Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../09-llm/llm.html">11. Large Language Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">12. Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02-data/data.html">5. Big Data - Intro Data Engineering using Spark and Hadoop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03-prep/prep.html">6. Data Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04-supervised/supervised.html">7. Supervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05-unsupervised/unsupervised.html">8. Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06-deep/deep.html">9. Deep Learning and Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07-cv/cv.html">10. Computer Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../08-nlp/nlp.html">11. Natural Language Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../09-llm/llm.html">12. Large Language Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">13. Bibliography</a></li>
 </ul>
 
     </div>
@@ -394,17 +388,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print">3.15.1. <code class="docutils literal notranslate"><span class="pre">print()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type">3.15.2. <code class="docutils literal notranslate"><span class="pre">type()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#len">3.15.3. <code class="docutils literal notranslate"><span class="pre">len()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#int">3.15.4. <code class="docutils literal notranslate"><span class="pre">int()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#str">3.15.5. <code class="docutils literal notranslate"><span class="pre">str()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#float">3.15.6. <code class="docutils literal notranslate"><span class="pre">float()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abs">3.15.7. <code class="docutils literal notranslate"><span class="pre">abs()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max">3.15.8. <code class="docutils literal notranslate"><span class="pre">max()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min">3.15.9. <code class="docutils literal notranslate"><span class="pre">min()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sum">3.15.10. <code class="docutils literal notranslate"><span class="pre">sum()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#range">3.15.11. <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print">4.9.1. <code class="docutils literal notranslate"><span class="pre">print()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type">4.9.2. <code class="docutils literal notranslate"><span class="pre">type()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#len">4.9.3. <code class="docutils literal notranslate"><span class="pre">len()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#int">4.9.4. <code class="docutils literal notranslate"><span class="pre">int()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#str">4.9.5. <code class="docutils literal notranslate"><span class="pre">str()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#float">4.9.6. <code class="docutils literal notranslate"><span class="pre">float()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abs">4.9.7. <code class="docutils literal notranslate"><span class="pre">abs()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max">4.9.8. <code class="docutils literal notranslate"><span class="pre">max()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min">4.9.9. <code class="docutils literal notranslate"><span class="pre">min()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sum">4.9.10. <code class="docutils literal notranslate"><span class="pre">sum()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#range">4.9.11. <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -417,10 +411,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="essential-built-in-functions-in-python">
-<h1><span class="section-number">3.15. </span>Essential Built-in Functions in Python<a class="headerlink" href="#essential-built-in-functions-in-python" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">4.9. </span>Essential Built-in Functions in Python<a class="headerlink" href="#essential-built-in-functions-in-python" title="Link to this heading">#</a></h1>
 <p>Python offers a series of “built-in” functions that are always available for use, without the need to import modules. They are fundamental for common operations and manipulating different data types.</p>
 <section id="print">
-<h2><span class="section-number">3.15.1. </span><code class="docutils literal notranslate"><span class="pre">print()</span></code><a class="headerlink" href="#print" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.9.1. </span><code class="docutils literal notranslate"><span class="pre">print()</span></code><a class="headerlink" href="#print" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">print()</span></code> function is one of the most basic and frequently used in Python. It serves to display information on the console or to standard output.</p>
 <ul class="simple">
 <li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">print(object(s),</span> <span class="pre">sep='</span> <span class="pre">',</span> <span class="pre">end='\n',</span> <span class="pre">file=sys.stdout,</span> <span class="pre">flush=False)</span></code></p></li>
@@ -435,7 +429,7 @@ document.write(`
 </div>
 </section>
 <section id="type">
-<h2><span class="section-number">3.15.2. </span><code class="docutils literal notranslate"><span class="pre">type()</span></code><a class="headerlink" href="#type" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.9.2. </span><code class="docutils literal notranslate"><span class="pre">type()</span></code><a class="headerlink" href="#type" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">type()</span></code> function is used to return the type of an object. It is useful for debugging and understanding what kind of data you are working with.</p>
 <ul class="simple">
 <li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">type(object)</span></code></p></li>
@@ -448,7 +442,7 @@ document.write(`
 </div>
 </section>
 <section id="len">
-<h2><span class="section-number">3.15.3. </span><code class="docutils literal notranslate"><span class="pre">len()</span></code><a class="headerlink" href="#len" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.9.3. </span><code class="docutils literal notranslate"><span class="pre">len()</span></code><a class="headerlink" href="#len" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">len()</span></code> function returns the number of items (the “length”) of an object. It works for sequences like strings, lists, tuples, dictionaries, and sets.</p>
 <ul class="simple">
 <li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">len(s)</span></code></p></li>
@@ -461,7 +455,7 @@ document.write(`
 </div>
 </section>
 <section id="int">
-<h2><span class="section-number">3.15.4. </span><code class="docutils literal notranslate"><span class="pre">int()</span></code><a class="headerlink" href="#int" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.9.4. </span><code class="docutils literal notranslate"><span class="pre">int()</span></code><a class="headerlink" href="#int" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">int()</span></code> function is used to convert a value to an integer type. It can convert floating-point numbers (by truncating the decimal part) or strings that represent whole numbers.</p>
 <ul class="simple">
 <li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">int(x,</span> <span class="pre">base=10)</span></code></p></li>
@@ -475,7 +469,7 @@ document.write(`
 </div>
 </section>
 <section id="str">
-<h2><span class="section-number">3.15.5. </span><code class="docutils literal notranslate"><span class="pre">str()</span></code><a class="headerlink" href="#str" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.9.5. </span><code class="docutils literal notranslate"><span class="pre">str()</span></code><a class="headerlink" href="#str" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">str()</span></code> function is used to convert a value to its string representation.</p>
 <ul class="simple">
 <li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">str(object)</span></code></p></li>
@@ -488,7 +482,7 @@ document.write(`
 </div>
 </section>
 <section id="float">
-<h2><span class="section-number">3.15.6. </span><code class="docutils literal notranslate"><span class="pre">float()</span></code><a class="headerlink" href="#float" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.9.6. </span><code class="docutils literal notranslate"><span class="pre">float()</span></code><a class="headerlink" href="#float" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">float()</span></code> function is used to convert a value to a floating-point number type (decimal number). It can convert integers or strings that represent decimal numbers.</p>
 <ul class="simple">
 <li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">float(x)</span></code></p></li>
@@ -501,7 +495,7 @@ document.write(`
 </div>
 </section>
 <section id="abs">
-<h2><span class="section-number">3.15.7. </span><code class="docutils literal notranslate"><span class="pre">abs()</span></code><a class="headerlink" href="#abs" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.9.7. </span><code class="docutils literal notranslate"><span class="pre">abs()</span></code><a class="headerlink" href="#abs" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">abs()</span></code> function returns the absolute value of a number.</p>
 <ul class="simple">
 <li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">abs(x)</span></code></p></li>
@@ -514,7 +508,7 @@ document.write(`
 </div>
 </section>
 <section id="max">
-<h2><span class="section-number">3.15.8. </span><code class="docutils literal notranslate"><span class="pre">max()</span></code><a class="headerlink" href="#max" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.9.8. </span><code class="docutils literal notranslate"><span class="pre">max()</span></code><a class="headerlink" href="#max" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">max()</span></code> function returns the largest item in an iterable or the largest of two or more arguments.</p>
 <ul class="simple">
 <li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">max(iterable,</span> <span class="pre">*[,</span> <span class="pre">key,</span> <span class="pre">default])</span></code> or <code class="docutils literal notranslate"><span class="pre">max(arg1,</span> <span class="pre">arg2,</span> <span class="pre">*args[,</span> <span class="pre">key])</span></code></p></li>
@@ -528,7 +522,7 @@ document.write(`
 </div>
 </section>
 <section id="min">
-<h2><span class="section-number">3.15.9. </span><code class="docutils literal notranslate"><span class="pre">min()</span></code><a class="headerlink" href="#min" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.9.9. </span><code class="docutils literal notranslate"><span class="pre">min()</span></code><a class="headerlink" href="#min" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">min()</span></code> function returns the smallest item in an iterable or the smallest of two or more arguments.</p>
 <ul class="simple">
 <li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">min(iterable,</span> <span class="pre">*[,</span> <span class="pre">key,</span> <span class="pre">default])</span></code> or <code class="docutils literal notranslate"><span class="pre">min(arg1,</span> <span class="pre">arg2,</span> <span class="pre">*args[,</span> <span class="pre">key])</span></code></p></li>
@@ -542,7 +536,7 @@ document.write(`
 </div>
 </section>
 <section id="sum">
-<h2><span class="section-number">3.15.10. </span><code class="docutils literal notranslate"><span class="pre">sum()</span></code><a class="headerlink" href="#sum" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.9.10. </span><code class="docutils literal notranslate"><span class="pre">sum()</span></code><a class="headerlink" href="#sum" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">sum()</span></code> function returns the sum of all items in an iterable.</p>
 <ul class="simple">
 <li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">sum(iterable,</span> <span class="pre">/[,</span> <span class="pre">start])</span></code></p></li>
@@ -556,7 +550,7 @@ document.write(`
 </div>
 </section>
 <section id="range">
-<h2><span class="section-number">3.15.11. </span><code class="docutils literal notranslate"><span class="pre">range()</span></code><a class="headerlink" href="#range" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.9.11. </span><code class="docutils literal notranslate"><span class="pre">range()</span></code><a class="headerlink" href="#range" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">range()</span></code> function is used to generate an immutable sequence of numbers. It is commonly used to iterate a certain number of times in <code class="docutils literal notranslate"><span class="pre">for</span></code> loops.</p>
 <ul class="simple">
 <li><p><strong>Syntax:</strong></p>
@@ -631,7 +625,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">3.14. </span>Creating Functions in Python</p>
+        <p class="prev-next-title"><span class="section-number">4.8. </span>Creating Functions in Python</p>
       </div>
     </a>
     <a class="right-next"
@@ -639,7 +633,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.16. </span>Packages and Libraries in Python</p>
+        <p class="prev-next-title"><span class="section-number">4.10. </span>Packages and Libraries in Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -659,17 +653,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print">3.15.1. <code class="docutils literal notranslate"><span class="pre">print()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type">3.15.2. <code class="docutils literal notranslate"><span class="pre">type()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#len">3.15.3. <code class="docutils literal notranslate"><span class="pre">len()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#int">3.15.4. <code class="docutils literal notranslate"><span class="pre">int()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#str">3.15.5. <code class="docutils literal notranslate"><span class="pre">str()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#float">3.15.6. <code class="docutils literal notranslate"><span class="pre">float()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abs">3.15.7. <code class="docutils literal notranslate"><span class="pre">abs()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max">3.15.8. <code class="docutils literal notranslate"><span class="pre">max()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min">3.15.9. <code class="docutils literal notranslate"><span class="pre">min()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sum">3.15.10. <code class="docutils literal notranslate"><span class="pre">sum()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#range">3.15.11. <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print">4.9.1. <code class="docutils literal notranslate"><span class="pre">print()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type">4.9.2. <code class="docutils literal notranslate"><span class="pre">type()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#len">4.9.3. <code class="docutils literal notranslate"><span class="pre">len()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#int">4.9.4. <code class="docutils literal notranslate"><span class="pre">int()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#str">4.9.5. <code class="docutils literal notranslate"><span class="pre">str()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#float">4.9.6. <code class="docutils literal notranslate"><span class="pre">float()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abs">4.9.7. <code class="docutils literal notranslate"><span class="pre">abs()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max">4.9.8. <code class="docutils literal notranslate"><span class="pre">max()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min">4.9.9. <code class="docutils literal notranslate"><span class="pre">min()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sum">4.9.10. <code class="docutils literal notranslate"><span class="pre">sum()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#range">4.9.11. <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
 </ul>
   </nav></div>
 

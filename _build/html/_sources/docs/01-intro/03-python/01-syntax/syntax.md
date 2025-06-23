@@ -58,7 +58,7 @@ To run a cell: `Shift + Enter`
 
 These shortcuts greatly help speed up writing and editing your notebook\!
 
-# Indentation
+## Indentation
 
 Indentation defines code blocks in Python. Indentation errors are common when starting out.
 
@@ -76,7 +76,7 @@ if True:
 print("Indentation error!") # This causes an error
 ```
 
-# Comments
+## Comments
 
 Comments are text snippets ignored by the Python interpreter. They serve to explain what the code does.
 

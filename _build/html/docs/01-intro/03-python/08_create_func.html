@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3.14. Creating Functions in Python &#8212; An Introduction to Machine Learning</title>
+    <title>4.8. Creating Functions in Python &#8212; An Introduction to Machine Learning</title>
   
   
   
@@ -52,7 +52,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/01-intro/03-python/08_create_func';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="3.15. Essential Built-in Functions in Python" href="09_built_in_func.html" />
-    <link rel="prev" title="3.13. Conditionals and Loops" href="07_for_loop.html" />
+    <link rel="next" title="4.9. Essential Built-in Functions in Python" href="09_built_in_func.html" />
+    <link rel="prev" title="4.7. Conditionals and Loops" href="07_for_loop.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,25 +180,19 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../intro.html">1. Introduction to Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../01-basic-concepts/basics.html">1.13. Basic Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-basic-concepts/basics.html">1. Basic Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-ambient/ambient.html">2. The Python Environment: Anaconda, Colab, and Kaggle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="00-python/python.html">3. Introduction to Python</a></li>
 
-
-
-<li class="toctree-l2"><a class="reference internal" href="../02-ambient/ambient.html">1.17. The Python Environment: Anaconda, Colab, and Kaggle</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1"><a class="reference internal" href="00-python/python.html">2. Introduction to Python</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../../02-data/data.html">4. Big Data - Intro Data Engineering using Spark and Hadoop</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../03-prep/prep.html">5. Data Preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../04-supervised/supervised.html">6. Supervised Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../05-unsupervised/unsupervised.html">7. Unsupervised Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../06-deep/deep.html">8. Deep Learning and Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../07-cv/cv.html">9. Computer Vision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../08-nlp/nlp.html">10. Natural Language Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../09-llm/llm.html">11. Large Language Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">12. Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02-data/data.html">5. Big Data - Intro Data Engineering using Spark and Hadoop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03-prep/prep.html">6. Data Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04-supervised/supervised.html">7. Supervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05-unsupervised/unsupervised.html">8. Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06-deep/deep.html">9. Deep Learning and Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07-cv/cv.html">10. Computer Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../08-nlp/nlp.html">11. Natural Language Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../09-llm/llm.html">12. Large Language Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">13. Bibliography</a></li>
 </ul>
 
     </div>
@@ -394,18 +388,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-functions">3.14.1. What Are Functions?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-function-the-def-keyword">3.14.2. Defining a Function: The <code class="docutils literal notranslate"><span class="pre">def</span></code> Keyword</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simple-function-no-parameters-and-no-explicit-return">3.14.2.1. Example 1: Simple Function (No Parameters and No Explicit Return)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-function-with-parameters-and-return">3.14.2.2. Example 2: Function with Parameters and Return</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings-documenting-your-functions">3.14.2.3. Docstrings: Documenting Your Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-functions">4.8.1. What Are Functions?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-function-the-def-keyword">4.8.2. Defining a Function: The <code class="docutils literal notranslate"><span class="pre">def</span></code> Keyword</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simple-function-no-parameters-and-no-explicit-return">4.8.2.1. Example 1: Simple Function (No Parameters and No Explicit Return)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-function-with-parameters-and-return">4.8.2.2. Example 2: Function with Parameters and Return</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings-documenting-your-functions">4.8.2.3. Docstrings: Documenting Your Functions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-arguments-parameters-vs-arguments">3.14.3. Function Arguments (Parameters vs. Arguments)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-arguments">3.14.3.1. Types of Arguments:</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#positional-arguments">3.14.3.1.1. Positional Arguments</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#keyword-arguments">3.14.3.1.2. Keyword Arguments</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#default-arguments">3.14.3.1.3. Default Arguments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-arguments-parameters-vs-arguments">4.8.3. Function Arguments (Parameters vs. Arguments)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-arguments">4.8.3.1. Types of Arguments:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#positional-arguments">4.8.3.1.1. Positional Arguments</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#keyword-arguments">4.8.3.1.2. Keyword Arguments</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#default-arguments">4.8.3.1.3. Default Arguments</a></li>
 </ul>
 </li>
 </ul>
@@ -422,9 +416,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="creating-functions-in-python">
-<h1><span class="section-number">3.14. </span>Creating Functions in Python<a class="headerlink" href="#creating-functions-in-python" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">4.8. </span>Creating Functions in Python<a class="headerlink" href="#creating-functions-in-python" title="Link to this heading">#</a></h1>
 <section id="what-are-functions">
-<h2><span class="section-number">3.14.1. </span>What Are Functions?<a class="headerlink" href="#what-are-functions" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.8.1. </span>What Are Functions?<a class="headerlink" href="#what-are-functions" title="Link to this heading">#</a></h2>
 <p>In the world of programming, a <strong>function</strong> is an organized and reusable block of code designed to perform a specific task. Think of a function as a “machine” that receives some “inputs” (called parameters or arguments), processes these inputs, and then produces an “output” (the return value).</p>
 <p><strong>Why use functions?</strong></p>
 <ul class="simple">
@@ -435,7 +429,7 @@ document.write(`
 </ul>
 </section>
 <section id="defining-a-function-the-def-keyword">
-<h2><span class="section-number">3.14.2. </span>Defining a Function: The <code class="docutils literal notranslate"><span class="pre">def</span></code> Keyword<a class="headerlink" href="#defining-a-function-the-def-keyword" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.8.2. </span>Defining a Function: The <code class="docutils literal notranslate"><span class="pre">def</span></code> Keyword<a class="headerlink" href="#defining-a-function-the-def-keyword" title="Link to this heading">#</a></h2>
 <p>In Python, functions are defined using the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword, followed by the function name, parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code> which may contain parameters, and a colon <code class="docutils literal notranslate"><span class="pre">:</span></code>. The function body is indented.</p>
 <p><strong>Basic Syntax:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">parameter1</span><span class="p">,</span> <span class="n">parameter2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
@@ -446,7 +440,7 @@ document.write(`
 </pre></div>
 </div>
 <section id="example-1-simple-function-no-parameters-and-no-explicit-return">
-<h3><span class="section-number">3.14.2.1. </span>Example 1: Simple Function (No Parameters and No Explicit Return)<a class="headerlink" href="#example-1-simple-function-no-parameters-and-no-explicit-return" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.8.2.1. </span>Example 1: Simple Function (No Parameters and No Explicit Return)<a class="headerlink" href="#example-1-simple-function-no-parameters-and-no-explicit-return" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello! Welcome to my function!&quot;</span><span class="p">)</span>
 </pre></div>
@@ -462,7 +456,7 @@ Hello! Welcome to my function!
 </div>
 </section>
 <section id="example-2-function-with-parameters-and-return">
-<h3><span class="section-number">3.14.2.2. </span>Example 2: Function with Parameters and Return<a class="headerlink" href="#example-2-function-with-parameters-and-return" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.8.2.2. </span>Example 2: Function with Parameters and Return<a class="headerlink" href="#example-2-function-with-parameters-and-return" title="Link to this heading">#</a></h3>
 <p>Your <code class="docutils literal notranslate"><span class="pre">sum_numbers</span></code> example is perfect for this!</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_numbers</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -498,7 +492,7 @@ Hello! Welcome to my function!
 </ul>
 </section>
 <section id="docstrings-documenting-your-functions">
-<h3><span class="section-number">3.14.2.3. </span>Docstrings: Documenting Your Functions<a class="headerlink" href="#docstrings-documenting-your-functions" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.8.2.3. </span>Docstrings: Documenting Your Functions<a class="headerlink" href="#docstrings-documenting-your-functions" title="Link to this heading">#</a></h3>
 <p>A crucial aspect for professional and readable code is documentation. In Python, we use <strong>Docstrings</strong> (documentation strings) to explain the purpose of a function, its parameters, and what it returns. They are defined within triple quotes (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;Docstring</span> <span class="pre">here&quot;&quot;&quot;</span></code>) right below the <code class="docutils literal notranslate"><span class="pre">def</span></code> line.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -548,16 +542,16 @@ Hello! Welcome to my function!
 </section>
 </section>
 <section id="function-arguments-parameters-vs-arguments">
-<h2><span class="section-number">3.14.3. </span>Function Arguments (Parameters vs. Arguments)<a class="headerlink" href="#function-arguments-parameters-vs-arguments" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.8.3. </span>Function Arguments (Parameters vs. Arguments)<a class="headerlink" href="#function-arguments-parameters-vs-arguments" title="Link to this heading">#</a></h2>
 <p>It’s important to differentiate:</p>
 <ul class="simple">
 <li><p><strong>Parameters:</strong> These are the names of the variables listed in the function definition (e.g., <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> in <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">sum_numbers(a,</span> <span class="pre">b):</span></code>). They are placeholders.</p></li>
 <li><p><strong>Arguments:</strong> These are the actual values you pass to the function when you call it (e.g., <code class="docutils literal notranslate"><span class="pre">3</span></code> and <code class="docutils literal notranslate"><span class="pre">5</span></code> in <code class="docutils literal notranslate"><span class="pre">sum_numbers(3,</span> <span class="pre">5)</span></code>).</p></li>
 </ul>
 <section id="types-of-arguments">
-<h3><span class="section-number">3.14.3.1. </span>Types of Arguments:<a class="headerlink" href="#types-of-arguments" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.8.3.1. </span>Types of Arguments:<a class="headerlink" href="#types-of-arguments" title="Link to this heading">#</a></h3>
 <section id="positional-arguments">
-<h4><span class="section-number">3.14.3.1.1. </span>Positional Arguments<a class="headerlink" href="#positional-arguments" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.8.3.1.1. </span>Positional Arguments<a class="headerlink" href="#positional-arguments" title="Link to this heading">#</a></h4>
 <p>Passed in the order in which the parameters are defined.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet_person</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">greeting</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">greeting</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
@@ -570,7 +564,7 @@ Hello! Welcome to my function!
 </div>
 </section>
 <section id="keyword-arguments">
-<h4><span class="section-number">3.14.3.1.2. </span>Keyword Arguments<a class="headerlink" href="#keyword-arguments" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.8.3.1.2. </span>Keyword Arguments<a class="headerlink" href="#keyword-arguments" title="Link to this heading">#</a></h4>
 <p>Passed using the parameter name, which allows you to change the order.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet_person</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">greeting</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">greeting</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
@@ -583,7 +577,7 @@ Hello! Welcome to my function!
 </div>
 </section>
 <section id="default-arguments">
-<h4><span class="section-number">3.14.3.1.3. </span>Default Arguments<a class="headerlink" href="#default-arguments" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.8.3.1.3. </span>Default Arguments<a class="headerlink" href="#default-arguments" title="Link to this heading">#</a></h4>
 <p>Allow a parameter to have a predefined value if no argument is provided for it.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet_with_default</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">greeting</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">):</span> <span class="c1"># &#39;Hello&#39; is the default value for &#39;greeting&#39;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">greeting</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
@@ -644,7 +638,7 @@ Good morning, Ana!
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">3.13. </span>Conditionals and Loops</p>
+        <p class="prev-next-title"><span class="section-number">4.7. </span>Conditionals and Loops</p>
       </div>
     </a>
     <a class="right-next"
@@ -652,7 +646,7 @@ Good morning, Ana!
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.15. </span>Essential Built-in Functions in Python</p>
+        <p class="prev-next-title"><span class="section-number">4.9. </span>Essential Built-in Functions in Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -672,18 +666,18 @@ Good morning, Ana!
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-functions">3.14.1. What Are Functions?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-function-the-def-keyword">3.14.2. Defining a Function: The <code class="docutils literal notranslate"><span class="pre">def</span></code> Keyword</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simple-function-no-parameters-and-no-explicit-return">3.14.2.1. Example 1: Simple Function (No Parameters and No Explicit Return)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-function-with-parameters-and-return">3.14.2.2. Example 2: Function with Parameters and Return</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings-documenting-your-functions">3.14.2.3. Docstrings: Documenting Your Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-functions">4.8.1. What Are Functions?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-function-the-def-keyword">4.8.2. Defining a Function: The <code class="docutils literal notranslate"><span class="pre">def</span></code> Keyword</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simple-function-no-parameters-and-no-explicit-return">4.8.2.1. Example 1: Simple Function (No Parameters and No Explicit Return)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-function-with-parameters-and-return">4.8.2.2. Example 2: Function with Parameters and Return</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings-documenting-your-functions">4.8.2.3. Docstrings: Documenting Your Functions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-arguments-parameters-vs-arguments">3.14.3. Function Arguments (Parameters vs. Arguments)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-arguments">3.14.3.1. Types of Arguments:</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#positional-arguments">3.14.3.1.1. Positional Arguments</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#keyword-arguments">3.14.3.1.2. Keyword Arguments</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#default-arguments">3.14.3.1.3. Default Arguments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-arguments-parameters-vs-arguments">4.8.3. Function Arguments (Parameters vs. Arguments)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-arguments">4.8.3.1. Types of Arguments:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#positional-arguments">4.8.3.1.1. Positional Arguments</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#keyword-arguments">4.8.3.1.2. Keyword Arguments</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#default-arguments">4.8.3.1.3. Default Arguments</a></li>
 </ul>
 </li>
 </ul>

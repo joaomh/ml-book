@@ -6,35 +6,35 @@ In Python, variables can store data of different types, and each type has its ow
 
 Python has the following built-in data types by default:
 
-🔤 Text Type:
+Text Type:
 
   - `str`
 
-🔢 Numeric Types:
+Numeric Types:
 
   - `int`, `float`, `complex`
 
-🔁 Sequence Types:
+Sequence Types:
 
   - `list`, `tuple`, `range`
 
-🔐 Mapping Type:
+Mapping Type:
 
   - `dict`
 
-🔳 Set Types:
+Set Types:
 
   - `set`, `frozenset`
 
-✅ Boolean Type:
+Boolean Type:
 
   - `bool`
 
-🧬 Binary Types:
+Binary Types:
 
   - `bytes`, `bytearray`, `memoryview`
 
-❌ Null Type:
+Null Type:
 
   - `NoneType`
 
@@ -54,13 +54,13 @@ print("Height:", altura)
 print("Is student?", estudante)
 ```
 
-# Checking Types
+## Checking Types
 
 ```python
 type(nome), type(idade), type(altura)
 ```
 
-# Notes on Variable Naming
+## Notes on Variable Naming
 
 A variable can have a simple name (like `x` or `y`) or a more descriptive name (`age`, `name`, `total_volume`).
 
@@ -71,7 +71,7 @@ But there are some **important rules**:
   * ✅ A variable name can only contain **letters, numbers, and underscores** (`A-Z`, `a-z`, `0-9`, `_`)
   * ⚠️ Names are **case-sensitive**: `idade`, `Idade`, and `IDADE` are three different variables
 
-# Binary Types in Python
+## Binary Types in Python
 
 **Binary types** are used to store data in byte format—that is, in **binary format**. These types are useful when working with binary files, network communication, image manipulation, audio, and other low-level data.
 
@@ -111,7 +111,7 @@ print(type(mem))  # <class 'memoryview'>
 ```
 Here's the translated Markdown:
 
-# Null Variable (None)
+## Null Variable (None)
 
 In Python, the `None` value is used to represent the absence of a value or a null value. It indicates that the variable has no data assigned to it. It is equivalent to `null` in other languages. The type of `None` is special and is called `NoneType`.
 

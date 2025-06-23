@@ -52,17 +52,15 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Introduction to Machine Learning" href="docs/01-intro/intro.html" />
+    <link rel="next" title="1. Basic Concepts" href="docs/01-intro/01-basic-concepts/basics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,25 +181,19 @@
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="docs/01-intro/intro.html">1. Introduction to Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="docs/01-intro/01-basic-concepts/basics.html">1.13. Basic Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/01-intro/01-basic-concepts/basics.html">1. Basic Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/01-intro/02-ambient/ambient.html">2. The Python Environment: Anaconda, Colab, and Kaggle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/01-intro/03-python/00-python/python.html">3. Introduction to Python</a></li>
 
-
-
-<li class="toctree-l2"><a class="reference internal" href="docs/01-intro/02-ambient/ambient.html">1.17. The Python Environment: Anaconda, Colab, and Kaggle</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/01-intro/03-python/00-python/python.html">2. Introduction to Python</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="docs/02-data/data.html">4. Big Data - Intro Data Engineering using Spark and Hadoop</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/03-prep/prep.html">5. Data Preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/04-supervised/supervised.html">6. Supervised Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/05-unsupervised/unsupervised.html">7. Unsupervised Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/06-deep/deep.html">8. Deep Learning and Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/07-cv/cv.html">9. Computer Vision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/08-nlp/nlp.html">10. Natural Language Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/09-llm/llm.html">11. Large Language Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/bibliography.html">12. Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/02-data/data.html">5. Big Data - Intro Data Engineering using Spark and Hadoop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/03-prep/prep.html">6. Data Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/04-supervised/supervised.html">7. Supervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/05-unsupervised/unsupervised.html">8. Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/06-deep/deep.html">9. Deep Learning and Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/07-cv/cv.html">10. Computer Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/08-nlp/nlp.html">11. Natural Language Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/09-llm/llm.html">12. Large Language Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/bibliography.html">13. Bibliography</a></li>
 </ul>
 
     </div>
@@ -397,12 +389,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">An Introduction to Machine Learning</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#license-and-copyright-notice">License and Copyright Notice</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute">Contribute</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-and-copyright-notice">License and Copyright Notice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute">Contribute</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -421,31 +411,31 @@ document.write(`
 <p>Check out the content pages bundled with this book to see more.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="docs/01-intro/intro.html">1. Introduction to Machine Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/01-intro/03-python/00-python/python.html">2. Introduction to Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/01-intro/03-python/00-python/python.html#references">3. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/02-data/data.html">4. Big Data - Intro Data Engineering using Spark and Hadoop</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/03-prep/prep.html">5. Data Preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/04-supervised/supervised.html">6. Supervised Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/05-unsupervised/unsupervised.html">7. Unsupervised Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/06-deep/deep.html">8. Deep Learning and Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/07-cv/cv.html">9. Computer Vision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/08-nlp/nlp.html">10. Natural Language Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/09-llm/llm.html">11. Large Language Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/bibliography.html">12. Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/01-intro/01-basic-concepts/basics.html">1. Basic Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/01-intro/02-ambient/ambient.html">2. The Python Environment: Anaconda, Colab, and Kaggle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/01-intro/03-python/00-python/python.html">3. Introduction to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/01-intro/03-python/00-python/python.html#references">4. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/02-data/data.html">5. Big Data - Intro Data Engineering using Spark and Hadoop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/03-prep/prep.html">6. Data Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/04-supervised/supervised.html">7. Supervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/05-unsupervised/unsupervised.html">8. Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/06-deep/deep.html">9. Deep Learning and Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/07-cv/cv.html">10. Computer Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/08-nlp/nlp.html">11. Natural Language Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/09-llm/llm.html">12. Large Language Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/bibliography.html">13. Bibliography</a></li>
 </ul>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="license-and-copyright-notice">
-<h1>License and Copyright Notice<a class="headerlink" href="#license-and-copyright-notice" title="Link to this heading">#</a></h1>
+<section id="license-and-copyright-notice">
+<h2>License and Copyright Notice<a class="headerlink" href="#license-and-copyright-notice" title="Link to this heading">#</a></h2>
 <p>The contents of this book are licensed for free consumption under the following license: <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International  (CC BY-NC-SA 4.0)</a>.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="contribute">
-<h1>Contribute<a class="headerlink" href="#contribute" title="Link to this heading">#</a></h1>
+<section id="contribute">
+<h2>Contribute<a class="headerlink" href="#contribute" title="Link to this heading">#</a></h2>
 <p>This is an open-source material on machine learning, covering the foundations of machine learning and its new applications. The goal is to make it accessible to everyone, utilizing only free software. If you find this book valuable and wish to support it, you can become a member of my <a class="reference external" href="https://www.youtube.com/&#64;2001Engenharia">YouTube channel</a>. However, if you are not ready to support me financially, you can still subscribe to my <a class="reference external" href="https://www.youtube.com/&#64;2001Engenharia">YouTube channel</a>, give a star on <a class="reference external" href="https://github.com/joaomh/ml-book">Github</a>, or help by fixing typos, suggesting edits, or providing feedback.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="references">
-<h1>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h1>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <p>In all sections, we will have other references to check out. The complete References and Biography are in the bibliography section.</p>
 <p>The main references in Machine Learning/Artificial intelligence are:</p>
 <ul class="simple">
@@ -464,6 +454,7 @@ document.write(`
 <li><p><span id="id7">[<a class="reference internal" href="docs/bibliography.html#id8" title="E. Matthes. Python Crash Course: A Hands-On, Project-Based Introduction to Programming. No Starch Press, 2015. ISBN 9781593276034.">Matthes, 2015</a>]</span></p></li>
 <li><p><span id="id8">[<a class="reference internal" href="docs/bibliography.html#id9" title="L. Ramalho. Fluent Python: Clear, Concise, and Effective Programming. O'Reilly Media, 2015. ISBN 9781491946251.">Ramalho, 2015</a>]</span></p></li>
 </ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -497,11 +488,11 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="docs/01-intro/intro.html"
+       href="docs/01-intro/01-basic-concepts/basics.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Introduction to Machine Learning</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Basic Concepts</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -521,12 +512,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">An Introduction to Machine Learning</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#license-and-copyright-notice">License and Copyright Notice</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute">Contribute</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-and-copyright-notice">License and Copyright Notice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute">Contribute</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
