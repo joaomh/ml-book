@@ -31,6 +31,5 @@ chapters:
 - file: docs/08-nlp/nlp
 - file: docs/09-llm/llm
 
-- caption: Bibliography
-  chapters:
-  - file: docs/bibliography.md
+
+- file: docs/bibliography.md
