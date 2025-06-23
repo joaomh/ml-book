@@ -10,9 +10,10 @@ chapters:
 - file: docs/01-intro/intro
   sections:
   - file: docs/01-intro/01-basic-concepts/basics.md
-  - file: docs/01-intro/02-ambient/ambient
-  - file: docs/01-intro/03-python/00_python/00_python
+  - file: docs/01-intro/02-ambient/ambient.md
+  - file: docs/01-intro/03-python/00_python/00_python.md
     sections:
+    - file: docs/01-intro/03-python/01_syntax/01_syntax.md
     - file: docs/01-intro/03-python/02_dtypes
     - file: docs/01-intro/03-python/03_numbers_string
     - file: docs/01-intro/03-python/04_bool
@@ -22,7 +23,6 @@ chapters:
     - file: docs/01-intro/03-python/08_create_func
     - file: docs/01-intro/03-python/09_built_in_func
     - file: docs/01-intro/03-python/10_install_import_lib
-- file: docs/01-intro/03-python/01_syntax/01_syntax
 - file: docs/02-data/data
 - file: docs/03-prep/prep
 - file: docs/04-supervised/supervised
