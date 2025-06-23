@@ -3,12 +3,13 @@
 
 format: jb-book
 root: intro
-options:  # The options key will be applied to all chapters, but not sub-sections
+options:
   numbered: True
+
 chapters:
 - file: docs/01-intro/intro
   sections:
-  - file: docs/01-intro/01-basic-concepts/basics
+  - file: docs/01-intro/01-basic-concepts/basics.md
   - file: docs/01-intro/02-ambient/ambient
   - file: docs/01-intro/03-python/00_python/00_python
     sections:
@@ -22,6 +23,7 @@ chapters:
     - file: docs/01-intro/03-python/08_create_func
     - file: docs/01-intro/03-python/09_built_in_func
     - file: docs/01-intro/03-python/10_install_import_lib
+- file: docs/01-intro/03-python/01_syntax/01_syntax
 - file: docs/02-data/data
 - file: docs/03-prep/prep
 - file: docs/04-supervised/supervised
@@ -30,6 +32,4 @@ chapters:
 - file: docs/07-cv/cv
 - file: docs/08-nlp/nlp
 - file: docs/09-llm/llm
-
-
-- file: docs/bibliography.md
+- file: docs/bibliography
