@@ -13,7 +13,6 @@ chapters:
   - file: docs/01-intro/02-ambient/ambient
   - file: docs/01-intro/03-python/00_python/00_python
     sections:
-    - file: docs/01-intro/03-python/01_syntax/01_syntax
     - file: docs/01-intro/03-python/02_dtypes
     - file: docs/01-intro/03-python/03_numbers_string
     - file: docs/01-intro/03-python/04_bool
