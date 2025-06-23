@@ -1,0 +1,762 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>3.9. Numbers and Strings in Python &#8212; An Introduction to Machine Learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/01-intro/03-python/03_numbers_string';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="3.10. The Boolean Type (bool) in Python" href="04_bool.html" />
+    <link rel="prev" title="3.4. Built-in Data Types" href="02dtypes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="An Introduction to Machine Learning - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="An Introduction to Machine Learning - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    An Introduction to Machine Learning
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../intro.html">1. Introduction to Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-basic-concepts/basics.html">1.13. Basic Concepts</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02-ambient/ambient.html">1.17. The Python Environment: Anaconda, Colab, and Kaggle</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="00-python/python.html">2. Introduction to Python</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../02-data/data.html">4. Big Data - Intro Data Engineering using Spark and Hadoop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03-prep/prep.html">5. Data Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04-supervised/supervised.html">6. Supervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05-unsupervised/unsupervised.html">7. Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06-deep/deep.html">8. Deep Learning and Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07-cv/cv.html">9. Computer Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../08-nlp/nlp.html">10. Natural Language Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../09-llm/llm.html">11. Large Language Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">12. Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/joaomh/ml-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/joaomh/ml-book/issues/new?title=Issue%20on%20page%20%2Fdocs/01-intro/03-python/03_numbers_string.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/docs/01-intro/03-python/03_numbers_string.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Numbers and Strings in Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-numeric-types">3.9.1. Fundamental Numeric Types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-basic-operations-with-numbers">3.9.1.1. Example of Basic Operations with Numbers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-casting">3.9.2. Type Casting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-numeric-conversion-functions">3.9.2.1. Main Numeric Conversion Functions:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-examples">3.9.2.2. Conversion Examples:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-in-python">3.9.3. Strings in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-strings">3.9.3.1. Creating Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-string-operations-and-methods">3.9.3.2. Main String Operations and Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-formatting-with-f-strings-formatted-string-literals">3.9.3.3. String Formatting with f-strings (Formatted String Literals)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-string-formatting-for-reference">3.9.3.4. Other String Formatting (for reference)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="numbers-and-strings-in-python">
+<h1><span class="section-number">3.9. </span>Numbers and Strings in Python<a class="headerlink" href="#numbers-and-strings-in-python" title="Link to this heading">#</a></h1>
+<section id="fundamental-numeric-types">
+<h2><span class="section-number">3.9.1. </span>Fundamental Numeric Types<a class="headerlink" href="#fundamental-numeric-types" title="Link to this heading">#</a></h2>
+<p>Python handles numbers very flexibly, allowing operations with different types and conversions between them. Let’s explore the main numeric types and how to perform these conversions. In Python, the most common numeric types are:</p>
+<ul class="simple">
+<li><p><strong>Integers (<code class="docutils literal notranslate"><span class="pre">int</span></code>):</strong> Represent whole numbers (positive, negative, or zero) without decimal places. Examples: <code class="docutils literal notranslate"><span class="pre">10</span></code>, <code class="docutils literal notranslate"><span class="pre">-5</span></code>, <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">1000000</span></code>.</p></li>
+<li><p><strong>Floats (<code class="docutils literal notranslate"><span class="pre">float</span></code>):</strong> Represent numbers with decimal places. They are used for non-integer values. Examples: <code class="docutils literal notranslate"><span class="pre">3.14</span></code>, <code class="docutils literal notranslate"><span class="pre">-0.5</span></code>, <code class="docutils literal notranslate"><span class="pre">10.0</span></code> (even if it’s a whole number, the presence of <code class="docutils literal notranslate"><span class="pre">.0</span></code> classifies it as <code class="docutils literal notranslate"><span class="pre">float</span></code>).</p></li>
+</ul>
+<section id="example-of-basic-operations-with-numbers">
+<h3><span class="section-number">3.9.1.1. </span>Example of Basic Operations with Numbers<a class="headerlink" href="#example-of-basic-operations-with-numbers" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Defining variables with different numeric types</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Type: int</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">3.5</span> <span class="c1"># Type: float</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Value of &#39;a&#39;: </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">, Type of &#39;a&#39;: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Value of &#39;b&#39;: </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">, Type of &#39;b&#39;: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Arithmetic Operations ---&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sum (a + b): </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>         <span class="c1"># Result: float (type promotion)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exponentiation (a ** 2): </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Result: int</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Integer Division (a // 3): </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="mi">3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Result: int (discards the fractional part)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Remainder of Division (a % 3): </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>   <span class="c1"># Result: int</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Division (a / 3): </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>         <span class="c1"># Result: float (division always returns float)</span>
+</pre></div>
+</div>
+<p><strong>Important Notes:</strong></p>
+<ul class="simple">
+<li><p><strong>Type Promotion:</strong> When you perform operations between an <code class="docutils literal notranslate"><span class="pre">int</span></code> and a <code class="docutils literal notranslate"><span class="pre">float</span></code>, Python “promotes” the <code class="docutils literal notranslate"><span class="pre">int</span></code> to a <code class="docutils literal notranslate"><span class="pre">float</span></code> before the operation, and the result will always be a <code class="docutils literal notranslate"><span class="pre">float</span></code>. This prevents loss of precision.</p></li>
+<li><p><strong>Division (<code class="docutils literal notranslate"><span class="pre">/</span></code>):</strong> In Python 3+, division with the <code class="docutils literal notranslate"><span class="pre">/</span></code> operator always returns a <code class="docutils literal notranslate"><span class="pre">float</span></code>, even if the result is a whole number (e.g., <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">/</span> <span class="pre">2</span></code> returns <code class="docutils literal notranslate"><span class="pre">5.0</span></code>).</p></li>
+<li><p><strong>Integer Division (<code class="docutils literal notranslate"><span class="pre">//</span></code>):</strong> To get only the integer part of a division, use the <code class="docutils literal notranslate"><span class="pre">//</span></code> operator. It truncates the decimal part, it does not round.</p></li>
+<li><p><strong>Modulo (<code class="docutils literal notranslate"><span class="pre">%</span></code>):</strong> The <code class="docutils literal notranslate"><span class="pre">%</span></code> operator returns the remainder of the division. Very useful for checking if a number is even/odd or if it’s a multiple of another.</p></li>
+</ul>
+</section>
+</section>
+<section id="type-casting">
+<h2><span class="section-number">3.9.2. </span>Type Casting<a class="headerlink" href="#type-casting" title="Link to this heading">#</a></h2>
+<p>Python allows you to explicitly convert one data type to another using conversion functions.</p>
+<section id="main-numeric-conversion-functions">
+<h3><span class="section-number">3.9.2.1. </span>Main Numeric Conversion Functions:<a class="headerlink" href="#main-numeric-conversion-functions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">int()</span></code>:</strong> Converts a value to an integer.</p>
+<ul>
+<li><p>Truncates floats (discards the decimal part).</p></li>
+<li><p>Can convert strings that represent whole numbers.</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">float()</span></code>:</strong> Converts a value to a floating-point number.</p>
+<ul>
+<li><p>Adds <code class="docutils literal notranslate"><span class="pre">.0</span></code> if the number is an integer.</p></li>
+<li><p>Can convert strings that represent numbers (integers or decimals).</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">str()</span></code>:</strong> Converts a value to a string (text).</p></li>
+</ul>
+</section>
+<section id="conversion-examples">
+<h3><span class="section-number">3.9.2.2. </span>Conversion Examples:<a class="headerlink" href="#conversion-examples" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Conversion Examples ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># From float to int (truncation)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;int(3.9): </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="mf">3.9</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>   <span class="c1"># Output: 3 (truncates the decimal part)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;int(3.1): </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="mf">3.1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>   <span class="c1"># Output: 3</span>
+
+<span class="c1"># From int to float</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;float(10): </span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Output: 10.0 (adds .0 to be float)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;float(5): </span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>   <span class="c1"># Output: 5.0</span>
+
+<span class="c1"># From number to string</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;str(42): &#39;</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>    <span class="c1"># Output: &#39;42&#39; (now it&#39;s text)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;str(3.14): &#39;</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span> <span class="c1"># Output: &#39;3.14&#39;</span>
+
+<span class="c1"># From string to int</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;int(&#39;7&#39;): </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;7&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>     <span class="c1"># Output: 7</span>
+<span class="c1"># print(int(&#39;7.5&#39;)) # This would cause an error! The string must be a valid integer representation</span>
+<span class="c1"># print(int(&#39;abc&#39;)) # This would also cause an error!</span>
+
+<span class="c1"># From string to float</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;float(&#39;7.5&#39;): </span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;7.5&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Output: 7.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;float(&#39;10&#39;): </span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>   <span class="c1"># Output: 10.0</span>
+<span class="c1"># print(float(&#39;abc&#39;)) # This would cause an error!</span>
+</pre></div>
+</div>
+<p><strong>Cautions in String Conversion:</strong></p>
+<ul class="simple">
+<li><p>When converting a <code class="docutils literal notranslate"><span class="pre">string</span></code> to an <code class="docutils literal notranslate"><span class="pre">int</span></code>, the string must contain only characters that represent a valid whole number (no decimal point or other non-numeric characters, unless they are <code class="docutils literal notranslate"><span class="pre">+</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> signs at the beginning).</p></li>
+<li><p>When converting a <code class="docutils literal notranslate"><span class="pre">string</span></code> to a <code class="docutils literal notranslate"><span class="pre">float</span></code>, the string can contain a decimal point.</p></li>
+</ul>
+</section>
+</section>
+<section id="strings-in-python">
+<h2><span class="section-number">3.9.3. </span>Strings in Python<a class="headerlink" href="#strings-in-python" title="Link to this heading">#</a></h2>
+<p>Strings are immutable sequences of characters (lists of bytes, at a more technical level). Python offers a wide range of useful operations and methods to manipulate text, making them one of the most versatile data types.</p>
+<section id="creating-strings">
+<h3><span class="section-number">3.9.3.1. </span>Creating Strings<a class="headerlink" href="#creating-strings" title="Link to this heading">#</a></h3>
+<p>Strings can be created using single quotes (<code class="docutils literal notranslate"><span class="pre">'...'</span></code>), double quotes (<code class="docutils literal notranslate"><span class="pre">&quot;...&quot;</span></code>), or triple quotes (<code class="docutils literal notranslate"><span class="pre">'''...'''</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;...&quot;&quot;&quot;</span></code>) for strings that span multiple lines.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">minha_string1</span> <span class="o">=</span> <span class="s1">&#39;Hello, world!&#39;</span>
+<span class="n">minha_string2</span> <span class="o">=</span> <span class="s2">&quot;Python is fun.&quot;</span>
+<span class="n">minha_string3</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;This is a string</span>
+<span class="s2">that can span multiple lines.&quot;&quot;&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">minha_string1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">minha_string2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">minha_string3</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="main-string-operations-and-methods">
+<h3><span class="section-number">3.9.3.2. </span>Main String Operations and Methods<a class="headerlink" href="#main-string-operations-and-methods" title="Link to this heading">#</a></h3>
+<p>Python has various built-in methods that facilitate string manipulation. Remember that strings are <strong>immutable</strong>, meaning no method alters the original string; they always return a <strong>new</strong> string with the result of the operation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mensagem</span> <span class="o">=</span> <span class="s2">&quot;Hello, world!&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Original string: &#39;</span><span class="si">{</span><span class="n">mensagem</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Common String Methods ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># 1. Changing case (uppercase/lowercase)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Uppercase (upper()): </span><span class="si">{</span><span class="n">mensagem</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Returns a new string in uppercase</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Lowercase (lower()): </span><span class="si">{</span><span class="n">mensagem</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Returns a new string in lowercase</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Capitalize first letter (capitalize()): </span><span class="si">{</span><span class="n">mensagem</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># First letter of the string in uppercase</span>
+
+<span class="c1"># 2. Text Replacement</span>
+<span class="c1"># replace(old, new): Replaces all occurrences of a substring with another.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Replacing &#39;world&#39; with &#39;Python&#39;: </span><span class="si">{</span><span class="n">mensagem</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Python&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Replacing &#39;o&#39; with &#39;X&#39;: </span><span class="si">{</span><span class="n">mensagem</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;X&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># 3. Accessing Characters and Substrings (Indexing and Slicing)</span>
+<span class="c1"># Strings are indexed starting from 0.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;First letter (mensagem[0]): </span><span class="si">{</span><span class="n">mensagem</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Output: &#39;H&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Last letter (mensagem[-1]): </span><span class="si">{</span><span class="n">mensagem</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Output: &#39;!&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Slicing (mensagem[0:3]): </span><span class="si">{</span><span class="n">mensagem</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Output: &#39;Hel&#39; (from index 0 up to 2, 3 is exclusive)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Slicing from start to 5 (mensagem[:6]): </span><span class="si">{</span><span class="n">mensagem</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Output: &#39;Hello,&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Slicing from 7 to end (mensagem[7:]): </span><span class="si">{</span><span class="n">mensagem</span><span class="p">[</span><span class="mi">7</span><span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Output: &#39;world!&#39;</span>
+
+<span class="c1"># 4. String Length</span>
+<span class="c1"># len(string): Returns the number of characters in the string.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;String length (len(mensagem)): </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">mensagem</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># 5. Checking String Start/End</span>
+<span class="c1"># startswith(prefix): Checks if the string starts with the given prefix.</span>
+<span class="c1"># endswith(suffix): Checks if the string ends with the given suffix.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Starts with &#39;Hello&#39;? </span><span class="si">{</span><span class="n">mensagem</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Output: True</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ends with &#39;world!&#39;? </span><span class="si">{</span><span class="n">mensagem</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;world!&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Output: True</span>
+
+<span class="c1"># 6. Checking Content</span>
+<span class="c1"># in (operator): Checks if a substring is present in the string.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;world&#39; in message? </span><span class="si">{</span><span class="s1">&#39;world&#39;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">mensagem</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Output: True</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;Python&#39; in message? </span><span class="si">{</span><span class="s1">&#39;Python&#39;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">mensagem</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Output: False</span>
+
+<span class="c1"># 7. Remove Whitespace (Trim)</span>
+<span class="c1"># strip(): Removes whitespace from the beginning and end of the string.</span>
+<span class="c1"># lstrip(): Removes whitespace from the left.</span>
+<span class="c1"># rstrip(): Removes whitespace from the right.</span>
+<span class="n">texto_com_espacos</span> <span class="o">=</span> <span class="s2">&quot;   Hello World!   &quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">texto_com_espacos</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span> <span class="c1"># Output: &#39;Hello World!&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="string-formatting-with-f-strings-formatted-string-literals">
+<h3><span class="section-number">3.9.3.3. </span>String Formatting with f-strings (Formatted String Literals)<a class="headerlink" href="#string-formatting-with-f-strings-formatted-string-literals" title="Link to this heading">#</a></h3>
+<p>f-strings (introduced in Python 3.6) are the most modern and recommended way to embed variables and expressions within strings. They make the code more readable and concise.</p>
+<p>To create an f-string, simply prefix the string with the letter <code class="docutils literal notranslate"><span class="pre">f</span></code> (or <code class="docutils literal notranslate"><span class="pre">F</span></code>) and place variables or expressions inside curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nome</span> <span class="o">=</span> <span class="s2">&quot;João&quot;</span>
+<span class="n">idade</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">cidade</span> <span class="o">=</span> <span class="s2">&quot;São Paulo&quot;</span>
+<span class="n">hobby</span> <span class="o">=</span> <span class="s2">&quot;programming&quot;</span>
+
+<span class="c1"># Basic f-string example</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My name is </span><span class="si">{</span><span class="n">nome</span><span class="si">}</span><span class="s2"> and I am </span><span class="si">{</span><span class="n">idade</span><span class="si">}</span><span class="s2"> years old.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Embedding expressions and calculations</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;In 5 years, </span><span class="si">{</span><span class="n">nome</span><span class="si">}</span><span class="s2"> will be </span><span class="si">{</span><span class="n">idade</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="si">}</span><span class="s2"> years old.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Number formatting</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159265</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The value of Pi with 2 decimal places is: </span><span class="si">{</span><span class="n">pi</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># :.2f formats to 2 decimal places</span>
+
+<span class="c1"># Text alignment</span>
+<span class="n">produto</span> <span class="o">=</span> <span class="s2">&quot;T-shirt&quot;</span>
+<span class="n">preco</span> <span class="o">=</span> <span class="mf">29.99</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Product: </span><span class="si">{</span><span class="n">produto</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> Price: R$ </span><span class="si">{</span><span class="n">preco</span><span class="si">:</span><span class="s2">&gt;8.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># &lt;10 left-aligns in 10 characters, &gt;8.2f right-aligns in 8 characters with 2 decimal places</span>
+</pre></div>
+</div>
+</section>
+<section id="other-string-formatting-for-reference">
+<h3><span class="section-number">3.9.3.4. </span>Other String Formatting (for reference)<a class="headerlink" href="#other-string-formatting-for-reference" title="Link to this heading">#</a></h3>
+<p>While f-strings are preferred in most cases, it’s good to know other formatting methods:</p>
+<ul>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">format()</span></code> method:</strong> Older than f-strings, but still useful.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My name is </span><span class="si">{}</span><span class="s2"> and I am </span><span class="si">{}</span><span class="s2"> years old.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Product: </span><span class="si">{prod}</span><span class="s2"> Price: R$ </span><span class="si">{prc:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prod</span><span class="o">=</span><span class="s2">&quot;Book&quot;</span><span class="p">,</span> <span class="n">prc</span><span class="o">=</span><span class="mf">45.50</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">%</span></code> operator (Legacy Formatting):</strong> A “C-style” formatting, less common in new code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My name is </span><span class="si">%s</span><span class="s2"> and I am </span><span class="si">%d</span><span class="s2"> years old.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">idade</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/01-intro/03-python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02dtypes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3.4. </span>Built-in Data Types</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_bool.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3.10. </span>The Boolean Type (<code class="docutils literal notranslate"><span class="pre">bool</span></code>) in Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-numeric-types">3.9.1. Fundamental Numeric Types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-basic-operations-with-numbers">3.9.1.1. Example of Basic Operations with Numbers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-casting">3.9.2. Type Casting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-numeric-conversion-functions">3.9.2.1. Main Numeric Conversion Functions:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-examples">3.9.2.2. Conversion Examples:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-in-python">3.9.3. Strings in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-strings">3.9.3.1. Creating Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-string-operations-and-methods">3.9.3.2. Main String Operations and Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-formatting-with-f-strings-formatted-string-literals">3.9.3.3. String Formatting with f-strings (Formatted String Literals)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-string-formatting-for-reference">3.9.3.4. Other String Formatting (for reference)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By João Manoel Herrera Pinheiro
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

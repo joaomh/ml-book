@@ -1,72 +1,67 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1.2. Python Ambient - Anaconda, Colab and Kaggle &#8212; An Introduction to Machine Learning</title>
+    <title>1.17. The Python Environment: Anaconda, Colab, and Kaggle &#8212; An Introduction to Machine Learning</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/01-intro/02-ambient/ambient';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="1.3. Python Programming" href="../03-python/python.html" />
-    <link rel="prev" title="1.1. History of Machine Learning" href="../01-history/history.html" />
+    <link rel="next" title="2. Introduction to Python" href="../03-python/00-python/python.html" />
+    <link rel="prev" title="1.13. Basic Concepts" href="../01-basic-concepts/basics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -76,27 +71,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -118,8 +109,13 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -143,6 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../../../intro.html">
   
@@ -160,7 +158,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -171,28 +180,25 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../intro.html">1. Introduction to Machine Learning</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../01-history/history.html">1.1. History of Machine Learning</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.2. Python Ambient - Anaconda, Colab and Kaggle</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../03-python/python.html">1.3. Python Programming</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../03-python/01-intro-python/intro.html">1.3.1. Introduction Python Programming</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../03-python/02-list/list.html">1.3.2. List arrays</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../intro.html">1. Introduction to Machine Learning</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../01-basic-concepts/basics.html">1.13. Basic Concepts</a></li>
+
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.17. The Python Environment: Anaconda, Colab, and Kaggle</a></li>
 </ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../04-bigdata/bigdata.html">1.4. Big Data - Spark, Hadoop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05-sql/sql.html">1.5. Structured Query Language</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../06-statistics/statistics.html">1.6. Statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../07-math-algebra/math.html">1.7. Mathematics and Linear Algebra</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../02-prep/prep.html">2. Data Preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../03-supervised/supervised.html">3. Supervised Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../04-unsupervised/unsupervised.html">4. Unsupervised Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../05-deep/deep.html">5. Deep Learning and Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../06-rl/rl.html">6. Reinforcement Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../07-cv/cv.html">7. Computer Vision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../08-nlp/nlp.html">8. Natural Language Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../09-time/time.html">9. Time Series</a></li>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-python/00-python/python.html">2. Introduction to Python</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../02-data/data.html">4. Big Data - Intro Data Engineering using Spark and Hadoop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03-prep/prep.html">5. Data Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04-supervised/supervised.html">6. Supervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05-unsupervised/unsupervised.html">7. Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06-deep/deep.html">8. Deep Learning and Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07-cv/cv.html">9. Computer Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../08-nlp/nlp.html">10. Natural Language Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../09-llm/llm.html">11. Large Language Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">12. Bibliography</a></li>
 </ul>
 
     </div>
@@ -208,7 +214,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -217,14 +223,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -349,10 +355,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -360,12 +366,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -376,11 +384,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Python Ambient - Anaconda, Colab and Kaggle</h1>
+    <h1>The Python Environment: Anaconda, Colab, and Kaggle</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda">1.17.1. Anaconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colaboratory-colab">1.17.2. Google Colaboratory (Colab)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kaggle-kernels-kaggle-notebooks">1.17.3. Kaggle Kernels (Kaggle Notebooks)</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -390,8 +408,133 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="python-ambient-anaconda-colab-and-kaggle">
-<h1><span class="section-number">1.2. </span>Python Ambient - Anaconda, Colab and Kaggle<a class="headerlink" href="#python-ambient-anaconda-colab-and-kaggle" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="the-python-environment-anaconda-colab-and-kaggle">
+<h1><span class="section-number">1.17. </span>The Python Environment: Anaconda, Colab, and Kaggle<a class="headerlink" href="#the-python-environment-anaconda-colab-and-kaggle" title="Link to this heading">#</a></h1>
+<p>When we talk about a “Python Environment,” we’re referring to the specific setup where your Python code runs. This includes the Python interpreter itself, along with all the libraries, packages, and tools you need for your projects. Setting up and managing these environments can sometimes be complex, especially when dealing with different project requirements or sharing code.</p>
+<p>Fortunately, several platforms and distributions simplify this process.</p>
+<section id="anaconda">
+<h2><span class="section-number">1.17.1. </span>Anaconda<a class="headerlink" href="#anaconda" title="Link to this heading">#</a></h2>
+<p><strong>What is it?</strong>
+Anaconda is a free and open-source distribution of the Python and R programming languages for scientific computing (data science, machine learning applications, large-scale data processing, predictive analytics, etc.). It comes with <strong>Conda</strong>, a powerful package and environment manager, and includes a vast collection of pre-installed packages, most notably those used in data science (NumPy, pandas, Matplotlib, SciPy, scikit-learn, etc.).</p>
+<p><strong>Key Features &amp; Options:</strong></p>
+<ul class="simple">
+<li><p><strong>Conda:</strong></p>
+<ul>
+<li><p><strong>Package Management:</strong> Easily install, update, and remove packages. <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">numpy</span></code></p></li>
+<li><p><strong>Environment Management:</strong> Create isolated environments for different projects. This prevents conflicts where different projects require different versions of the same library. <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">myenv</span> <span class="pre">python=3.9</span> <span class="pre">pandas</span></code></p></li>
+<li><p><strong>Cross-platform:</strong> Works on Windows, macOS, and Linux.</p></li>
+</ul>
+</li>
+<li><p><strong>Anaconda Navigator:</strong> A desktop graphical user interface (GUI) that allows you to launch applications (like Jupyter Lab, Spyder) and manage conda environments without using command-line commands.</p></li>
+<li><p><strong>Jupyter Notebook &amp; JupyterLab:</strong></p>
+<ul>
+<li><p><strong>Jupyter Notebook:</strong> An interactive web-based environment where you can combine live code, equations, visualizations, and narrative text. Excellent for data exploration, analysis, and sharing.</p></li>
+<li><p><strong>JupyterLab:</strong> The next-generation web-based user interface for Project Jupyter. It offers a more flexible and extensible environment, allowing you to arrange notebooks, text editors, terminals, and custom components side by side in the work area.</p></li>
+</ul>
+</li>
+<li><p><strong>Spyder:</strong> An Integrated Development Environment (IDE) specifically designed for scientific computing, similar to MATLAB. It offers a powerful editor, variable explorer, and debugger.</p></li>
+<li><p><strong>Miniconda:</strong> A smaller version of Anaconda. It includes only Conda, Python, and a few essential packages. You can then install other packages as needed, making it lighter and more customizable if you don’t need all the pre-packaged tools from the full Anaconda distribution.</p></li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul class="simple">
+<li><p>Local data science and machine learning development.</p></li>
+<li><p>Managing complex project dependencies.</p></li>
+<li><p>Academic research and teaching.</p></li>
+<li><p>When you need full control over your local environment.</p></li>
+</ul>
+<p><strong>Advantages:</strong></p>
+<ul class="simple">
+<li><p><strong>Batteries Included:</strong> Comes with almost all scientific computing libraries pre-installed.</p></li>
+<li><p><strong>Robust Environment Management:</strong> Conda is excellent for handling dependencies and isolating projects.</p></li>
+<li><p><strong>Offline Capability:</strong> Once installed, you don’t need an internet connection to use most of its features.</p></li>
+<li><p><strong>Performance:</strong> Code runs locally on your machine’s hardware.</p></li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul class="simple">
+<li><p><strong>Large Download Size:</strong> The full Anaconda distribution can be quite large.</p></li>
+<li><p><strong>Resource Intensive:</strong> Can consume a fair amount of disk space and memory.</p></li>
+<li><p><strong>Learning Curve for Conda:</strong> While powerful, Conda might take some time to master for new users.</p></li>
+</ul>
+</section>
+<section id="google-colaboratory-colab">
+<h2><span class="section-number">1.17.2. </span>Google Colaboratory (Colab)<a class="headerlink" href="#google-colaboratory-colab" title="Link to this heading">#</a></h2>
+<p><strong>What is it?</strong>
+Google Colab (or just Colab) is a free, cloud-based Jupyter Notebook environment that runs entirely in your web browser. It’s hosted by Google and provides free access to computing resources, including GPUs (Graphics Processing Units) and TPUs (Tensor Processing Units), which are crucial for deep learning and heavy numerical computations.</p>
+<p><strong>Key Features &amp; Options:</strong></p>
+<ul class="simple">
+<li><p><strong>Cloud-Based Jupyter Notebooks:</strong> All your code, outputs, and text are stored and run on Google’s servers.</p></li>
+<li><p><strong>Free GPU/TPU Access:</strong> This is its standout feature, allowing users to train complex machine learning models without needing powerful local hardware.</p></li>
+<li><p><strong>Zero Configuration:</strong> No setup is required; just open your browser, and you’re ready to code.</p></li>
+<li><p><strong>Easy Sharing:</strong> Notebooks are stored in Google Drive, making it simple to share and collaborate with others, much like Google Docs.</p></li>
+<li><p><strong>Pre-installed Libraries:</strong> Comes with many popular data science and machine learning libraries (TensorFlow, PyTorch, Keras, scikit-learn, pandas, numpy, etc.) pre-installed.</p></li>
+<li><p><strong>Integration with Google Drive:</strong> Seamlessly load data from and save results to your Google Drive.</p></li>
+<li><p><strong>Colab Pro/Pro+:</strong> Paid tiers that offer faster GPUs, more memory, longer runtimes, and priority access to resources.</p></li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul class="simple">
+<li><p>Learning and experimenting with Python, especially for data science and ML.</p></li>
+<li><p>Rapid prototyping and model training, particularly with deep learning.</p></li>
+<li><p>Collaborative coding and sharing educational materials.</p></li>
+<li><p>When you don’t have powerful local hardware.</p></li>
+</ul>
+<p><strong>Advantages:</strong></p>
+<ul class="simple">
+<li><p><strong>Free (with Limitations):</strong> Offers significant computing power at no cost.</p></li>
+<li><p><strong>No Setup Required:</strong> Get started immediately.</p></li>
+<li><p><strong>GPU/TPU Access:</strong> Crucial for computationally intensive tasks.</p></li>
+<li><p><strong>Easy Collaboration:</strong> Integrated with Google Drive.</p></li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul class="simple">
+<li><p><strong>Internet Connection Required:</strong> You need to be online to use it.</p></li>
+<li><p><strong>Session Limits:</strong> Free sessions have runtime limits and may disconnect if inactive. Resources aren’t guaranteed.</p></li>
+<li><p><strong>Ephemeral Environment:</strong> The environment resets after a session ends (though data in Drive persists). You need to reinstall custom libraries for each new session.</p></li>
+<li><p><strong>Privacy Concerns:</strong> Your data and code are on Google’s servers.</p></li>
+</ul>
+</section>
+<section id="kaggle-kernels-kaggle-notebooks">
+<h2><span class="section-number">1.17.3. </span>Kaggle Kernels (Kaggle Notebooks)<a class="headerlink" href="#kaggle-kernels-kaggle-notebooks" title="Link to this heading">#</a></h2>
+<p><strong>What is it?</strong>
+Kaggle Kernels (now often just called Kaggle Notebooks) is another free, cloud-based Jupyter Notebook environment provided by Kaggle, a popular platform for data science competitions and datasets. It’s specifically designed for data scientists to explore, analyze, and model data, often in the context of Kaggle competitions.</p>
+<p><strong>Key Features &amp; Options:</strong></p>
+<ul class="simple">
+<li><p><strong>Cloud-Based Jupyter Notebooks:</strong> Similar to Colab, it runs in your browser on Kaggle’s infrastructure.</p></li>
+<li><p><strong>Free GPU/TPU Access:</strong> Offers access to GPUs (and sometimes TPUs) for accelerated computing.</p></li>
+<li><p><strong>Integrated with Kaggle Data:</strong> Provides seamless access to Kaggle’s vast repository of public datasets. This is a huge advantage for competition participants.</p></li>
+<li><p><strong>Version Control &amp; Sharing:</strong> Built-in versioning allows you to track changes, and notebooks are easily shareable within the Kaggle community. You can also fork (copy and modify) others’ notebooks.</p></li>
+<li><p><strong>Pre-installed Libraries:</strong> Comes with a comprehensive set of data science libraries.</p></li>
+<li><p><strong>Reproducibility:</strong> The environment aims for reproducibility by allowing you to define the exact package versions used.</p></li>
+<li><p><strong>Offline Mode for Competitions:</strong> Can run code in a detached (offline) state, which is vital for competition submissions.</p></li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul class="simple">
+<li><p>Participating in Kaggle data science competitions.</p></li>
+<li><p>Exploring and analyzing Kaggle datasets.</p></li>
+<li><p>Sharing data analysis and machine learning approaches with the Kaggle community.</p></li>
+<li><p>Learning and practicing data science with real-world datasets.</p></li>
+</ul>
+<p><strong>Advantages:</strong></p>
+<ul class="simple">
+<li><p><strong>Integrated with Kaggle Ecosystem:</strong> Direct access to datasets and competitions.</p></li>
+<li><p><strong>Free GPU/TPU:</strong> Access to powerful hardware.</p></li>
+<li><p><strong>Collaboration &amp; Community:</strong> Easy sharing and community-driven learning.</p></li>
+<li><p><strong>Versioning:</strong> Helps in tracking progress and ensuring reproducibility.</p></li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul class="simple">
+<li><p><strong>Internet Connection Required:</strong> Like Colab, it needs an active internet connection.</p></li>
+<li><p><strong>Session Limits:</strong> Similar to Colab, there are limitations on runtime and resources for free tiers.</p></li>
+<li><p><strong>Specific Focus:</strong> Primarily geared towards data science and machine learning, especially within the Kaggle competition context.</p></li>
+<li><p><strong>Limited Customization:</strong> While you can install some packages, full environment customization is more limited than local setups.</p></li>
+</ul>
+<p><strong>Choosing the Right Environment:</strong></p>
+<ul class="simple">
+<li><p><strong>Anaconda:</strong> Best for <strong>local development</strong>, complex dependency management, working offline, and when you need a full suite of tools and complete control over your environment.</p></li>
+<li><p><strong>Google Colab:</strong> Ideal for <strong>quick experimentation, learning, deep learning tasks</strong> when you lack powerful local hardware, and collaborative educational projects.</p></li>
+<li><p><strong>Kaggle Kernels:</strong> Perfect for <strong>data science competitions</strong>, exploring Kaggle datasets, and sharing analytical insights within a vibrant community.</p></li>
+</ul>
+<p>Many data scientists use a combination of these environments, starting with quick explorations in Colab or Kaggle, then moving to a local Anaconda setup for more robust development, and finally deploying models on cloud platforms.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -421,24 +564,24 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../01-history/history.html"
+       href="../01-basic-concepts/basics.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1.1. </span>History of Machine Learning</p>
+        <p class="prev-next-title"><span class="section-number">1.13. </span>Basic Concepts</p>
       </div>
     </a>
     <a class="right-next"
-       href="../03-python/python.html"
+       href="../03-python/00-python/python.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.3. </span>Python Programming</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Introduction to Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -449,7 +592,22 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda">1.17.1. Anaconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colaboratory-colab">1.17.2. Google Colaboratory (Colab)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kaggle-kernels-kaggle-notebooks">1.17.3. Kaggle Kernels (Kaggle Notebooks)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
@@ -460,7 +618,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By João Pinheiro
+By João Manoel Herrera Pinheiro
 </p>
 
   </div>
@@ -470,7 +628,7 @@ By João Pinheiro
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>
@@ -494,8 +652,8 @@ By João Pinheiro
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

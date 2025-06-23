@@ -16,7 +16,7 @@ This repository holds the Jupyter Book source for An Introduction to Machine Lea
 ## How this repository is deployed
 
 * When you make a change to this repository and push it to the `main` branch, the book's HTML will automatically be pushed.
-* This process is handled by [this GitHub Action](.github/workflows/deploy.yml)
+* This process is handled by [this GitHub Action](.github/workflows/main.yml)
 
 ## Build and preview the text locally
 
