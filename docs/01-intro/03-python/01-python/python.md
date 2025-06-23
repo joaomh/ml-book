@@ -67,7 +67,7 @@ obj = Exemplo()
 obj.novo_atributo = 42  # Attribute created dynamically
 ```
 
-# References
+## References
  
 * {cite:p}`matthes2015python`
 * {cite:p}`ramalho2015fluent`

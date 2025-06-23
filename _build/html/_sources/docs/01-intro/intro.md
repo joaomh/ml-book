@@ -4,35 +4,35 @@ The goal of this book is to help you to establish a problem and turn it into a m
 
 Here are some projects (we will have much more) that we are going to explore on our journey.
 
-### [Boston House Prices](https://www.kaggle.com/datasets/vikrishnan/boston-house-prices)
+## [Boston House Prices](https://www.kaggle.com/datasets/vikrishnan/boston-house-prices)
 ![](./img/house_prices.png)
 
-### [Iris Classification](https://www.kaggle.com/datasets/uciml/iris)
+## [Iris Classification](https://www.kaggle.com/datasets/uciml/iris)
 ![](./img/iris.png)
 
-### Handwritten Digit Recognition
+## Handwritten Digit Recognition
 ![](./img/handw.png)
 
-### [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset)
+## [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset)
 ![](./img/spot.png)
 
-### Customer Clustering and Segmentation
+## Customer Clustering and Segmentation
 ![](./img/customer.png)
 
-### Sentiment Analysis
+## Sentiment Analysis
 ![](./img/sent.png)
 
-### AI playing games
+## AI playing games
 ![](./img/games.png)
 
 
-### Tech Skills
+## Tech Skills
 * Python, Pandas, NumPy, SciPy, Spark, SQL
 * Sckit-learn, Seaborn, matplotlib, Optuna, SHAP
 * OpenCV, PyTorch, TensorFlow
 * AWS, Cloud
 
-### Prerequisites
+## Prerequisites
 * Programming knowledge (python preferred)
 * Calculus, Linear Algebra,
 * Statistics, Probabilities
@@ -115,7 +115,7 @@ Performance -> Metric
 And we need some kind of Performance metric to measure, we need a goal to achieve.
 In each machine learning we may deal with different performance metrics, but in most cases, the performance measure is an error $$e_i = y_i - \hat{y_i}$$
 
-### Turing Test
+## Turing Test
 In 1950 Alan Turing proposed the Turing test "Can a machine think?"
 A computer passes the test if a human interrogator, after asking some written questions, cannot tell whether the written responses come from a person or a computer {cite:p}`russell2020artificial`.
 
@@ -167,3 +167,4 @@ For each input $x^{(i)}$ where $x^{(i)}\in\mathbb{R}$ we want to find a function
 Sometimes, and most of the projects in this book, you tread this kind of task separately, but in real life, they are just a means to solve a problem, sometimes your problem may require some part of supervised learning with unsupervised learning or an unsupervised learning with reinforcement, you can build a 'hybrid' model.
 
 ![](./img/draw.png)
+
