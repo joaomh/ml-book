@@ -9,12 +9,12 @@ options:
 chapters:
 - file: docs/01-intro/intro
   sections:
-  - file: docs/01-intro/01-basic-concepts/basics.md
-  - file: docs/01-intro/02-ambient/ambient.md
-- file: docs/01-intro/03-python/00_python/00_python.md
+  - file: docs/01-intro/01-basic-concepts/basics
+  - file: docs/01-intro/02-ambient/ambient
+- file: docs/01-intro/03-python/00-python/python
   sections:
-  - file: docs/01-intro/03-python/01_syntax/01_syntax.md
-  - file: docs/01-intro/03-python/02_dtypes
+  - file: docs/01-intro/03-python/01-syntax/syntax
+  - file: docs/01-intro/03-python/02dtypes
   - file: docs/01-intro/03-python/03_numbers_string
   - file: docs/01-intro/03-python/04_bool
   - file: docs/01-intro/03-python/05_numbers_op

@@ -1,4 +1,4 @@
-# Introduction to Python for Data Science and Artificial Intelligence
+# Introduction to Python
 
   * Python was created by Guido van Rossum, a Dutch programmer, in the late 1980s.
 
