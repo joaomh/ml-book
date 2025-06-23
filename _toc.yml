@@ -8,20 +8,29 @@ options:  # The options key will be applied to all chapters, but not sub-section
 chapters:
 - file: docs/01-intro/intro
   sections:
-  - file: docs/01-intro/01-history/history
+  - file: docs/01-intro/01-basic-concepts/basic-concepts
   - file: docs/01-intro/02-ambient/ambient
-  - file: docs/01-intro/03-python/python
+  - file: docs/01-intro/03-python/00_python
     sections:
-    - file: docs/01-intro/03-python/01-intro-python/intro
-    - file: docs/01-intro/03-python/02-list/list
-  - file: docs/01-intro/04-statistics/statistics
-  - file: docs/01-intro/05-math-algebra/math
+    - file: docs/01-intro/03-python/01_syntax
+    - file: docs/01-intro/03-python/02_dtypes
+    - file: docs/01-intro/03-python/03_numbers_string
+    - file: docs/01-intro/03-python/04_bool
+    - file: docs/01-intro/03-python/05_numbers_op
+    - file: docs/01-intro/03-python/06_input_output
+    - file: docs/01-intro/03-python/07_for_loop
+    - file: docs/01-intro/03-python/08_create_func
+    - file: docs/01-intro/03-python/09_built_in_func
+    - file: docs/01-intro/03-python/10_install_import_lib
 - file: docs/02-data/data
 - file: docs/03-prep/prep
 - file: docs/04-supervised/supervised
 - file: docs/05-unsupervised/unsupervised
 - file: docs/06-deep/deep
-- file: docs/07-rl/rl
-- file: docs/08-cv/cv
-- file: docs/09-nlp/nlp
-- file: docs/10-time/time
+- file: docs/07-cv/cv
+- file: docs/08-nlp/nlp
+- file: docs/09-llm/llm
+
+- caption: Bibliography
+  chapters:
+  - file: docs/bibliography.md
