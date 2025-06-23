@@ -13,37 +13,37 @@ Big Data is a term that describes datasets so large or complex that traditional 
 
 In data science, these three concepts—Data Analysis, Machine Learning, and Big Data—are foundational. They help data scientists turn raw data into meaningful information, develop systems that can automate decision-making, and handle datasets that were previously unmanageable. Understanding them is the first step toward mastering the broader, more complex landscape of data science.
 
-# Types of Data
+## Types of Data
 In data science, it is essential to understand the different types of data, as they require different approaches for processing and analysis. These types are categorized as structured, semi-structured, and unstructured data.
 
-## Structured Data
+### Structured Data
 Structured data is highly organized and easily searchable because it is stored in a fixed format, typically in tables with rows and columns. This type of data fits neatly into databases, such as SQL, where each piece of data is clearly defined and has a specific data type (e.g., integers, text, dates). Examples of structured data include customer information (name, address, phone number), sales transactions, and employee records. Structured data is easy to analyze using traditional data tools and algorithms.
 
-## Semi-Structured Data
+### Semi-Structured Data
 Semi-structured data doesn’t fit neatly into tables like structured data, but it still contains some elements of organization, such as tags or markers to separate different pieces of information. This data type may include a mix of structured and unstructured elements, which allows for more flexibility in storing and processing. A common example is XML or JSON files, where data is organized with tags but does not have the rigid structure of a relational database. Semi-structured data is often used in web data, social media posts, and emails.
 
-## Unstructured Data
+### Unstructured Data
 Unstructured data refers to any data that doesn’t have a pre-defined format or organization. It can come in the form of text, images, videos, or even audio files. Unstructured data is the most difficult to analyze because it doesn’t fit neatly into traditional database systems. Examples of unstructured data include social media posts, customer feedback, emails, images, and videos. This type of data often requires advanced techniques such as natural language processing (NLP) and computer vision to extract meaningful information.
 
 Each of these types of data presents unique challenges and opportunities for data scientists, and choosing the right tools and techniques for processing them is crucial for successful data analysis.
 
-# Data Science Careers
+## Data Science Careers
 As the demand for data-driven decision-making continues to grow across industries, the field of data science has expanded into various specialized careers. Below are some of the most common roles in the data science domain, each contributing to different aspects of working with data.
 
-## Data Scientist
+### Data Scientist
 A Data Scientist is a professional who analyzes and interprets complex data to provide actionable insights. They work with large datasets, perform advanced statistical analysis, build machine learning models, and use data visualization tools to communicate their findings. Data scientists often create predictive models and develop algorithms to solve business problems. They need to be proficient in programming (e.g., Python, R), statistics, and machine learning. A Data Scientist is expected to have a strong understanding of data, algorithms, and domain-specific knowledge to deliver impactful insights.
 
-## Machine Learning Engineer
+### Machine Learning Engineer
 A Machine Learning Engineer focuses on designing and implementing machine learning models and systems. Unlike data scientists, who often focus on experimenting with data and developing models, machine learning engineers take these models and turn them into production-ready systems that can handle real-world data. They are skilled in programming languages such as Python, Java, or C++, and are familiar with machine learning frameworks such as TensorFlow and PyTorch. A Machine Learning Engineer needs to optimize and scale models to make them more efficient and capable of handling large-scale data.
 
-## Data Analyst
+### Data Analyst
 A Data Analyst is responsible for collecting, processing, and analyzing data to help businesses make informed decisions. They work with structured data and typically focus on generating reports, dashboards, and visualizations that provide insights into business performance. While data scientists develop predictive models, data analysts tend to focus more on descriptive analysis, such as summarizing data trends, identifying key metrics, and supporting business teams with day-to-day analysis. Skills such as SQL, Excel, and data visualization tools like Tableau or Power BI are essential for this role.
 
-## Data Engineer
+### Data Engineer
 A Data Engineer builds and maintains the infrastructure required to store, process, and analyze large volumes of data. They are responsible for designing and constructing data pipelines, databases, and data warehouses, ensuring that data is accessible, secure, and organized in a way that supports analysis. Data engineers work with big data technologies such as Hadoop, Spark, and Kafka and are skilled in programming languages like Python, Java, or Scala. Their role is critical in making sure that data is collected, cleaned, and prepared in a way that data scientists and analysts can effectively use it.
 
 Each of these careers plays a crucial role in the data science ecosystem. Data scientists and machine learning engineers focus on modeling and algorithm development, while data analysts and engineers work on data collection, cleaning, and interpretation. Understanding these roles and how they interact is key to navigating the field of data science and choosing the path that best aligns with your interests and skills.
 
-# Role of the Data Team
+## Role of the Data Team
 **The main role of a data team is to solve problems and deliver value to the business team. By leveraging data, analytics, and technologies, they generate insights and solutions that drive strategic and operational decisions.**
 
