@@ -45,8 +45,6 @@ Hello! Welcome to my function!
 
 ### Example 2: Function with Parameters and Return
 
-Your `sum_numbers` example is perfect for this\!
-
 ```python
 def sum_numbers(a, b):
     """
