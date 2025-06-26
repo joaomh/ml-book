@@ -214,6 +214,141 @@ for i in range(10):
 
 Here, if `i` is even, the message "Skipping even number..." is printed, and `continue` causes the loop to skip the rest of the code for that iteration and move to the next. Only odd numbers will have the "Odd number:" message printed.
 
+### The `match-case` Statement
+
+Starting from Python 3.10, the `match-case` statement provides a new way to control program flow by matching a subject against a series of patterns. It's a more elegant and powerful switch/case statement.
+
+The `match` statement takes an expression and compares its value against successive patterns given as `case` blocks.
+
+**Basic Syntax**
+
+```python
+match subject_expression:
+    case pattern_1:
+        # Code to execute if pattern_1 matches
+    case pattern_2:
+        # Code to execute if pattern_2 matches
+    case _:
+        # Optional: Code to execute if no pattern matches (the wildcard)
+```
+
+The `_` is a **wildcard pattern** that matches anything and is often used as a final, catch-all `case` to handle unexpected values.
+
+#### Example 1: Simple `if-elif-else` Replacement
+
+Let's see how `match-case` can clean up a common conditional structure, such as handling different HTTP status codes.
+
+```python
+def handle_http_status(status_code):
+    """Handles an HTTP status code using a match statement."""
+    match status_code:
+        case 200:
+            return "OK: Request was successful."
+        case 404:
+            return "Error: Resource not found."
+        case 500:
+            return "Error: Internal server error."
+        case _: # The wildcard case, like a final 'else'
+            return f"Unknown status code: {status_code}"
+
+# Test the function with different values
+print(handle_http_status(200))
+print(handle_http_status(404))
+print(handle_http_status(503))
+```
+
+**Output:**
+
+```
+OK: Request was successful.
+Error: Resource not found.
+Unknown status code: 503
+```
+
+This is much more readable than a series of `if status_code == 200: ... elif status_code == 404: ...` statements.
+
+#### Pattern Matching within a `for` Loop
+
+This is where `match-case` truly shines, allowing you to elegantly handle items with different structures while iterating over a collection. Let's process a list containing tuples, dictionaries, and lists.
+
+```python
+# A list of heterogeneous data structures
+mixed_data = [
+    (1, 2),
+    {'name': 'Alice', 'age': 30},
+    [10, 20, 30],
+    (42,),
+    {'city': 'London'},
+    ('a', 'b', 'c'),
+    (5, 5)
+]
+
+print("--- Processing mixed data structures ---")
+
+# Iterate through the list and use match to handle each item's structure
+for item in mixed_data:
+    print(f"\nProcessing item: {item}")
+    match item:
+        # Match a tuple with exactly two elements
+        case (x, y):
+            print(f"  -> Found a tuple with two elements: x={x}, y={y}")
+
+        # Match a tuple with two equal elements (using a "guard")
+        case (x, y) if x == y:
+            print(f"  -> Found a tuple with two IDENTICAL elements: {x} and {y}")
+
+        # Match a dictionary with specific keys
+        case {'name': name, 'age': age}:
+            print(f"  -> Found a person dictionary: {name} is {age} years old.")
+
+        # Match a list with exactly three elements
+        case [a, b, c]:
+            print(f"  -> Found a list with three elements: {a}, {b}, {c}")
+
+        # Match a tuple with a single element
+        case (value,):
+            print(f"  -> Found a tuple with a single value: {value}")
+
+        # The wildcard case for any other type or structure
+        case _:
+            print(f"  -> Found a structure that doesn't match any pattern.")
+```
+
+**Output:**
+
+```
+--- Processing mixed data structures ---
+
+Processing item: (1, 2)
+  -> Found a tuple with two elements: x=1, y=2
+
+Processing item: {'name': 'Alice', 'age': 30}
+  -> Found a person dictionary: Alice is 30 years old.
+
+Processing item: [10, 20, 30]
+  -> Found a list with three elements: 10, 20, 30
+
+Processing item: (42,)
+  -> Found a tuple with a single value: 42
+
+Processing item: {'city': 'London'}
+  -> Found a structure that doesn't match any pattern.
+
+Processing item: ('a', 'b', 'c')
+  -> Found a structure that doesn't match any pattern.
+
+Processing item: (5, 5)
+  -> Found a tuple with two IDENTICAL elements: 5 and 5
+```
+
+#### Key Concepts in Pattern Matching
+
+  * **Capture Patterns:** Variables like `x`, `y`, `name`, `age`, `a`, `b`, and `c` in the `case` statements are called **capture patterns**. They "capture" the values from the corresponding positions in the matched structure.
+  * **Literals and Wildcards:** You can match against specific literal values (`case 200:`) or use the wildcard `_` to match any value you don't care about (e.g., `case (x, _):` would match any 2-element tuple and capture only the first element).
+  * **Guards (`if`):** A guard is an optional `if` condition added to a `case` statement. The pattern must match **and** the condition must be true for the block to execute. This allows for more granular control.
+
+The `match-case` statement makes code for complex logic more explicit, readable, and less prone to errors compared to deeply nested `if-elif-else` blocks, especially when dealing with data that has a well-defined structure.
+
 ## Summary and Next Steps
 
 In this outline, we've covered the pillars of conditionals (`if`, `else`, `elif`) and repetition structures (`for`, `while`), as well as the important loop control tools (`break`, `continue`).

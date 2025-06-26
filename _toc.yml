@@ -11,24 +11,19 @@ chapters:
       - file: docs/01-intro/01-basic-concepts/projects
       - file: docs/01-intro/01-basic-concepts/basics
       - file: docs/01-intro/02-ambient/ambient
-  - file: docs/01-intro/03-python/01-python/python
+  - file: docs/01-intro/02-python/python
     sections:
-      - file: docs/01-intro/03-python/01-syntax
-      - file: docs/01-intro/03-python/02-dtypes
-      - file: docs/01-intro/03-python/03_numbers_string
-      - file: docs/01-intro/03-python/04_bool
-      - file: docs/01-intro/03-python/05_numbers_op
-      - file: docs/01-intro/03-python/06_input_output
-      - file: docs/01-intro/03-python/07_for_loop
-      - file: docs/01-intro/03-python/08_create_func
-      - file: docs/01-intro/03-python/09_built_in_func
-      - file: docs/01-intro/03-python/10_install_import_lib
-  - file: docs/02-data/data
-  - file: docs/03-prep/prep
-  - file: docs/04-supervised/supervised
-  - file: docs/05-unsupervised/unsupervised
-  - file: docs/06-deep/deep
-  - file: docs/07-cv/cv
-  - file: docs/08-nlp/nlp
-  - file: docs/09-llm/llm
+      - file: docs/01-intro/02-python/data-types/data-types
+      - file: docs/01-intro/02-python/control-flow/control-flow
+      - file: docs/01-intro/02-python/func/func
+      - file: docs/01-intro/02-python/input-output/input-output
+      - file: docs/01-intro/02-python/data-structures/data-structures
+  - file: docs/03-big-data/data
+  - file: docs/04-prep/prep
+  - file: docs/05-supervised/supervised
+  - file: docs/06-unsupervised/unsupervised
+  - file: docs/07-deep/deep
+  - file: docs/08-cv/cv
+  - file: docs/09-nlp/nlp
+  - file: docs/10-llm/llm
   - file: docs/bibliography
