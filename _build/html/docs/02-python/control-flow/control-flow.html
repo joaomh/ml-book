@@ -1,0 +1,906 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2.8. Conditionals and Loops &#8212; An Introduction to Machine Learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/02-python/control-flow/control-flow';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="2.9. Creating Functions in Python" href="../func/func.html" />
+    <link rel="prev" title="2.7. Built-in Data Types" href="../data-types/data-types.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="An Introduction to Machine Learning - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="An Introduction to Machine Learning - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    An Introduction to Machine Learning
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../01-intro/intro.html">1. Introduction to Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../01-intro/01-basic-concepts/projects.html">1.1. Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-intro/01-basic-concepts/basics.html">1.2. Basic Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-intro/02-ambient/ambient.html">1.3. The Python Environment: Anaconda, Colab, and Kaggle</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../python.html">2. Introduction to Python and Basic Syntax</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../data-types/data-types.html">2.7. Built-in Data Types</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.8. Conditionals and Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../func/func.html">2.9. Creating Functions in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../input-output/input-output.html">2.10. Input and Output in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-structures/data-structures.html">2.11. Data Structures in Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03-big-data/data.html">3. Big Data - Intro Data Engineering using Spark and Hadoop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04-prep/prep.html">4. Data Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05-supervised/supervised.html">5. Supervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06-unsupervised/unsupervised.html">6. Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../09-nlp/nlp.html">7. Natural Language Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../10-llm/llm.html">8. Large Language Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">9. Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/joaomh/ml-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/joaomh/ml-book/issues/new?title=Issue%20on%20page%20%2Fdocs/02-python/control-flow/control-flow.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/docs/02-python/control-flow/control-flow.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Conditionals and Loops</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-conditionals-if-else">2.8.1. Introduction to Conditionals (if, else)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-conditionals">2.8.1.1. What are Conditionals?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-structure">2.8.1.2. The <code class="docutils literal notranslate"><span class="pre">if</span></code> Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-else-structure">2.8.1.3. The <code class="docutils literal notranslate"><span class="pre">if-else</span></code> Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-elif-else-structure">2.8.1.4. The <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> Structure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repetition-structures-loops">2.8.2. Repetition Structures (Loops)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-loops">2.8.2.1. What are Loops?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-for-loop">2.8.2.2. The <code class="docutils literal notranslate"><span class="pre">for</span></code> Loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-while-loop">2.8.2.3. The <code class="docutils literal notranslate"><span class="pre">while</span></code> Loop</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loop-control-break-and-continue">2.8.3. Loop Control: <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break">2.8.3.1. <code class="docutils literal notranslate"><span class="pre">break</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue">2.8.3.2. <code class="docutils literal notranslate"><span class="pre">continue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-match-case-statement">2.8.3.3. The <code class="docutils literal notranslate"><span class="pre">match-case</span></code> Statement</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simple-if-elif-else-replacement">2.8.3.3.1. Example 1: Simple <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> Replacement</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-matching-within-a-for-loop">2.8.3.3.2. Pattern Matching within a <code class="docutils literal notranslate"><span class="pre">for</span></code> Loop</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-in-pattern-matching">2.8.3.3.3. Key Concepts in Pattern Matching</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-and-next-steps">2.8.4. Summary and Next Steps</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="conditionals-and-loops">
+<h1><span class="section-number">2.8. </span>Conditionals and Loops<a class="headerlink" href="#conditionals-and-loops" title="Link to this heading">#</a></h1>
+<section id="introduction-to-conditionals-if-else">
+<h2><span class="section-number">2.8.1. </span>Introduction to Conditionals (if, else)<a class="headerlink" href="#introduction-to-conditionals-if-else" title="Link to this heading">#</a></h2>
+<p>Conditionals are fundamental control flow blocks in Python. They allow your program to make decisions and execute different code blocks based on certain conditions.</p>
+<section id="what-are-conditionals">
+<h3><span class="section-number">2.8.1.1. </span>What are Conditionals?<a class="headerlink" href="#what-are-conditionals" title="Link to this heading">#</a></h3>
+<p>Think of conditionals as questions your program asks. If the answer is “yes” (true), it does one thing; if the answer is “no” (false), it might do something else.</p>
+</section>
+<section id="the-if-structure">
+<h3><span class="section-number">2.8.1.2. </span>The <code class="docutils literal notranslate"><span class="pre">if</span></code> Structure<a class="headerlink" href="#the-if-structure" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">if</span></code> is the most basic statement. It executes a block of code only if the specified condition is <strong>true</strong>.</p>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="c1"># Code to be executed if the condition is true</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">18</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are of legal age and can drive.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">You</span> <span class="n">are</span> <span class="n">of</span> <span class="n">legal</span> <span class="n">age</span> <span class="ow">and</span> <span class="n">can</span> <span class="n">drive</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>In this example, since <code class="docutils literal notranslate"><span class="pre">age</span></code> is 18, the condition <code class="docutils literal notranslate"><span class="pre">age</span> <span class="pre">&gt;=</span> <span class="pre">18</span></code> is true, and the message is printed.</p>
+</section>
+<section id="the-if-else-structure">
+<h3><span class="section-number">2.8.1.3. </span>The <code class="docutils literal notranslate"><span class="pre">if-else</span></code> Structure<a class="headerlink" href="#the-if-else-structure" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">else</span></code> allows you to define a block of code to be executed when the <code class="docutils literal notranslate"><span class="pre">if</span></code> condition is <strong>false</strong>.</p>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="c1"># Code to be executed if the condition is true</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Code to be executed if the condition is false</span>
+</pre></div>
+</div>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">25</span>
+
+<span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s very hot! Drink plenty of water.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The temperature is pleasant.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">temperature</span> <span class="ow">is</span> <span class="n">pleasant</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">temperature</span> <span class="pre">&gt;</span> <span class="pre">30</span></code> is false, so the <code class="docutils literal notranslate"><span class="pre">else</span></code> message is displayed.</p>
+</section>
+<section id="the-if-elif-else-structure">
+<h3><span class="section-number">2.8.1.4. </span>The <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> Structure<a class="headerlink" href="#the-if-elif-else-structure" title="Link to this heading">#</a></h3>
+<p>For multiple decision paths, we use <code class="docutils literal notranslate"><span class="pre">elif</span></code> (short for “else if”). It allows you to check several conditions in sequence.</p>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">first_condition</span><span class="p">:</span>
+    <span class="c1"># Code if the first condition is true</span>
+<span class="k">elif</span> <span class="n">second_condition</span><span class="p">:</span>
+    <span class="c1"># Code if the second condition is true (and the first is false)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Code if none of the previous conditions are true</span>
+</pre></div>
+</div>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">grade</span> <span class="o">=</span> <span class="mi">75</span>
+
+<span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Concept A - Excellent!&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Concept B - Good!&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Concept C - Sufficient.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Concept D - Failed.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Concept B - Good!
+</pre></div>
+</div>
+<p>In this case, the <code class="docutils literal notranslate"><span class="pre">grade</span></code> fits the second condition (<code class="docutils literal notranslate"><span class="pre">grade</span> <span class="pre">&gt;=</span> <span class="pre">70</span></code>), displaying “Concept B - Good!”.</p>
+</section>
+</section>
+<section id="repetition-structures-loops">
+<h2><span class="section-number">2.8.2. </span>Repetition Structures (Loops)<a class="headerlink" href="#repetition-structures-loops" title="Link to this heading">#</a></h2>
+<p>Loops are used to execute a block of code repeatedly. This is extremely useful when you need to process a list of items, repeat an action until a condition is met, and much more.</p>
+<section id="what-are-loops">
+<h3><span class="section-number">2.8.2.1. </span>What are Loops?<a class="headerlink" href="#what-are-loops" title="Link to this heading">#</a></h3>
+<p>Imagine you have a task to do several times. Instead of writing the same code repeatedly, you use a loop to automate that repetition.</p>
+</section>
+<section id="the-for-loop">
+<h3><span class="section-number">2.8.2.2. </span>The <code class="docutils literal notranslate"><span class="pre">for</span></code> Loop<a class="headerlink" href="#the-for-loop" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is used to iterate over a sequence (such as a list, tuple, string, or a range of numbers).</p>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+    <span class="c1"># Code to be executed for each item in the sequence</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p><strong>Example with list:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I like </span><span class="si">{</span><span class="n">fruit</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+<span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p><strong>Example with <code class="docutils literal notranslate"><span class="pre">range()</span></code>:</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">range()</span></code> function generates a sequence of numbers.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count from 0 to 4 (exclusive of 5)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Count from 1 to 5 (inclusive of 1, exclusive of 6)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Count from 0 to 10, stepping by 2</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="the-while-loop">
+<h3><span class="section-number">2.8.2.3. </span>The <code class="docutils literal notranslate"><span class="pre">while</span></code> Loop<a class="headerlink" href="#the-while-loop" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">while</span></code> loop executes a block of code as long as a specified condition is <strong>true</strong>. It continues repeating until the condition becomes false.</p>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="c1"># Code to be executed as long as the condition is true</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">counter</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Counter: </span><span class="si">{</span><span class="n">counter</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># It&#39;s crucial to update the condition to avoid an infinite loop!</span>
+</pre></div>
+</div>
+<p>In this example, the loop will continue as long as <code class="docutils literal notranslate"><span class="pre">counter</span></code> is less than 5. In each iteration, <code class="docutils literal notranslate"><span class="pre">counter</span></code> is incremented by 1.</p>
+</section>
+</section>
+<section id="loop-control-break-and-continue">
+<h2><span class="section-number">2.8.3. </span>Loop Control: <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#loop-control-break-and-continue" title="Link to this heading">#</a></h2>
+<p>Sometimes, within a loop, you need more refined control over when to stop the iteration or skip to the next one. This is where <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code> come in.</p>
+<section id="break">
+<h3><span class="section-number">2.8.3.1. </span><code class="docutils literal notranslate"><span class="pre">break</span></code><a class="headerlink" href="#break" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">break</span></code> statement is used to <strong>completely terminate</strong> the execution of the current loop. Program control jumps to the statement immediately after the loop.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found 5! Stopping the loop.&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this case, the loop will print numbers from 0 to 4, and when <code class="docutils literal notranslate"><span class="pre">number</span></code> is 5, it prints the message and exits the loop immediately, without printing 5 or any subsequent number.</p>
+</section>
+<section id="continue">
+<h3><span class="section-number">2.8.3.2. </span><code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#continue" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement is used to <strong>skip the current iteration</strong> of the loop and proceed to the next iteration. The rest of the code within the loop for the current iteration is not executed.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Checks if the number is even</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Skipping even number: </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Odd number: </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, if <code class="docutils literal notranslate"><span class="pre">i</span></code> is even, the message “Skipping even number…” is printed, and <code class="docutils literal notranslate"><span class="pre">continue</span></code> causes the loop to skip the rest of the code for that iteration and move to the next. Only odd numbers will have the “Odd number:” message printed.</p>
+</section>
+<section id="the-match-case-statement">
+<h3><span class="section-number">2.8.3.3. </span>The <code class="docutils literal notranslate"><span class="pre">match-case</span></code> Statement<a class="headerlink" href="#the-match-case-statement" title="Link to this heading">#</a></h3>
+<p>Starting from Python 3.10, the <code class="docutils literal notranslate"><span class="pre">match-case</span></code> statement provides a new way to control program flow by matching a subject against a series of patterns. It’s a more elegant and powerful switch/case statement.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">match</span></code> statement takes an expression and compares its value against successive patterns given as <code class="docutils literal notranslate"><span class="pre">case</span></code> blocks.</p>
+<p><strong>Basic Syntax</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">match</span> <span class="n">subject_expression</span><span class="p">:</span>
+    <span class="k">case</span> <span class="n">pattern_1</span><span class="p">:</span>
+        <span class="c1"># Code to execute if pattern_1 matches</span>
+    <span class="k">case</span> <span class="n">pattern_2</span><span class="p">:</span>
+        <span class="c1"># Code to execute if pattern_2 matches</span>
+    <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+        <span class="c1"># Optional: Code to execute if no pattern matches (the wildcard)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">_</span></code> is a <strong>wildcard pattern</strong> that matches anything and is often used as a final, catch-all <code class="docutils literal notranslate"><span class="pre">case</span></code> to handle unexpected values.</p>
+<section id="example-1-simple-if-elif-else-replacement">
+<h4><span class="section-number">2.8.3.3.1. </span>Example 1: Simple <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> Replacement<a class="headerlink" href="#example-1-simple-if-elif-else-replacement" title="Link to this heading">#</a></h4>
+<p>Let’s see how <code class="docutils literal notranslate"><span class="pre">match-case</span></code> can clean up a common conditional structure, such as handling different HTTP status codes.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">handle_http_status</span><span class="p">(</span><span class="n">status_code</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Handles an HTTP status code using a match statement.&quot;&quot;&quot;</span>
+    <span class="k">match</span> <span class="n">status_code</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;OK: Request was successful.&quot;</span>
+        <span class="k">case</span> <span class="mi">404</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Resource not found.&quot;</span>
+        <span class="k">case</span> <span class="mi">500</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Internal server error.&quot;</span>
+        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span> <span class="c1"># The wildcard case, like a final &#39;else&#39;</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Unknown status code: </span><span class="si">{</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1"># Test the function with different values</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">handle_http_status</span><span class="p">(</span><span class="mi">200</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">handle_http_status</span><span class="p">(</span><span class="mi">404</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">handle_http_status</span><span class="p">(</span><span class="mi">503</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OK</span><span class="p">:</span> <span class="n">Request</span> <span class="n">was</span> <span class="n">successful</span><span class="o">.</span>
+<span class="n">Error</span><span class="p">:</span> <span class="n">Resource</span> <span class="ow">not</span> <span class="n">found</span><span class="o">.</span>
+<span class="n">Unknown</span> <span class="n">status</span> <span class="n">code</span><span class="p">:</span> <span class="mi">503</span>
+</pre></div>
+</div>
+<p>This is much more readable than a series of <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">status_code</span> <span class="pre">==</span> <span class="pre">200:</span> <span class="pre">...</span> <span class="pre">elif</span> <span class="pre">status_code</span> <span class="pre">==</span> <span class="pre">404:</span> <span class="pre">...</span></code> statements.</p>
+</section>
+<section id="pattern-matching-within-a-for-loop">
+<h4><span class="section-number">2.8.3.3.2. </span>Pattern Matching within a <code class="docutils literal notranslate"><span class="pre">for</span></code> Loop<a class="headerlink" href="#pattern-matching-within-a-for-loop" title="Link to this heading">#</a></h4>
+<p>This is where <code class="docutils literal notranslate"><span class="pre">match-case</span></code> truly shines, allowing you to elegantly handle items with different structures while iterating over a collection. Let’s process a list containing tuples, dictionaries, and lists.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A list of heterogeneous data structures</span>
+<span class="n">mixed_data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">},</span>
+    <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+    <span class="p">(</span><span class="mi">42</span><span class="p">,),</span>
+    <span class="p">{</span><span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;London&#39;</span><span class="p">},</span>
+    <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Processing mixed data structures ---&quot;</span><span class="p">)</span>
+
+<span class="c1"># Iterate through the list and use match to handle each item&#39;s structure</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">mixed_data</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Processing item: </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">match</span> <span class="n">item</span><span class="p">:</span>
+        <span class="c1"># Match a tuple with exactly two elements</span>
+        <span class="k">case</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  -&gt; Found a tuple with two elements: x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Match a tuple with two equal elements (using a &quot;guard&quot;)</span>
+        <span class="k">case</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  -&gt; Found a tuple with two IDENTICAL elements: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Match a dictionary with specific keys</span>
+        <span class="k">case</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="n">age</span><span class="p">}:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  -&gt; Found a person dictionary: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Match a list with exactly three elements</span>
+        <span class="k">case</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  -&gt; Found a list with three elements: </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Match a tuple with a single element</span>
+        <span class="k">case</span> <span class="p">(</span><span class="n">value</span><span class="p">,):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  -&gt; Found a tuple with a single value: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># The wildcard case for any other type or structure</span>
+        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  -&gt; Found a structure that doesn&#39;t match any pattern.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span> <span class="n">Processing</span> <span class="n">mixed</span> <span class="n">data</span> <span class="n">structures</span> <span class="o">---</span>
+
+<span class="n">Processing</span> <span class="n">item</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+  <span class="o">-&gt;</span> <span class="n">Found</span> <span class="n">a</span> <span class="nb">tuple</span> <span class="k">with</span> <span class="n">two</span> <span class="n">elements</span><span class="p">:</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span>
+
+<span class="n">Processing</span> <span class="n">item</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
+  <span class="o">-&gt;</span> <span class="n">Found</span> <span class="n">a</span> <span class="n">person</span> <span class="n">dictionary</span><span class="p">:</span> <span class="n">Alice</span> <span class="ow">is</span> <span class="mi">30</span> <span class="n">years</span> <span class="n">old</span><span class="o">.</span>
+
+<span class="n">Processing</span> <span class="n">item</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+  <span class="o">-&gt;</span> <span class="n">Found</span> <span class="n">a</span> <span class="nb">list</span> <span class="k">with</span> <span class="n">three</span> <span class="n">elements</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span>
+
+<span class="n">Processing</span> <span class="n">item</span><span class="p">:</span> <span class="p">(</span><span class="mi">42</span><span class="p">,)</span>
+  <span class="o">-&gt;</span> <span class="n">Found</span> <span class="n">a</span> <span class="nb">tuple</span> <span class="k">with</span> <span class="n">a</span> <span class="n">single</span> <span class="n">value</span><span class="p">:</span> <span class="mi">42</span>
+
+<span class="n">Processing</span> <span class="n">item</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;London&#39;</span><span class="p">}</span>
+  <span class="o">-&gt;</span> <span class="n">Found</span> <span class="n">a</span> <span class="n">structure</span> <span class="n">that</span> <span class="n">doesn</span><span class="s1">&#39;t match any pattern.</span>
+
+<span class="n">Processing</span> <span class="n">item</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span> <span class="n">Found</span> <span class="n">a</span> <span class="n">structure</span> <span class="n">that</span> <span class="n">doesn</span><span class="s1">&#39;t match any pattern.</span>
+
+<span class="n">Processing</span> <span class="n">item</span><span class="p">:</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+  <span class="o">-&gt;</span> <span class="n">Found</span> <span class="n">a</span> <span class="nb">tuple</span> <span class="k">with</span> <span class="n">two</span> <span class="n">IDENTICAL</span> <span class="n">elements</span><span class="p">:</span> <span class="mi">5</span> <span class="ow">and</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</section>
+<section id="key-concepts-in-pattern-matching">
+<h4><span class="section-number">2.8.3.3.3. </span>Key Concepts in Pattern Matching<a class="headerlink" href="#key-concepts-in-pattern-matching" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Capture Patterns:</strong> Variables like <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code> in the <code class="docutils literal notranslate"><span class="pre">case</span></code> statements are called <strong>capture patterns</strong>. They “capture” the values from the corresponding positions in the matched structure.</p></li>
+<li><p><strong>Literals and Wildcards:</strong> You can match against specific literal values (<code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">200:</span></code>) or use the wildcard <code class="docutils literal notranslate"><span class="pre">_</span></code> to match any value you don’t care about (e.g., <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">(x,</span> <span class="pre">_):</span></code> would match any 2-element tuple and capture only the first element).</p></li>
+<li><p><strong>Guards (<code class="docutils literal notranslate"><span class="pre">if</span></code>):</strong> A guard is an optional <code class="docutils literal notranslate"><span class="pre">if</span></code> condition added to a <code class="docutils literal notranslate"><span class="pre">case</span></code> statement. The pattern must match <strong>and</strong> the condition must be true for the block to execute. This allows for more granular control.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">match-case</span></code> statement makes code for complex logic more explicit, readable, and less prone to errors compared to deeply nested <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> blocks, especially when dealing with data that has a well-defined structure.</p>
+</section>
+</section>
+</section>
+<section id="summary-and-next-steps">
+<h2><span class="section-number">2.8.4. </span>Summary and Next Steps<a class="headerlink" href="#summary-and-next-steps" title="Link to this heading">#</a></h2>
+<p>In this outline, we’ve covered the pillars of conditionals (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>) and repetition structures (<code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>), as well as the important loop control tools (<code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code>).</p>
+<p>I recommend the following activities:</p>
+<ul class="simple">
+<li><p><strong>Conditionals:</strong></p>
+<ul>
+<li><p>Create a program that asks for the user’s age and tells them if they are a child, teenager, or adult.</p></li>
+<li><p>Write a program that asks for three grades and calculates the average, informing whether the student passed (average &gt;= 7), is in recovery (average &gt;= 5), or failed.</p></li>
+</ul>
+</li>
+<li><p><strong>Loops:</strong></p>
+<ul>
+<li><p>Print numbers from 1 to 10 using <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code>.</p></li>
+<li><p>Create a loop that asks the user for numbers until they type 0. Finally, sum all the entered numbers.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">break</span></code> to exit a loop when a specific condition is met (e.g., finding a name in a list).</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">continue</span></code> to skip printing numbers that are multiples of 3 in a loop from 1 to 20.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/02-python/control-flow"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../data-types/data-types.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2.7. </span>Built-in Data Types</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../func/func.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2.9. </span>Creating Functions in Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-conditionals-if-else">2.8.1. Introduction to Conditionals (if, else)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-conditionals">2.8.1.1. What are Conditionals?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-structure">2.8.1.2. The <code class="docutils literal notranslate"><span class="pre">if</span></code> Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-else-structure">2.8.1.3. The <code class="docutils literal notranslate"><span class="pre">if-else</span></code> Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-elif-else-structure">2.8.1.4. The <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> Structure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repetition-structures-loops">2.8.2. Repetition Structures (Loops)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-loops">2.8.2.1. What are Loops?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-for-loop">2.8.2.2. The <code class="docutils literal notranslate"><span class="pre">for</span></code> Loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-while-loop">2.8.2.3. The <code class="docutils literal notranslate"><span class="pre">while</span></code> Loop</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loop-control-break-and-continue">2.8.3. Loop Control: <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break">2.8.3.1. <code class="docutils literal notranslate"><span class="pre">break</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue">2.8.3.2. <code class="docutils literal notranslate"><span class="pre">continue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-match-case-statement">2.8.3.3. The <code class="docutils literal notranslate"><span class="pre">match-case</span></code> Statement</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simple-if-elif-else-replacement">2.8.3.3.1. Example 1: Simple <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> Replacement</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-matching-within-a-for-loop">2.8.3.3.2. Pattern Matching within a <code class="docutils literal notranslate"><span class="pre">for</span></code> Loop</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-in-pattern-matching">2.8.3.3.3. Key Concepts in Pattern Matching</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-and-next-steps">2.8.4. Summary and Next Steps</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By João Manoel Herrera Pinheiro
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

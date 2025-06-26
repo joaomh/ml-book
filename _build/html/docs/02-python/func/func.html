@@ -1,0 +1,1331 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2.9. Creating Functions in Python &#8212; An Introduction to Machine Learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/02-python/func/func';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="2.10. Input and Output in Python" href="../input-output/input-output.html" />
+    <link rel="prev" title="2.8. Conditionals and Loops" href="../control-flow/control-flow.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="An Introduction to Machine Learning - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="An Introduction to Machine Learning - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    An Introduction to Machine Learning
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../01-intro/intro.html">1. Introduction to Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../01-intro/01-basic-concepts/projects.html">1.1. Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-intro/01-basic-concepts/basics.html">1.2. Basic Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-intro/02-ambient/ambient.html">1.3. The Python Environment: Anaconda, Colab, and Kaggle</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../python.html">2. Introduction to Python and Basic Syntax</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../data-types/data-types.html">2.7. Built-in Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control-flow/control-flow.html">2.8. Conditionals and Loops</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.9. Creating Functions in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../input-output/input-output.html">2.10. Input and Output in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-structures/data-structures.html">2.11. Data Structures in Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03-big-data/data.html">3. Big Data - Intro Data Engineering using Spark and Hadoop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04-prep/prep.html">4. Data Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05-supervised/supervised.html">5. Supervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06-unsupervised/unsupervised.html">6. Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../09-nlp/nlp.html">7. Natural Language Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../10-llm/llm.html">8. Large Language Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">9. Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/joaomh/ml-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/joaomh/ml-book/issues/new?title=Issue%20on%20page%20%2Fdocs/02-python/func/func.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/docs/02-python/func/func.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Creating Functions in Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-functions">2.9.1. What Are Functions?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-function-the-def-keyword">2.9.2. Defining a Function: The <code class="docutils literal notranslate"><span class="pre">def</span></code> Keyword</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simple-function-no-parameters-and-no-explicit-return">2.9.2.1. Example 1: Simple Function (No Parameters and No Explicit Return)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-function-with-parameters-and-return">2.9.2.2. Example 2: Function with Parameters and Return</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings-documenting-your-functions">2.9.2.3. Docstrings: Documenting Your Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-arguments-parameters-vs-arguments">2.9.3. Function Arguments (Parameters vs. Arguments)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-arguments">2.9.3.1. Types of Arguments:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#positional-arguments">2.9.3.1.1. Positional Arguments</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#keyword-arguments">2.9.3.1.2. Keyword Arguments</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#default-arguments">2.9.3.1.3. Default Arguments</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arbitrary-argument-lists">2.9.3.1.4. Arbitrary Argument Lists</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arbitrary-positional-arguments-args">2.9.3.1.5. Arbitrary Positional Arguments (<code class="docutils literal notranslate"><span class="pre">*args</span></code>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arbitrary-keyword-arguments-kwargs">2.9.3.1.6. Arbitrary Keyword Arguments (<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unpacking-argument-lists">2.9.3.1.7. Unpacking Argument Lists</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unpacking-iterables-for-positional-arguments">2.9.3.1.8. Unpacking Iterables for Positional Arguments (<code class="docutils literal notranslate"><span class="pre">*</span></code>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unpacking-dictionaries-for-keyword-arguments">2.9.3.1.9. Unpacking Dictionaries for Keyword Arguments (<code class="docutils literal notranslate"><span class="pre">**</span></code>)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#essential-built-in-functions-in-python">2.9.4. Essential Built-in Functions in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print">2.9.4.1. <code class="docutils literal notranslate"><span class="pre">print()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type">2.9.4.2. <code class="docutils literal notranslate"><span class="pre">type()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#len">2.9.4.3. <code class="docutils literal notranslate"><span class="pre">len()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#int">2.9.4.4. <code class="docutils literal notranslate"><span class="pre">int()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#str">2.9.4.5. <code class="docutils literal notranslate"><span class="pre">str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#float">2.9.4.6. <code class="docutils literal notranslate"><span class="pre">float()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abs">2.9.4.7. <code class="docutils literal notranslate"><span class="pre">abs()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#max">2.9.4.8. <code class="docutils literal notranslate"><span class="pre">max()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min">2.9.4.9. <code class="docutils literal notranslate"><span class="pre">min()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sum">2.9.4.10. <code class="docutils literal notranslate"><span class="pre">sum()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range">2.9.4.11. <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-expressions">2.9.5. Lambda Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages-and-libraries-in-python">2.9.6. Packages and Libraries in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-packages">2.9.6.1. What are packages?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-packages-with-pip">2.9.6.2. Installing Packages with <code class="docutils literal notranslate"><span class="pre">pip</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install-a-package">2.9.6.2.1. How to install a package:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-upgrade-a-package-version">2.9.6.2.2. How to upgrade a package version:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-uninstall-a-package-version">2.9.6.2.3. How to uninstall a package version:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install-a-package-using-conda">2.9.6.2.4. How to install a package using conda:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries-in-python">2.9.7. Importing Libraries in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-import">2.9.7.1. Why Import?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-import-libraries">2.9.7.2. How to Import Libraries</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-import-import-module-name">2.9.7.2.1. Standard Import: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">module_name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#import-with-alias-import-module-name-as-alias">2.9.7.2.2. Import with Alias: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">module_name</span> <span class="pre">as</span> <span class="pre">alias</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#selective-import-from-module-name-import-item1-item2">2.9.7.2.3. Selective Import: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module_name</span> <span class="pre">import</span> <span class="pre">item1,</span> <span class="pre">item2</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#import-all-from-module-name-import">2.9.7.2.4. Import All: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module_name</span> <span class="pre">import</span> <span class="pre">*</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-place-imports">2.9.7.3. Where to Place Imports</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="creating-functions-in-python">
+<h1><span class="section-number">2.9. </span>Creating Functions in Python<a class="headerlink" href="#creating-functions-in-python" title="Link to this heading">#</a></h1>
+<section id="what-are-functions">
+<h2><span class="section-number">2.9.1. </span>What Are Functions?<a class="headerlink" href="#what-are-functions" title="Link to this heading">#</a></h2>
+<p>In the world of programming, a <strong>function</strong> is an organized and reusable block of code designed to perform a specific task. Think of a function as a “machine” that receives some “inputs” (called parameters or arguments), processes these inputs, and then produces an “output” (the return value).</p>
+<p><strong>Why use functions?</strong></p>
+<ul class="simple">
+<li><p><strong>Code Reusability (DRY - Don’t Repeat Yourself):</strong> Avoids code duplication. If you need to perform the same task in multiple places in your program, just create a function and call it.</p></li>
+<li><p><strong>Organization and Modularity:</strong> Divides the program into smaller, more manageable parts, making the code easier to read, understand, and debug.</p></li>
+<li><p><strong>Maintenance:</strong> If there’s a bug or a necessary change in a specific task, you only need to modify the corresponding function, and the change will be reflected everywhere the function is used.</p></li>
+<li><p><strong>Abstraction:</strong> Allows you to focus on “what” a function does, without worrying about “how” it does it (once it has been correctly implemented).</p></li>
+</ul>
+</section>
+<section id="defining-a-function-the-def-keyword">
+<h2><span class="section-number">2.9.2. </span>Defining a Function: The <code class="docutils literal notranslate"><span class="pre">def</span></code> Keyword<a class="headerlink" href="#defining-a-function-the-def-keyword" title="Link to this heading">#</a></h2>
+<p>In Python, functions are defined using the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword, followed by the function name, parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code> which may contain parameters, and a colon <code class="docutils literal notranslate"><span class="pre">:</span></code>. The function body is indented.</p>
+<p><strong>Basic Syntax:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">parameter1</span><span class="p">,</span> <span class="n">parameter2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Docstring: Explains what the function does, its parameters, and what it returns.&quot;&quot;&quot;</span>
+    <span class="c1"># Function body: code to be executed</span>
+    <span class="c1"># ...</span>
+    <span class="k">return</span> <span class="n">return_value</span> <span class="c1"># Optional: returns a value</span>
+</pre></div>
+</div>
+<section id="example-1-simple-function-no-parameters-and-no-explicit-return">
+<h3><span class="section-number">2.9.2.1. </span>Example 1: Simple Function (No Parameters and No Explicit Return)<a class="headerlink" href="#example-1-simple-function-no-parameters-and-no-explicit-return" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello! Welcome to my function!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calling the function to execute it</span>
+<span class="n">greet</span><span class="p">()</span>
+<span class="n">greet</span><span class="p">()</span> <span class="c1"># We can call the function as many times as we want</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Hello! Welcome to my function!
+Hello! Welcome to my function!
+</pre></div>
+</div>
+</section>
+<section id="example-2-function-with-parameters-and-return">
+<h3><span class="section-number">2.9.2.2. </span>Example 2: Function with Parameters and Return<a class="headerlink" href="#example-2-function-with-parameters-and-return" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_numbers</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function sums two numbers and returns the result.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calling the function and printing the returned value</span>
+<span class="n">total_sum</span> <span class="o">=</span> <span class="n">sum_numbers</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The sum of 3 and 5 is: </span><span class="si">{</span><span class="n">total_sum</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Output: The sum of 3 and 5 is: 8</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The sum of 10 and 20 is: </span><span class="si">{</span><span class="n">sum_numbers</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Output: The sum of 10 and 20 is: 30</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="nb">sum</span> <span class="n">of</span> <span class="mi">3</span> <span class="ow">and</span> <span class="mi">5</span> <span class="ow">is</span><span class="p">:</span> <span class="mi">8</span>
+<span class="n">The</span> <span class="nb">sum</span> <span class="n">of</span> <span class="mi">10</span> <span class="ow">and</span> <span class="mi">20</span> <span class="ow">is</span><span class="p">:</span> <span class="mi">30</span>
+</pre></div>
+</div>
+<p><strong>Explanation of components:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">sum_numbers(a,</span> <span class="pre">b):</span></code></strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">def</span></code>: Keyword to define a function.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sum_numbers</span></code>: Function name. It should be descriptive and follow variable naming conventions (lowercase, <code class="docutils literal notranslate"><span class="pre">_</span></code> to separate words).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">b)</span></code>: <strong>Parameters</strong> of the function. These are variables that the function expects to receive when called. <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are placeholders for the values that will be passed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:</span></code>: Indicates the beginning of the function’s code block.</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">result</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code></strong>: The body of the function, where the logic is implemented.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">result</span></code></strong>: The <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword is used to send a value back to the place where the function was called. When <code class="docutils literal notranslate"><span class="pre">return</span></code> is executed, the function immediately stops its execution. If a function does not have an explicit <code class="docutils literal notranslate"><span class="pre">return</span></code> statement, it implicitly returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</section>
+<section id="docstrings-documenting-your-functions">
+<h3><span class="section-number">2.9.2.3. </span>Docstrings: Documenting Your Functions<a class="headerlink" href="#docstrings-documenting-your-functions" title="Link to this heading">#</a></h3>
+<p>A crucial aspect for professional and readable code is documentation. In Python, we use <strong>Docstrings</strong> (documentation strings) to explain the purpose of a function, its parameters, and what it returns. They are defined within triple quotes (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;Docstring</span> <span class="pre">here&quot;&quot;&quot;</span></code>) right below the <code class="docutils literal notranslate"><span class="pre">def</span></code> line.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the average of two numbers.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    a (float/int): The first number.</span>
+<span class="sd">    b (float/int): The second number.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    float: The average of the two numbers.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calling the function and printing the returned value</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The average of 10 and 20 is: </span><span class="si">{</span><span class="n">average</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Output: The average of 10 and 20 is: 15.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The average of 5.5 and 8.5 is: </span><span class="si">{</span><span class="n">average</span><span class="p">(</span><span class="mf">5.5</span><span class="p">,</span><span class="w"> </span><span class="mf">8.5</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Output: The average of 5.5 and 8.5 is: 7.0</span>
+
+<span class="c1"># To access the docstring, we can use help() or the __doc__ attribute</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Accessing the Docstring ---&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">average</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<span class="c1"># help(average) # Uncomment to see the docstring formatted by help()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">average</span> <span class="n">of</span> <span class="mi">10</span> <span class="ow">and</span> <span class="mi">20</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">15.0</span>
+<span class="n">The</span> <span class="n">average</span> <span class="n">of</span> <span class="mf">5.5</span> <span class="ow">and</span> <span class="mf">8.5</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">7.0</span>
+
+<span class="o">---</span> <span class="n">Accessing</span> <span class="n">the</span> <span class="n">Docstring</span> <span class="o">---</span>
+
+    <span class="n">Calculates</span> <span class="n">the</span> <span class="n">average</span> <span class="n">of</span> <span class="n">two</span> <span class="n">numbers</span><span class="o">.</span>
+
+    <span class="n">Parameters</span><span class="p">:</span>
+    <span class="n">a</span> <span class="p">(</span><span class="nb">float</span><span class="o">/</span><span class="nb">int</span><span class="p">):</span> <span class="n">The</span> <span class="n">first</span> <span class="n">number</span><span class="o">.</span>
+    <span class="n">b</span> <span class="p">(</span><span class="nb">float</span><span class="o">/</span><span class="nb">int</span><span class="p">):</span> <span class="n">The</span> <span class="n">second</span> <span class="n">number</span><span class="o">.</span>
+
+    <span class="n">Returns</span><span class="p">:</span>
+    <span class="nb">float</span><span class="p">:</span> <span class="n">The</span> <span class="n">average</span> <span class="n">of</span> <span class="n">the</span> <span class="n">two</span> <span class="n">numbers</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Benefits of Docstrings:</strong></p>
+<ul class="simple">
+<li><p><strong>Clarity:</strong> Immediately explains the function’s purpose.</p></li>
+<li><p><strong>Development Tools:</strong> IDEs and documentation tools can extract docstrings to provide help and generate automatic documentation.</p></li>
+<li><p><strong>Collaboration:</strong> Makes it easier for other developers (and for yourself in the future) to understand how to use your function without having to read all its internal code.</p></li>
+</ul>
+</section>
+</section>
+<section id="function-arguments-parameters-vs-arguments">
+<h2><span class="section-number">2.9.3. </span>Function Arguments (Parameters vs. Arguments)<a class="headerlink" href="#function-arguments-parameters-vs-arguments" title="Link to this heading">#</a></h2>
+<p>It’s important to differentiate:</p>
+<ul class="simple">
+<li><p><strong>Parameters:</strong> These are the names of the variables listed in the function definition (e.g., <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> in <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">sum_numbers(a,</span> <span class="pre">b):</span></code>). They are placeholders.</p></li>
+<li><p><strong>Arguments:</strong> These are the actual values you pass to the function when you call it (e.g., <code class="docutils literal notranslate"><span class="pre">3</span></code> and <code class="docutils literal notranslate"><span class="pre">5</span></code> in <code class="docutils literal notranslate"><span class="pre">sum_numbers(3,</span> <span class="pre">5)</span></code>).</p></li>
+</ul>
+<section id="types-of-arguments">
+<h3><span class="section-number">2.9.3.1. </span>Types of Arguments:<a class="headerlink" href="#types-of-arguments" title="Link to this heading">#</a></h3>
+<section id="positional-arguments">
+<h4><span class="section-number">2.9.3.1.1. </span>Positional Arguments<a class="headerlink" href="#positional-arguments" title="Link to this heading">#</a></h4>
+<p>Passed in the order in which the parameters are defined.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet_person</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">greeting</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">greeting</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="n">greet_person</span><span class="p">(</span><span class="s2">&quot;Maria&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello&quot;</span><span class="p">)</span> <span class="c1"># &#39;Hello&#39; goes to &#39;greeting&#39;, &#39;Maria&#39; goes to &#39;name&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Hello, Maria!
+</pre></div>
+</div>
+</section>
+<section id="keyword-arguments">
+<h4><span class="section-number">2.9.3.1.2. </span>Keyword Arguments<a class="headerlink" href="#keyword-arguments" title="Link to this heading">#</a></h4>
+<p>Passed using the parameter name, which allows you to change the order.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet_person</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">greeting</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">greeting</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="n">greet_person</span><span class="p">(</span><span class="n">greeting</span><span class="o">=</span><span class="s2">&quot;Good morning&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;João&quot;</span><span class="p">)</span> <span class="c1"># The order doesn&#39;t matter here</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Good morning, João!
+</pre></div>
+</div>
+</section>
+<section id="default-arguments">
+<h4><span class="section-number">2.9.3.1.3. </span>Default Arguments<a class="headerlink" href="#default-arguments" title="Link to this heading">#</a></h4>
+<p>Allow a parameter to have a predefined value if no argument is provided for it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet_with_default</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">greeting</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">):</span> <span class="c1"># &#39;Hello&#39; is the default value for &#39;greeting&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">greeting</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">greet_with_default</span><span class="p">(</span><span class="s2">&quot;Carlos&quot;</span><span class="p">)</span>         <span class="c1"># Output: Hello, Carlos!</span>
+<span class="n">greet_with_default</span><span class="p">(</span><span class="s2">&quot;Ana&quot;</span><span class="p">,</span> <span class="s2">&quot;Good morning&quot;</span><span class="p">)</span> <span class="c1"># Output: Good morning, Ana! (the default is overridden)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Hello, Carlos!
+Good morning, Ana!
+</pre></div>
+</div>
+<p><strong>Caution:</strong> Parameters with default values must come <strong>after</strong> parameters without default values.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This would cause a SyntaxError!</span>
+<span class="c1"># def invalid_function(greeting=&quot;Hello&quot;, name):</span>
+<span class="c1">#     pass</span>
+</pre></div>
+</div>
+</section>
+<section id="arbitrary-argument-lists">
+<h4><span class="section-number">2.9.3.1.4. </span>Arbitrary Argument Lists<a class="headerlink" href="#arbitrary-argument-lists" title="Link to this heading">#</a></h4>
+<p>When defining functions, you often know exactly how many arguments they will take. However, sometimes you want a function to accept an <strong>arbitrary (variable) number</strong> of arguments. Python provides special syntax for this using <code class="docutils literal notranslate"><span class="pre">*args</span></code> and <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>.</p>
+</section>
+<section id="arbitrary-positional-arguments-args">
+<h4><span class="section-number">2.9.3.1.5. </span>Arbitrary Positional Arguments (<code class="docutils literal notranslate"><span class="pre">*args</span></code>)<a class="headerlink" href="#arbitrary-positional-arguments-args" title="Link to this heading">#</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">*args</span></code> syntax allows a function to accept any number of <strong>positional arguments</strong>. Inside the function, <code class="docutils literal notranslate"><span class="pre">args</span></code> will be a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> containing all the positional arguments passed after the explicitly defined parameters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_all_numbers</span><span class="p">(</span><span class="o">*</span><span class="n">numbers</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Sums all the numbers passed as positional arguments.</span>
+<span class="sd">    &#39;numbers&#39; will be a tuple of all arguments.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">num</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sum of (1, 2, 3): </span><span class="si">{</span><span class="n">sum_all_numbers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sum of (10, 20): </span><span class="si">{</span><span class="n">sum_all_numbers</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sum of (5,): </span><span class="si">{</span><span class="n">sum_all_numbers</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sum of (): </span><span class="si">{</span><span class="n">sum_all_numbers</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># No arguments passed</span>
+</pre></div>
+</div>
+<p>You can combine <code class="docutils literal notranslate"><span class="pre">*args</span></code> with regular positional arguments. <code class="docutils literal notranslate"><span class="pre">*args</span></code> must come after any regular positional parameters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet_people</span><span class="p">(</span><span class="n">greeting</span><span class="p">,</span> <span class="o">*</span><span class="n">names</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Greets multiple people with a given greeting.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">greeting</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="n">greet_people</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">)</span>
+<span class="c1"># Output:</span>
+<span class="c1"># Hello, Alice!</span>
+<span class="c1"># Hello, Bob!</span>
+<span class="c1"># Hello, Charlie!</span>
+</pre></div>
+</div>
+</section>
+<section id="arbitrary-keyword-arguments-kwargs">
+<h4><span class="section-number">2.9.3.1.6. </span>Arbitrary Keyword Arguments (<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>)<a class="headerlink" href="#arbitrary-keyword-arguments-kwargs" title="Link to this heading">#</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> syntax allows a function to accept any number of <strong>keyword arguments</strong>. Inside the function, <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> will be a <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> where keys are the argument names and values are their corresponding values.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_user_info</span><span class="p">(</span><span class="o">**</span><span class="n">info</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Displays user information passed as keyword arguments.</span>
+<span class="sd">    &#39;info&#39; will be a dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;User Info:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">info</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">show_user_info</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">28</span><span class="p">,</span> <span class="n">city</span><span class="o">=</span><span class="s2">&quot;Berlin&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">---&quot;</span><span class="p">)</span>
+<span class="n">show_user_info</span><span class="p">(</span><span class="n">product</span><span class="o">=</span><span class="s2">&quot;Laptop&quot;</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span> <span class="n">brand</span><span class="o">=</span><span class="s2">&quot;TechCorp&quot;</span><span class="p">,</span> <span class="n">release_year</span><span class="o">=</span><span class="mi">2023</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="unpacking-argument-lists">
+<h4><span class="section-number">2.9.3.1.7. </span>Unpacking Argument Lists<a class="headerlink" href="#unpacking-argument-lists" title="Link to this heading">#</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code> operators are not just for <em>defining</em> functions with arbitrary arguments; they can also be used to <strong>unpack</strong> iterables (like lists and tuples) and dictionaries when <em>calling</em> a function.</p>
+</section>
+<section id="unpacking-iterables-for-positional-arguments">
+<h4><span class="section-number">2.9.3.1.8. </span>Unpacking Iterables for Positional Arguments (<code class="docutils literal notranslate"><span class="pre">*</span></code>)<a class="headerlink" href="#unpacking-iterables-for-positional-arguments" title="Link to this heading">#</a></h4>
+<p>When you use <code class="docutils literal notranslate"><span class="pre">*</span></code> before an iterable (like a list or tuple) in a function call, Python “unpacks” its elements, passing them as individual positional arguments to the function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Multiplies three numbers.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="o">*</span> <span class="n">z</span>
+
+<span class="n">numbers_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Multiplying </span><span class="si">{</span><span class="n">numbers_list</span><span class="si">}</span><span class="s2"> unpacked: </span><span class="si">{</span><span class="n">multiply</span><span class="p">(</span><span class="o">*</span><span class="n">numbers_list</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Same as multiply(2, 3, 4)</span>
+
+<span class="n">numbers_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Multiplying </span><span class="si">{</span><span class="n">numbers_tuple</span><span class="si">}</span><span class="s2"> unpacked: </span><span class="si">{</span><span class="n">multiply</span><span class="p">(</span><span class="o">*</span><span class="n">numbers_tuple</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Same as multiply(5, 2, 1)</span>
+
+<span class="c1"># This is also useful for functions that expect multiple arguments but you have them in a collection</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Max of [10, 20, 5]: </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="unpacking-dictionaries-for-keyword-arguments">
+<h4><span class="section-number">2.9.3.1.9. </span>Unpacking Dictionaries for Keyword Arguments (<code class="docutils literal notranslate"><span class="pre">**</span></code>)<a class="headerlink" href="#unpacking-dictionaries-for-keyword-arguments" title="Link to this heading">#</a></h4>
+<p>When you use <code class="docutils literal notranslate"><span class="pre">**</span></code> before a dictionary in a function call, Python “unpacks” its key-value pairs, passing them as individual keyword arguments to the function. The dictionary keys must match the parameter names in the function definition.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_person</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">city</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a string with person details.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old and lives in </span><span class="si">{</span><span class="n">city</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+<span class="n">person_details</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+    <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Paris&quot;</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Creating person from dict: </span><span class="si">{</span><span class="n">create_person</span><span class="p">(</span><span class="o">**</span><span class="n">person_details</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Same as create_person(name=&quot;Bob&quot;, age=40, city=&quot;Paris&quot;)</span>
+
+<span class="c1"># You can also combine with explicit keyword arguments (explicit ones take precedence)</span>
+<span class="n">other_details</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;occupation&quot;</span><span class="p">:</span> <span class="s2">&quot;Artist&quot;</span><span class="p">}</span>
+<span class="c1"># print(create_person(name=&quot;Carla&quot;, **other_details)) # This would error as &#39;city&#39; is missing</span>
+</pre></div>
+</div>
+<p>Unpacking arguments is a powerful feature for dynamic function calls and for making code more concise when dealing with collections of data that map directly to function parameters.</p>
+</section>
+</section>
+</section>
+<section id="essential-built-in-functions-in-python">
+<h2><span class="section-number">2.9.4. </span>Essential Built-in Functions in Python<a class="headerlink" href="#essential-built-in-functions-in-python" title="Link to this heading">#</a></h2>
+<p>Python offers a series of “built-in” functions that are always available for use, without the need to import modules. They are fundamental for common operations and manipulating different data types.</p>
+<section id="print">
+<h3><span class="section-number">2.9.4.1. </span><code class="docutils literal notranslate"><span class="pre">print()</span></code><a class="headerlink" href="#print" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">print()</span></code> function is one of the most basic and frequently used in Python. It serves to display information on the console or to standard output.</p>
+<ul class="simple">
+<li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">print(object(s),</span> <span class="pre">sep='</span> <span class="pre">',</span> <span class="pre">end='\n',</span> <span class="pre">file=sys.stdout,</span> <span class="pre">flush=False)</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">object(s)</span></code>:</strong> The item or items you want to print. It can be a string, a number, a list, etc.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">sep</span></code> (separator):</strong> An optional string to use as a separator between multiple objects. The default is a space.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">end</span></code> (terminator):</strong> An optional string that is added at the end of the output. The default is a newline character (<code class="docutils literal notranslate"><span class="pre">\n</span></code>).</p></li>
+<li><p><strong>Return:</strong> None (returns <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
+</ul>
+<!-- end list -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="type">
+<h3><span class="section-number">2.9.4.2. </span><code class="docutils literal notranslate"><span class="pre">type()</span></code><a class="headerlink" href="#type" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">type()</span></code> function is used to return the type of an object. It is useful for debugging and understanding what kind of data you are working with.</p>
+<ul class="simple">
+<li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">type(object)</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">object</span></code>:</strong> The item whose type you want to determine.</p></li>
+<li><p><strong>Return:</strong> The type of the object.</p></li>
+</ul>
+<!-- end list -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="len">
+<h3><span class="section-number">2.9.4.3. </span><code class="docutils literal notranslate"><span class="pre">len()</span></code><a class="headerlink" href="#len" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">len()</span></code> function returns the number of items (the “length”) of an object. It works for sequences like strings, lists, tuples, dictionaries, and sets.</p>
+<ul class="simple">
+<li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">len(s)</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">s</span></code>:</strong> The object whose item count you want to get.</p></li>
+<li><p><strong>Return:</strong> An integer representing the number of items.</p></li>
+</ul>
+<!-- end list -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="int">
+<h3><span class="section-number">2.9.4.4. </span><code class="docutils literal notranslate"><span class="pre">int()</span></code><a class="headerlink" href="#int" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">int()</span></code> function is used to convert a value to an integer type. It can convert floating-point numbers (by truncating the decimal part) or strings that represent whole numbers.</p>
+<ul class="simple">
+<li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">int(x,</span> <span class="pre">base=10)</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">x</span></code>:</strong> The value to be converted. It can be a number, or a string that represents a number.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">base</span></code> (optional):</strong> If <code class="docutils literal notranslate"><span class="pre">x</span></code> is a string, the numeric base (e.g., 2 for binary, 16 for hexadecimal). The default is 10.</p></li>
+<li><p><strong>Return:</strong> An integer value. If the conversion is not possible, it raises a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></li>
+</ul>
+<!-- end list -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="str">
+<h3><span class="section-number">2.9.4.5. </span><code class="docutils literal notranslate"><span class="pre">str()</span></code><a class="headerlink" href="#str" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">str()</span></code> function is used to convert a value to its string representation.</p>
+<ul class="simple">
+<li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">str(object)</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">object</span></code>:</strong> The item to be converted to a string.</p></li>
+<li><p><strong>Return:</strong> The string representation of the object.</p></li>
+</ul>
+<!-- end list -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">123</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="float">
+<h3><span class="section-number">2.9.4.6. </span><code class="docutils literal notranslate"><span class="pre">float()</span></code><a class="headerlink" href="#float" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">float()</span></code> function is used to convert a value to a floating-point number type (decimal number). It can convert integers or strings that represent decimal numbers.</p>
+<ul class="simple">
+<li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">float(x)</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">x</span></code>:</strong> The value to be converted. It can be an integer, or a string that represents a number.</p></li>
+<li><p><strong>Return:</strong> A floating-point value. If the conversion is not possible, it raises a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></li>
+</ul>
+<!-- end list -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;3.14&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="abs">
+<h3><span class="section-number">2.9.4.7. </span><code class="docutils literal notranslate"><span class="pre">abs()</span></code><a class="headerlink" href="#abs" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">abs()</span></code> function returns the absolute value of a number.</p>
+<ul class="simple">
+<li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">abs(x)</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">x</span></code>:</strong> A number (integer, float, or complex).</p></li>
+<li><p><strong>Return:</strong> The absolute value of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+</ul>
+<!-- end list -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="max">
+<h3><span class="section-number">2.9.4.8. </span><code class="docutils literal notranslate"><span class="pre">max()</span></code><a class="headerlink" href="#max" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">max()</span></code> function returns the largest item in an iterable or the largest of two or more arguments.</p>
+<ul class="simple">
+<li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">max(iterable,</span> <span class="pre">*[,</span> <span class="pre">key,</span> <span class="pre">default])</span></code> or <code class="docutils literal notranslate"><span class="pre">max(arg1,</span> <span class="pre">arg2,</span> <span class="pre">*args[,</span> <span class="pre">key])</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">iterable</span></code>:</strong> A collection of items (list, tuple, etc.).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">arg1</span></code>, <code class="docutils literal notranslate"><span class="pre">arg2</span></code>, <code class="docutils literal notranslate"><span class="pre">*args</span></code>:</strong> Individual arguments.</p></li>
+<li><p><strong>Return:</strong> The largest item.</p></li>
+</ul>
+<!-- end list -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="min">
+<h3><span class="section-number">2.9.4.9. </span><code class="docutils literal notranslate"><span class="pre">min()</span></code><a class="headerlink" href="#min" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">min()</span></code> function returns the smallest item in an iterable or the smallest of two or more arguments.</p>
+<ul class="simple">
+<li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">min(iterable,</span> <span class="pre">*[,</span> <span class="pre">key,</span> <span class="pre">default])</span></code> or <code class="docutils literal notranslate"><span class="pre">min(arg1,</span> <span class="pre">arg2,</span> <span class="pre">*args[,</span> <span class="pre">key])</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">iterable</span></code>:</strong> A collection of items (list, tuple, etc.).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">arg1</span></code>, <code class="docutils literal notranslate"><span class="pre">arg2</span></code>, <code class="docutils literal notranslate"><span class="pre">*args</span></code>:</strong> Individual arguments.</p></li>
+<li><p><strong>Return:</strong> The smallest item.</p></li>
+</ul>
+<!-- end list -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="sum">
+<h3><span class="section-number">2.9.4.10. </span><code class="docutils literal notranslate"><span class="pre">sum()</span></code><a class="headerlink" href="#sum" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">sum()</span></code> function returns the sum of all items in an iterable.</p>
+<ul class="simple">
+<li><p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">sum(iterable,</span> <span class="pre">/[,</span> <span class="pre">start])</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">iterable</span></code>:</strong> A collection of numeric items (list, tuple, etc.).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">start</span></code> (optional):</strong> A number that is added to the sum of the items. The default is 0.</p></li>
+<li><p><strong>Return:</strong> The sum of the items, plus the <code class="docutils literal notranslate"><span class="pre">start</span></code> value.</p></li>
+</ul>
+<!-- end list -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+</pre></div>
+</div>
+</section>
+<section id="range">
+<h3><span class="section-number">2.9.4.11. </span><code class="docutils literal notranslate"><span class="pre">range()</span></code><a class="headerlink" href="#range" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">range()</span></code> function is used to generate an immutable sequence of numbers. It is commonly used to iterate a certain number of times in <code class="docutils literal notranslate"><span class="pre">for</span></code> loops.</p>
+<ul class="simple">
+<li><p><strong>Syntax:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">range(stop)</span></code>: Generates numbers from 0 up to <code class="docutils literal notranslate"><span class="pre">stop-1</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop)</span></code>: Generates numbers from <code class="docutils literal notranslate"><span class="pre">start</span></code> up to <code class="docutils literal notranslate"><span class="pre">stop-1</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code>: Generates numbers from <code class="docutils literal notranslate"><span class="pre">start</span></code> up to <code class="docutils literal notranslate"><span class="pre">stop-1</span></code>, incrementing (or decrementing) by <code class="docutils literal notranslate"><span class="pre">step</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Parameters:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">start</span></code> (optional): The integer from where the sequence starts. The default is 0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stop</span></code>: The integer where the sequence stops (not included).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">step</span></code> (optional): The integer that determines the increment between each number in the sequence. The default is 1.</p></li>
+</ul>
+</li>
+<li><p><strong>Return:</strong> A <code class="docutils literal notranslate"><span class="pre">range</span></code> object. To see the numbers, you can convert it to a list (e.g., <code class="docutils literal notranslate"><span class="pre">list(range(5))</span></code>).</p></li>
+</ul>
+<!-- end list -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># range(stop)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+<span class="c1"># Output: [0, 1, 2, 3, 4]</span>
+
+<span class="c1"># range(start, stop)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)))</span>
+<span class="c1"># Output: [2, 3, 4, 5, 6]</span>
+
+<span class="c1"># range(start, stop, step)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span> <span class="c1"># Odd numbers</span>
+<span class="c1"># Output: [1, 3, 5, 7, 9]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)))</span> <span class="c1"># Countdown</span>
+<span class="c1"># Output: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="lambda-expressions">
+<h2><span class="section-number">2.9.5. </span>Lambda Expressions<a class="headerlink" href="#lambda-expressions" title="Link to this heading">#</a></h2>
+<p>Lambda expressions (often called “lambda functions”) are small, anonymous functions defined with the <code class="docutils literal notranslate"><span class="pre">lambda</span></code> keyword. They are typically used for simple, single-expression functions where a full <code class="docutils literal notranslate"><span class="pre">def</span></code> statement would be overkill.</p>
+<ul class="simple">
+<li><p><strong>Characteristics:</strong></p>
+<ul>
+<li><p><strong>Anonymous:</strong> They don’t have a name.</p></li>
+<li><p><strong>Single Expression:</strong> They can contain only one expression, which is implicitly returned.</p></li>
+<li><p><strong>Concise:</strong> Designed for quick, inline function definitions.</p></li>
+<li><p><strong>Limitations:</strong> Cannot contain multiple statements, loops, or complex control flow like <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> (though conditional expressions like <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">if</span> <span class="pre">condition</span> <span class="pre">else</span> <span class="pre">y</span></code> are allowed).</p></li>
+</ul>
+</li>
+<li><p><strong>Syntax:</strong>
+<code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">arguments:</span> <span class="pre">expression</span></code></p></li>
+</ul>
+<!-- end list -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A regular function to add two numbers</span>
+<span class="k">def</span> <span class="nf">add_regular</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="c1"># The equivalent lambda expression</span>
+<span class="n">add_lambda</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Regular function (5, 3): </span><span class="si">{</span><span class="n">add_regular</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Lambda function (5, 3): </span><span class="si">{</span><span class="n">add_lambda</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Lambda as a key for sorting (common use case)</span>
+<span class="n">students</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;grade&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="s1">&#39;grade&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span> <span class="s1">&#39;grade&#39;</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="c1"># Sort students by age using a lambda function</span>
+<span class="n">sorted_by_age</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">students</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">student</span><span class="p">:</span> <span class="n">student</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Sorted students by age:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sorted_by_age</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="c1"># Filter a list using lambda</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">even_numbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">numbers</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Even numbers from list: </span><span class="si">{</span><span class="n">even_numbers</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>When to use Lambda:</strong></p>
+<ul class="simple">
+<li><p>When a small, unnamed function is needed for a short period.</p></li>
+<li><p>As arguments to higher-order functions (functions that take other functions as arguments), like <code class="docutils literal notranslate"><span class="pre">map()</span></code>, <code class="docutils literal notranslate"><span class="pre">filter()</span></code>, <code class="docutils literal notranslate"><span class="pre">sorted()</span></code>, <code class="docutils literal notranslate"><span class="pre">min()</span></code>, <code class="docutils literal notranslate"><span class="pre">max()</span></code>.</p></li>
+</ul>
+</section>
+<section id="packages-and-libraries-in-python">
+<h2><span class="section-number">2.9.6. </span>Packages and Libraries in Python<a class="headerlink" href="#packages-and-libraries-in-python" title="Link to this heading">#</a></h2>
+<section id="what-are-packages">
+<h3><span class="section-number">2.9.6.1. </span>What are packages?<a class="headerlink" href="#what-are-packages" title="Link to this heading">#</a></h3>
+<p>Packages (or libraries) are collections of modules with ready-to-use functions, classes, and tools—without needing to reinvent the wheel.</p>
+<p>Famous examples:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">math</span></code>: mathematical operations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">random</span></code>: random number generation and selections</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code>: data analysis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>: graph visualization</p></li>
+</ul>
+</section>
+<section id="installing-packages-with-pip">
+<h3><span class="section-number">2.9.6.2. </span>Installing Packages with <code class="docutils literal notranslate"><span class="pre">pip</span></code><a class="headerlink" href="#installing-packages-with-pip" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span></code> is Python’s official package manager. It installs libraries available from <strong>PyPI (Python Package Index)</strong>.</p>
+<section id="how-to-install-a-package">
+<h4><span class="section-number">2.9.6.2.1. </span>How to install a package:<a class="headerlink" href="#how-to-install-a-package" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>package_name
+</pre></div>
+</div>
+</section>
+<section id="how-to-upgrade-a-package-version">
+<h4><span class="section-number">2.9.6.2.2. </span>How to upgrade a package version:<a class="headerlink" href="#how-to-upgrade-a-package-version" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>package_name
+</pre></div>
+</div>
+</section>
+<section id="how-to-uninstall-a-package-version">
+<h4><span class="section-number">2.9.6.2.3. </span>How to uninstall a package version:<a class="headerlink" href="#how-to-uninstall-a-package-version" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>uninstall<span class="w"> </span>package_name
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span></code> is a package and environment manager that is part of <strong>Anaconda/Miniconda</strong>. It is widely used in Data Science because it facilitates the installation of packages with native dependencies (like NumPy, TensorFlow, etc.).</p>
+</section>
+<section id="how-to-install-a-package-using-conda">
+<h4><span class="section-number">2.9.6.2.4. </span>How to install a package using conda:<a class="headerlink" href="#how-to-install-a-package-using-conda" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>numpy
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>package_name
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Criterion</p></th>
+<th class="head text-left"><p>pip</p></th>
+<th class="head text-left"><p>conda</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Source</p></td>
+<td class="text-left"><p>PyPI</p></td>
+<td class="text-left"><p>Conda repositories</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Installation</p></td>
+<td class="text-left"><p>Lighter and more direct</p></td>
+<td class="text-left"><p>More robust and complex</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Environments</p></td>
+<td class="text-left"><p>Uses <code class="docutils literal notranslate"><span class="pre">venv</span></code></p></td>
+<td class="text-left"><p>Uses <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span></code> (more comprehensive)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Speed</p></td>
+<td class="text-left"><p>Fast</p></td>
+<td class="text-left"><p>Slower (but manages dependencies)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Popularity</p></td>
+<td class="text-left"><p>Universal (works with everything)</p></td>
+<td class="text-left"><p>More used in data science</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+<section id="importing-libraries-in-python">
+<h2><span class="section-number">2.9.7. </span>Importing Libraries in Python<a class="headerlink" href="#importing-libraries-in-python" title="Link to this heading">#</a></h2>
+<p>In Python, a <strong>library</strong> (or, more formally, a <strong>module</strong> or <strong>package</strong>) is a file or a collection of files containing Python code (functions, classes, variables) that can be reused in other programs. Think of them as toolboxes: you don’t need to build a screwdriver every time you need one; you simply pick it from your toolbox.</p>
+<section id="why-import">
+<h3><span class="section-number">2.9.7.1. </span>Why Import?<a class="headerlink" href="#why-import" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Code Reusability:</strong> Prevents you from reinventing the wheel. Many common tasks (mathematics, string manipulation, web access, machine learning) have already been implemented efficiently.</p></li>
+<li><p><strong>Organization:</strong> Helps organize large projects into smaller, manageable files.</p></li>
+<li><p><strong>Collaboration:</strong> Facilitates the use of code written by other developers.</p></li>
+<li><p><strong>Specialized Functionality:</strong> Provides access to functionalities that are not part of Python’s “core” but are essential for specific tasks (like <code class="docutils literal notranslate"><span class="pre">numpy</span></code> for numerical arrays, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> for plotting).</p></li>
+</ol>
+</section>
+<section id="how-to-import-libraries">
+<h3><span class="section-number">2.9.7.2. </span>How to Import Libraries<a class="headerlink" href="#how-to-import-libraries" title="Link to this heading">#</a></h3>
+<p>There are several ways to import modules in Python, depending on what you need and how you want to reference the imported items.</p>
+<section id="standard-import-import-module-name">
+<h4><span class="section-number">2.9.7.2.1. </span>Standard Import: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">module_name</span></code><a class="headerlink" href="#standard-import-import-module-name" title="Link to this heading">#</a></h4>
+<p>This is the most common way. It imports the entire module, and you need to use the module name as a prefix to access its functions and variables.</p>
+<ul class="simple">
+<li><p><strong>Advantage:</strong> Avoids name conflicts if different modules have functions or variables with the same name.</p></li>
+<li><p><strong>Disadvantage:</strong> Can make the code slightly longer.</p></li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="c1"># &#39;math&#39; module for mathematical functions</span>
+
+<span class="n">radius</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># Accessing &#39;pi&#39; from the &#39;math&#39; module</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The area of the circle is: </span><span class="si">{</span><span class="n">area</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Output: The area of the circle is: 78.53981633974483</span>
+</pre></div>
+</div>
+</section>
+<section id="import-with-alias-import-module-name-as-alias">
+<h4><span class="section-number">2.9.7.2.2. </span>Import with Alias: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">module_name</span> <span class="pre">as</span> <span class="pre">alias</span></code><a class="headerlink" href="#import-with-alias-import-module-name-as-alias" title="Link to this heading">#</a></h4>
+<p>Allows you to give a nickname (alias) to the module. This is useful for modules with long names or when there are widely accepted alias conventions.</p>
+<ul class="simple">
+<li><p><strong>Advantage:</strong> Makes the code more concise without losing clarity of the function’s origin.</p></li>
+<li><p><strong>Disadvantage:</strong> If the alias is not intuitive, it can make the code harder to read.</p></li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1"># &#39;np&#39; is the conventional alias for NumPy</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="c1"># Using the alias &#39;np&#39; to access the &#39;array&#39; function</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;NumPy Array: </span><span class="si">{</span><span class="n">arr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sum of the array: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Output:</span>
+<span class="c1"># NumPy Array: [1 2 3 4 5]</span>
+<span class="c1"># Sum of the array: 15</span>
+</pre></div>
+</div>
+</section>
+<section id="selective-import-from-module-name-import-item1-item2">
+<h4><span class="section-number">2.9.7.2.3. </span>Selective Import: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module_name</span> <span class="pre">import</span> <span class="pre">item1,</span> <span class="pre">item2</span></code><a class="headerlink" href="#selective-import-from-module-name-import-item1-item2" title="Link to this heading">#</a></h4>
+<p>Allows you to import only specific functions, classes, or variables from a module. You can then use these items directly, without the module prefix.</p>
+<ul class="simple">
+<li><p><strong>Advantage:</strong> Cleaner and more concise code, as it eliminates the prefix.</p></li>
+<li><p><strong>Disadvantage:</strong> Increases the risk of name conflicts if you import items with the same name from different modules.</p></li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span> <span class="c1"># Importing only the &#39;date&#39; class from the &#39;datetime&#39; module</span>
+
+<span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span> <span class="c1"># Using &#39;date&#39; directly</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Today&#39;s date: </span><span class="si">{</span><span class="n">today</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Output: Today&#39;s date: 2025-06-22</span>
+</pre></div>
+</div>
+</section>
+<section id="import-all-from-module-name-import">
+<h4><span class="section-number">2.9.7.2.4. </span>Import All: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module_name</span> <span class="pre">import</span> <span class="pre">*</span></code><a class="headerlink" href="#import-all-from-module-name-import" title="Link to this heading">#</a></h4>
+<p>This form imports all public items from a module directly into the current namespace.</p>
+<ul class="simple">
+<li><p><strong>Advantage:</strong> Extremely concise.</p></li>
+<li><p><strong>Disadvantage:</strong> <strong>Strongly discouraged in most cases!</strong> It pollutes the current namespace with many names, dramatically increasing the risk of name conflicts and making it difficult to tell where a function or variable came from. Use only in very small scripts or for debugging.</p></li>
+</ul>
+<p><strong>Example (for demonstration, but not recommended):</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span> <span class="c1"># NOT RECOMMENDED IN PRODUCTION CODE</span>
+
+<span class="n">radius</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># &#39;pi&#39; is accessed directly</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The area of the circle is: </span><span class="si">{</span><span class="n">area</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Output: The area of the circle is: 78.53981633974483</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="where-to-place-imports">
+<h3><span class="section-number">2.9.7.3. </span>Where to Place Imports<a class="headerlink" href="#where-to-place-imports" title="Link to this heading">#</a></h3>
+<p>By convention (and good practice), all <code class="docutils literal notranslate"><span class="pre">import</span></code> statements should be placed <strong>at the top of the Python file</strong>, after any file comments (docstrings) and before any other code. This makes the code more readable and helps to quickly identify the file’s dependencies.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/02-python/func"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../control-flow/control-flow.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2.8. </span>Conditionals and Loops</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../input-output/input-output.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2.10. </span>Input and Output in Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-functions">2.9.1. What Are Functions?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-function-the-def-keyword">2.9.2. Defining a Function: The <code class="docutils literal notranslate"><span class="pre">def</span></code> Keyword</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simple-function-no-parameters-and-no-explicit-return">2.9.2.1. Example 1: Simple Function (No Parameters and No Explicit Return)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-function-with-parameters-and-return">2.9.2.2. Example 2: Function with Parameters and Return</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings-documenting-your-functions">2.9.2.3. Docstrings: Documenting Your Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-arguments-parameters-vs-arguments">2.9.3. Function Arguments (Parameters vs. Arguments)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-arguments">2.9.3.1. Types of Arguments:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#positional-arguments">2.9.3.1.1. Positional Arguments</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#keyword-arguments">2.9.3.1.2. Keyword Arguments</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#default-arguments">2.9.3.1.3. Default Arguments</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arbitrary-argument-lists">2.9.3.1.4. Arbitrary Argument Lists</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arbitrary-positional-arguments-args">2.9.3.1.5. Arbitrary Positional Arguments (<code class="docutils literal notranslate"><span class="pre">*args</span></code>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arbitrary-keyword-arguments-kwargs">2.9.3.1.6. Arbitrary Keyword Arguments (<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unpacking-argument-lists">2.9.3.1.7. Unpacking Argument Lists</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unpacking-iterables-for-positional-arguments">2.9.3.1.8. Unpacking Iterables for Positional Arguments (<code class="docutils literal notranslate"><span class="pre">*</span></code>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unpacking-dictionaries-for-keyword-arguments">2.9.3.1.9. Unpacking Dictionaries for Keyword Arguments (<code class="docutils literal notranslate"><span class="pre">**</span></code>)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#essential-built-in-functions-in-python">2.9.4. Essential Built-in Functions in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print">2.9.4.1. <code class="docutils literal notranslate"><span class="pre">print()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type">2.9.4.2. <code class="docutils literal notranslate"><span class="pre">type()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#len">2.9.4.3. <code class="docutils literal notranslate"><span class="pre">len()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#int">2.9.4.4. <code class="docutils literal notranslate"><span class="pre">int()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#str">2.9.4.5. <code class="docutils literal notranslate"><span class="pre">str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#float">2.9.4.6. <code class="docutils literal notranslate"><span class="pre">float()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abs">2.9.4.7. <code class="docutils literal notranslate"><span class="pre">abs()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#max">2.9.4.8. <code class="docutils literal notranslate"><span class="pre">max()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min">2.9.4.9. <code class="docutils literal notranslate"><span class="pre">min()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sum">2.9.4.10. <code class="docutils literal notranslate"><span class="pre">sum()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range">2.9.4.11. <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-expressions">2.9.5. Lambda Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages-and-libraries-in-python">2.9.6. Packages and Libraries in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-packages">2.9.6.1. What are packages?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-packages-with-pip">2.9.6.2. Installing Packages with <code class="docutils literal notranslate"><span class="pre">pip</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install-a-package">2.9.6.2.1. How to install a package:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-upgrade-a-package-version">2.9.6.2.2. How to upgrade a package version:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-uninstall-a-package-version">2.9.6.2.3. How to uninstall a package version:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-install-a-package-using-conda">2.9.6.2.4. How to install a package using conda:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries-in-python">2.9.7. Importing Libraries in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-import">2.9.7.1. Why Import?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-import-libraries">2.9.7.2. How to Import Libraries</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-import-import-module-name">2.9.7.2.1. Standard Import: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">module_name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#import-with-alias-import-module-name-as-alias">2.9.7.2.2. Import with Alias: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">module_name</span> <span class="pre">as</span> <span class="pre">alias</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#selective-import-from-module-name-import-item1-item2">2.9.7.2.3. Selective Import: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module_name</span> <span class="pre">import</span> <span class="pre">item1,</span> <span class="pre">item2</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#import-all-from-module-name-import">2.9.7.2.4. Import All: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module_name</span> <span class="pre">import</span> <span class="pre">*</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-place-imports">2.9.7.3. Where to Place Imports</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By João Manoel Herrera Pinheiro
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
