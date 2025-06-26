@@ -1,4 +1,4 @@
-# Introduction to Python and Basic Syntax
+# Introduction to Python
 
   * Python was created by Guido van Rossum, a Dutch programmer, in the late 1980s.
 
@@ -66,7 +66,7 @@ class Exemplo:
 obj = Exemplo()
 obj.novo_atributo = 42  # Attribute created dynamically
 ```
-## Basic Syntax
+### Basic Syntax
 
 Python is a high-level, interpreted programming language with a simple and intuitive syntax. It's widely used in data science, automation, artificial intelligence, and scientific programming.
 
@@ -76,7 +76,7 @@ Let's start with the classic "Hello, world\!".
 print("Hello, world!")
 ```
 
-## Command Line
+### Command Line
 
 It's possible to execute Python commands directly from the terminal.
 
@@ -98,7 +98,7 @@ Or start a Jupyter Notebook with:
 jupyter-notebook
 ```
 
-## Jupyter Notebook
+### Jupyter Notebook
 
 Jupyter Notebook is a powerful tool for data analysis, as it allows you to write code and explanatory text in a single interactive environment.
 
@@ -126,7 +126,7 @@ To run a cell: `Shift + Enter`
 
 These shortcuts greatly help speed up writing and editing your notebook\!
 
-## Indentation
+### Indentation
 
 Indentation defines code blocks in Python. Indentation errors are common when starting out.
 
@@ -144,7 +144,7 @@ if True:
 print("Indentation error!") # This causes an error
 ```
 
-## Comments
+### Comments
 
 Comments are text snippets ignored by the Python interpreter. They serve to explain what the code does.
 
@@ -175,7 +175,7 @@ print("Block commented above.")
 Block commented above.
 ```
 
-## References
+### References
  
 * {cite:p}`matthes2015python`
 * {cite:p}`ramalho2015fluent`
