@@ -66,3 +66,9 @@ class Exemplo:
 obj = Exemplo()
 obj.novo_atributo = 42  # Attribute created dynamically
 ```
+
+
+Here are some references.
+ 
+* {cite:p}`matthes2015python`
+* {cite:p}`ramalho2015fluent`
