@@ -106,8 +106,3 @@ print("Block commented above.")
 ```
 Block commented above.
 ```
-
-### References
- 
-* {cite:p}`matthes2015python`
-* {cite:p}`ramalho2015fluent`
