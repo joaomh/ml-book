@@ -6,12 +6,20 @@ on:
       - develop
 
 jobs:
-  create-pull-request:
+  auto-pull-request:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Create Pull Request
-        uses: diillson/auto-pull-request@v1.0.1
+        uses: peter-evans/create-pull-request@v5
         with:
-          destination_branch: "main"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          source: develop
+          target: main
+          title: "Auto PR: Merge develop into main"
+          body: |
+            This PR was automatically generated from the develop branch.
+          branch: auto/develop-to-main
+          delete-branch: true
