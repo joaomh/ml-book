@@ -4,9 +4,15 @@ The goal of this book is to help you to establish a problem and turn it into a m
 
 ## Definition of Machine Learning
 
-In 1959 Arthur Samuel created one of the first definitions of 
+In 1959 Arthur Samuel created one of the first definitions of Machine Learning {cite:p}`5389202`,{cite:p}`5391906`
 
-*"Machine Learning is the field of study that gives the computer the ability to learn without being explicitly programmed".*
+*"A computer can be **programmed** so that it will **learn to play** a better game of checkers than can be played by the person who wrote the program".*
+
+*"Programming computers to learn from experience should eventually eliminate the need for much of this **detailed programming effort**".*
+
+A common interpretation of these statements—often attributed to Arthur Samuel—is that:
+
+*"Machine Learning is the field of study that gives the computer the ability to learn **without being explicitly programmed**".*
 
 So what does this mean? That means that we cannot hard-code the solutions to our problem with a bunch of if-else, for example, a machine needs to 'learn' without being tell-it. 
 
@@ -22,7 +28,7 @@ We have a circle centered on (0,0) with radius $r$ and a square with side $2r$ l
 
 ![](./01-basic-concepts/img/monte.png)
 
-$$ \frac{\text{area of circle}}{\text{area of square}}= \frac{\pi}{4} $$
+$ \frac{\text{area of circle}}{\text{area of square}}= \frac{\pi}{4} $
 
 With a very large number of generated points
 $$ \pi = 4\times\frac{\text{number of points inside the circle}}{\text{number of points inside square}} $$
@@ -61,24 +67,26 @@ print(pi)
 pi = 3.14294
 ```
 
-So instead of hard-code our value we create an algorithm that estimates this value using some math and probability; that is the idea of machine learning. In that case, we use Monte Carlo algorithms (NOT A MACHINE LEARNING) to create this example if you want to find out about this algorithm and Monte Carlo methods, the links are below.
+So instead of hard-code our value we create an **algorithm** that estimates this value using some **math** and **probability**; that is the idea of machine learning. In that case, we use Monte Carlo algorithms (NOT A MACHINE LEARNING!) to create this example if you want to find out about this algorithm and Monte Carlo methods, the links are below.
 
 * [Monte Carlo Simulation: an Overview](https://www.sciencedirect.com/topics/economics-econometrics-and-finance/monte-carlo-simulation)
 * [Estimating the value of Pi using Monte Carlo](https://www.geeksforgeeks.org/estimating-value-pi-using-monte-carlo/)
 
 
+A more modern approach, presented by Mitchell {cite:p}`mitchell1997machine`, defines learning as follows:
+
 *"A computer program is said to learn from experience $\mathcal{E}$ with respect to some class of task $\mathcal{T}$ and perfomance measure $\mathcal{P}$, if its performance at task $\mathcal{T}$, as measured by $\mathcal{P}$, improves with experience $\mathcal{E}$"* {cite:p}`russell2020artificial`
 
 There are some key concepts about this:
 
-Experience -> Data
+Experience ->  Data
 
 We need data for the algorithm to "learn".
 
 Performance -> Metric
 
 And we need some kind of Performance metric to measure, we need a goal to achieve.
-In each machine learning we may deal with different performance metrics, but in most cases, the performance measure is an error $$e_i = y_i - \hat{y_i}$$
+In each machine learning we may deal with different performance metrics, but in most cases, the performance measure is an error $e_i = y_i - \hat{y_i}$
 
 ## Turing Test
 In 1950 Alan Turing proposed the Turing test "Can a machine think?"
