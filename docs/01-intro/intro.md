@@ -4,7 +4,7 @@ The goal of this book is to help you to establish a problem and turn it into a m
 
 ## Definition of Machine Learning
 
-In 1959 Arthur Samuel created one of the first definitions of Machine Learning {cite:p}`5389202`,{cite:p}`5391906`
+In 1959 Arthur Samuel created one of the first definitions of Machine Learning {cite:p}`Samuel5389202` and {cite:p}`Samuel5391906`
 
 *"A computer can be **programmed** so that it will **learn to play** a better game of checkers than can be played by the person who wrote the program".*
 
@@ -75,7 +75,7 @@ So instead of hard-code our value we create an **algorithm** that estimates this
 
 A more modern approach, presented by Mitchell {cite:p}`mitchell1997machine`, defines learning as follows:
 
-*"A computer program is said to learn from experience $\mathcal{E}$ with respect to some class of task $\mathcal{T}$ and perfomance measure $\mathcal{P}$, if its performance at task $\mathcal{T}$, as measured by $\mathcal{P}$, improves with experience $\mathcal{E}$"* {cite:p}`russell2020artificial`
+*"A computer program is said to learn from experience $\mathcal{E}$ with respect to some class of task $\mathcal{T}$ and perfomance measure $\mathcal{P}$, if its performance at task $\mathcal{T}$, as measured by $\mathcal{P}$, improves with experience $\mathcal{E}$"*
 
 There are some key concepts about this:
 
