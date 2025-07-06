@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3. Big Data &#8212; An Introduction to Machine Learning</title>
+    <title>7. Neural Networks &#8212; An Introduction to Machine Learning</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/03-big-data/data';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/07-neural/neural';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4. Data Preprocessing" href="../04-prep/prep.html" />
-    <link rel="prev" title="2.6. Data Structures in Python" href="../02-python/data-structures/data-structures.html" />
+    <link rel="next" title="8. Computer Vision" href="../08-cv/cv.html" />
+    <link rel="prev" title="6. Unsupervised Learning" href="../06-unsupervised/unsupervised.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -195,11 +195,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../02-python/data-structures/data-structures.html">2.6. Data Structures in Python</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Big Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-big-data/data.html">3. Big Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04-prep/prep.html">4. Data Preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../05-supervised/supervised.html">5. Supervised Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06-unsupervised/unsupervised.html">6. Unsupervised Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../07-neural/neural.html">7. Neural Networks</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Neural Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../08-cv/cv.html">8. Computer Vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../09-nlp/nlp.html">9. Natural Language Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-llm/llm.html">10. Large Language Models</a></li>
@@ -275,7 +275,7 @@
       
       
       
-      <li><a href="https://github.com/joaomh/ml-book/issues/new?title=Issue%20on%20page%20%2Fdocs/03-big-data/data.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/joaomh/ml-book/issues/new?title=Issue%20on%20page%20%2Fdocs/07-neural/neural.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -305,7 +305,7 @@
       
       
       
-      <li><a href="../../_sources/docs/03-big-data/data.md" target="_blank"
+      <li><a href="../../_sources/docs/07-neural/neural.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -387,7 +387,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Big Data</h1>
+    <h1>Neural Networks</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -401,8 +401,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="big-data">
-<h1><span class="section-number">3. </span>Big Data<a class="headerlink" href="#big-data" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="neural-networks">
+<h1><span class="section-number">7. </span>Neural Networks<a class="headerlink" href="#neural-networks" title="Link to this heading">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -418,7 +418,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./docs/03-big-data"
+            path: "./docs/07-neural"
         },
         predefinedOutput: true
     }
@@ -436,20 +436,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../02-python/data-structures/data-structures.html"
+       href="../06-unsupervised/unsupervised.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.6. </span>Data Structures in Python</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Unsupervised Learning</p>
       </div>
     </a>
     <a class="right-next"
-       href="../04-prep/prep.html"
+       href="../08-cv/cv.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Data Preprocessing</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Computer Vision</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

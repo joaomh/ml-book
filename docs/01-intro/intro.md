@@ -20,7 +20,7 @@ Or you can use some data and create an algorithm that estimates this value. Ther
 
 We have a circle centered on (0,0) with radius $r$ and a square with side $2r$ let $r=1$ The area of the circle is $\pi$ and the area of the square is 4, so
 
-![](./img/monte.png)
+![](./01-basic-concepts/img/monte.png)
 
 $$ \frac{\text{area of circle}}{\text{area of square}}= \frac{\pi}{4} $$
 

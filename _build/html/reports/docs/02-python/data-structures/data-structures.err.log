@@ -1,0 +1,385 @@
+Traceback (most recent call last):
+  File "/home/joao/anaconda3/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/joao/anaconda3/lib/python3.12/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joao/anaconda3/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joao/anaconda3/lib/python3.12/asyncio/base_events.py", line 685, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/joao/anaconda3/lib/python3.12/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/home/joao/anaconda3/lib/python3.12/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/joao/anaconda3/lib/python3.12/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from array import array
+from collections import deque
+
+# --- Global Data Structures ---
+# Dictionary: Stores book details (key: book_id, value: dict of details)
+# Each book's details include title, author, genre, price, and stock.
+books_inventory = {}
+
+# List: Stores transaction records. Each record is a tuple for immutability.
+# Format: (book_id, quantity_sold, total_price_for_transaction, current_timestamp)
+sales_transactions = []
+
+# Set: Stores unique genres encountered across all books.
+unique_genres = set()
+
+# Array: Stores daily total sales quantities (e.g., total items sold for the last 7 days).
+# Using 'i' for signed integers, assuming quantities won't exceed standard integer limits.
+# Initialized to zeros for 7 days.
+daily_sales_quantity = array('i', [0] * 7)
+
+# Deque: Simulates a customer service queue (First-In, First-Out)
+customer_service_queue = deque()
+
+# --- Helper Functions ---
+
+def display_menu():
+    """Displays the main menu options to the user."""
+    print("\n--- Bookstore Management System ---")
+    print("1. Add New Book")
+    print("2. View All Books (Inventory)")
+    print("3. Record a Sale")
+    print("4. Generate Sales Report")
+    print("5. Update Daily Sales Quantity (Array Demo)")
+    print("6. Manage Customer Queue (Queue Demo)")
+    print("7. Exit")
+    print("-----------------------------------")
+
+def add_book(inventory, genres_set):
+    """
+    Allows the user to add a new book to the inventory.
+    Uses dictionary to store book details and set to track unique genres.
+    """
+    print("\n--- Add New Book ---")
+    book_id = input("Enter Book ID (e.g., B001): ").upper()
+    if book_id in inventory:
+        print(f"Error: Book ID '{book_id}' already exists. Please choose a unique ID.")
+        return
+
+    title = input("Enter Title: ")
+    author = input("Enter Author: ")
+    genre = input("Enter Genre: ").strip().capitalize() # Clean and capitalize genre for consistency
+
+    try:
+        price = float(input("Enter Price: $"))
+        stock = int(input("Enter Stock Quantity: "))
+        if price <= 0 or stock < 0:
+            raise ValueError("Price must be positive, stock non-negative.")
+    except ValueError:
+        print("Invalid input for price or stock. Please enter valid numbers.")
+        return
+
+    # Store book details. While genre is part of the dictionary value,
+    # the genre itself is also added to a set for unique tracking.
+    inventory[book_id] = {
+        'title': title,
+        'author': author,
+        'genre': genre,
+        'price': price,
+        'stock': stock
+    }
+    genres_set.add(genre) # Add genre to the set of unique genres
+
+    print(f"Book '{title}' (ID: {book_id}) added successfully!")
+
+def view_inventory(inventory):
+    """
+    Displays all books currently in the inventory, sorted by title.
+    Demonstrates iterating through a dictionary and using a lambda for sorting.
+    """
+    print("\n--- Current Book Inventory ---")
+    if not inventory:
+        print("Inventory is empty. Add some books first!")
+        return
+
+    # Sort books by title for better readability
+    # uses a lambda expression as the sorting key
+    sorted_books = sorted(inventory.items(), key=lambda item: item[1]['title'].lower())
+
+    for book_id, details in sorted_books:
+        print(f"ID: {book_id}")
+        print(f"  Title: {details['title']}")
+        print(f"  Author: {details['author']}")
+        print(f"  Genre: {details['genre']}")
+        print(f"  Price: ${details['price']:.2f}")
+        print(f"  Stock: {details['stock']}")
+        print("-" * 25)
+
+def record_sale(inventory, transactions):
+    """
+    Records a book sale, updates inventory stock, and stores transaction details.
+    Uses dictionary for inventory lookup, and list to store transaction tuples.
+    """
+    print("\n--- Record a Sale ---")
+    book_id = input("Enter Book ID to purchase: ").upper()
+
+    if book_id not in inventory:
+        print("Error: Book not found in inventory. Please check the ID.")
+        return
+
+    book = inventory[book_id]
+    print(f"Book selected: {book['title']} (Current Stock: {book['stock']})")
+
+    try:
+        qty = int(input("Enter quantity to purchase: "))
+        if qty <= 0:
+            raise ValueError("Quantity must be positive.")
+        if qty > book['stock']:
+            print(f"Error: Not enough stock. Only {book['stock']} units of '{book['title']}' available.")
+            return
+    except ValueError:
+        print("Invalid quantity. Please enter a valid whole number.")
+        return
+
+    # Update stock in inventory (dictionary modification)
+    book['stock'] -= qty
+    total_price = qty * book['price']
+
+    # Create a transaction record as a tuple (immutable)
+    # Includes a timestamp for more realism
+    import time
+    current_timestamp = int(time.time()) # Unix timestamp (integer seconds since epoch)
+    transaction_record = (book_id, qty, total_price, current_timestamp) # Tuple packing
+
+    # Add the transaction to the list of all sales
+    transactions.append(transaction_record)
+
+    print(f"Sale recorded: {qty} x '{book['title']}' for ${total_price:.2f}")
+    print(f"Remaining stock for '{book['title']}': {book['stock']}")
+
+def generate_report(transactions, inventory, genres_set, daily_sales_array):
+    """
+    Generates a sales report, showing total revenue, top-selling books/genres,
+    and unique genres in the system. Demonstrates set operations and array usage.
+    """
+    print("\n--- Sales Report ---")
+    if not transactions:
+        print("No sales recorded yet to generate a report.")
+        return
+
+    total_revenue = 0.0
+    book_sales_count = {} # Dictionary to count units sold per book
+    genre_sales_count = {} # Dictionary to count units sold per genre
+
+    # Iterate through sales_transactions (a list of tuples)
+    for transaction in transactions:
+        # Tuple unpacking
+        book_id, qty, total_sale_value, _ = transaction
+        total_revenue += total_sale_value
+
+        # Update sales count for book (dictionary .get() for safe updates)
+        book_sales_count[book_id] = book_sales_count.get(book_id, 0) + qty
+
+        # Get genre from inventory and update genre sales count
+        if book_id in inventory: # Check if book still exists in inventory
+            genre = inventory[book_id]['genre']
+            genre_sales_count[genre] = genre_sales_count.get(genre, 0) + qty
+        else:
+            print(f"Warning: Book ID '{book_id}' from transaction not found in current inventory.")
+
+    print(f"Total Revenue from All Sales: ${total_revenue:.2f}")
+
+    print("\n--- Book Sales Summary ---")
+    if not book_sales_count:
+        print("No book sales to summarize.")
+    else:
+        # Sort books by quantity sold (descending) using a lambda function
+        sorted_book_sales = sorted(book_sales_count.items(), key=lambda item: item[1], reverse=True)
+        for book_id, count in sorted_book_sales:
+            title = inventory.get(book_id, {}).get('title', 'Unknown Book (ID not found)')
+            print(f"  '{title}' (ID: {book_id}): {count} units sold")
+
+    print("\n--- Genre Sales Summary ---")
+    if not genre_sales_count:
+        print("No genre sales to summarize.")
+    else:
+        # Sort genres by quantity sold (descending)
+        sorted_genre_sales = sorted(genre_sales_count.items(), key=lambda item: item[1], reverse=True)
+        for genre, count in sorted_genre_sales:
+            print(f"  {genre}: {count} units sold")
+
+    print("\n--- All Unique Genres in System (Set Demo) ---")
+    if genres_set:
+        # Convert set to list for sorting (sets are unordered), then join for display
+        print(f"  Genres: {', '.join(sorted(list(genres_set)))}")
+    else:
+        print("No genres added to the system yet.")
+
+    print("\n--- Daily Sales Quantity (Array Demo) ---")
+    # Show array contents and simple operations, demonstrating its homogeneous nature
+    print(f"  Last {len(daily_sales_array)} days sales quantities: {daily_sales_array.tolist()} items")
+    print(f"  Total items sold in last {len(daily_sales_array)} days: {sum(daily_sales_array)} items")
+    # Example of accessing an array element
+    print(f"  Sales quantity 3 days ago (index {len(daily_sales_array)-4}): {daily_sales_array[len(daily_sales_array)-4]} items")
+
+
+def update_daily_sales_array(daily_sales_array):
+    """
+    Updates the daily sales quantity array.
+    Demonstrates array modification and shifting elements.
+    """
+    print("\n--- Update Daily Sales Quantity ---")
+    print(f"Current last {len(daily_sales_array)} days sales quantities: {daily_sales_array.tolist()}")
+    try:
+        new_sale_qty = int(input("Enter today's total sales quantity (integer): "))
+        if new_sale_qty < 0:
+            raise ValueError("Quantity cannot be negative.")
+
+        # Shift old data to the left and add new data to the right (like a moving window)
+        # This loop demonstrates modifying an array's elements by index
+        for i in range(len(daily_sales_array) - 1):
+            daily_sales_array[i] = daily_sales_array[i+1] # Move value from right to left
+        daily_sales_array[-1] = new_sale_qty # Place new quantity at the end
+
+        print("Daily sales quantity updated successfully.")
+    except ValueError as e:
+        print(f"Invalid input: {e}. Please enter a non-negative integer.")
+
+def manage_customer_queue(customer_queue):
+    """
+    Manages a simple customer service queue using collections.deque.
+    Demonstrates FIFO principle (append for enqueue, popleft for dequeue).
+    """
+    print("\n--- Customer Service Queue ---")
+    if not customer_queue:
+        print("Customer queue is currently empty.")
+    else:
+        print(f"Customers waiting: {list(customer_queue)}") # Convert deque to list for easy printing
+
+    while True:
+        queue_action = input("Action (add/serve/view/back): ").lower().strip()
+        if queue_action == 'add':
+            new_customer_id = input("Enter new customer ID: ")
+            customer_queue.append(new_customer_id) # Enqueue
+            print(f"Customer '{new_customer_id}' added to queue.")
+        elif queue_action == 'serve':
+            if customer_queue:
+                served_customer = customer_queue.popleft() # Dequeue
+                print(f"Served customer: '{served_customer}'")
+            else:
+                print("Queue is empty. No customer to serve.")
+        elif queue_action == 'view':
+            if customer_queue:
+                print(f"Current queue: {list(customer_queue)}")
+            else:
+                print("Queue is empty.")
+        elif queue_action == 'back':
+            print("Returning to main menu.")
+            break
+        else:
+            print("Invalid action. Please choose 'add', 'serve', 'view', or 'back'.")
+
+# --- Main Program Loop ---
+def main():
+    """
+    The main function to run the bookstore management system.
+    Initializes dummy data and manages the main menu loop using if/elif/else.
+    """
+    # Initial dummy data to start with (Dictionaries and initial Set population)
+    books_inventory['P001'] = {'title': 'Python Crash Course', 'author': 'Eric Matthes', 'genre': 'Programming', 'price': 35.00, 'stock': 10}
+    books_inventory['F001'] = {'title': 'The Lord of the Rings', 'author': 'J.R.R. Tolkien', 'genre': 'Fantasy', 'price': 25.50, 'stock': 15}
+    books_inventory['S001'] = {'title': 'Cosmos', 'author': 'Carl Sagan', 'genre': 'Science', 'price': 20.00, 'stock': 5}
+    books_inventory['P002'] = {'title': 'Clean Code', 'author': 'Robert C. Martin', 'genre': 'Programming', 'price': 40.00, 'stock': 7}
+
+    # Populate unique_genres set from initial books
+    for book_id in books_inventory:
+        unique_genres.add(books_inventory[book_id]['genre'])
+
+    # Add some dummy sales transactions (List of Tuples)
+    # (book_id, quantity, total_price, timestamp)
+    sales_transactions.append(('P001', 2, 70.00, 1720000000)) # Example timestamp
+    sales_transactions.append(('F001', 1, 25.50, 1720005000))
+    sales_transactions.append(('P001', 1, 35.00, 1720010000))
+    sales_transactions.append(('S001', 3, 60.00, 1720015000))
+
+    # Add some dummy daily sales quantities for the array (last 7 days)
+    # The array is mutable and will be updated directly.
+    daily_sales_quantity[0] = 5  # 7 days ago
+    daily_sales_quantity[1] = 8
+    daily_sales_quantity[2] = 3
+    daily_sales_quantity[3] = 12
+    daily_sales_quantity[4] = 6
+    daily_sales_quantity[5] = 9
+    daily_sales_quantity[6] = 15 # Yesterday's sales quantity
+
+    # Add some initial customers to the queue
+    customer_service_queue.append("Alice's Order")
+    customer_service_queue.append("Bob's Inquiry")
+
+    while True:
+        display_menu()
+        choice = input("Enter your choice (1-7): ").strip()
+
+        if choice == '1':
+            add_book(books_inventory, unique_genres)
+        elif choice == '2':
+            view_inventory(books_inventory)
+        elif choice == '3':
+            record_sale(books_inventory, sales_transactions)
+        elif choice == '4':
+            generate_report(sales_transactions, books_inventory, unique_genres, daily_sales_quantity)
+        elif choice == '5':
+            update_daily_sales_array(daily_sales_quantity)
+        elif choice == '6':
+            manage_customer_queue(customer_service_queue)
+        elif choice == '7':
+            print("Exiting Bookstore Management System. Goodbye!")
+            break # Exit the main loop
+        else:
+            print("Invalid choice. Please enter a number between 1 and 7.")
+
+# This ensures the main() function runs only when the script is executed directly
+if __name__ == "__main__":
+    main()
+------------------
+
+----- stdout -----
+
+--- Bookstore Management System ---
+1. Add New Book
+2. View All Books (Inventory)
+3. Record a Sale
+4. Generate Sales Report
+5. Update Daily Sales Quantity (Array Demo)
+6. Manage Customer Queue (Queue Demo)
+7. Exit
+-----------------------------------
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+Cell [0;32mIn[88], line 323[0m
+[1;32m    321[0m [38;5;66;03m# This ensures the main() function runs only when the script is executed directly[39;00m
+[1;32m    322[0m [38;5;28;01mif[39;00m [38;5;18m__name__[39m [38;5;241m==[39m [38;5;124m"[39m[38;5;124m__main__[39m[38;5;124m"[39m:
+[0;32m--> 323[0m     main()
+
+Cell [0;32mIn[88], line 301[0m, in [0;36mmain[0;34m()[0m
+[1;32m    299[0m [38;5;28;01mwhile[39;00m [38;5;28;01mTrue[39;00m:
+[1;32m    300[0m     display_menu()
+[0;32m--> 301[0m     choice [38;5;241m=[39m [38;5;28minput[39m([38;5;124m"[39m[38;5;124mEnter your choice (1-7): [39m[38;5;124m"[39m)[38;5;241m.[39mstrip()
+[1;32m    303[0m     [38;5;28;01mif[39;00m choice [38;5;241m==[39m [38;5;124m'[39m[38;5;124m1[39m[38;5;124m'[39m:
+[1;32m    304[0m         add_book(books_inventory, unique_genres)
+
+File [0;32m~/anaconda3/lib/python3.12/site-packages/ipykernel/kernelbase.py:1261[0m, in [0;36mKernel.raw_input[0;34m(self, prompt)[0m
+[1;32m   1259[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39m_allow_stdin:
+[1;32m   1260[0m     msg [38;5;241m=[39m [38;5;124m"[39m[38;5;124mraw_input was called, but this frontend does not support input requests.[39m[38;5;124m"[39m
+[0;32m-> 1261[0m     [38;5;28;01mraise[39;00m StdinNotImplementedError(msg)
+[1;32m   1262[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_input_request(
+[1;32m   1263[0m     [38;5;28mstr[39m(prompt),
+[1;32m   1264[0m     [38;5;28mself[39m[38;5;241m.[39m_parent_ident[[38;5;124m"[39m[38;5;124mshell[39m[38;5;124m"[39m],
+[1;32m   1265[0m     [38;5;28mself[39m[38;5;241m.[39mget_parent([38;5;124m"[39m[38;5;124mshell[39m[38;5;124m"[39m),
+[1;32m   1266[0m     password[38;5;241m=[39m[38;5;28;01mFalse[39;00m,
+[1;32m   1267[0m )
+
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+
