@@ -14,18 +14,24 @@ Big Data is a term that describes datasets so large or complex that traditional 
 In data science, these three concepts—Data Analysis, Machine Learning, and Big Data—are foundational. They help data scientists turn raw data into meaningful information, develop systems that can automate decision-making, and handle datasets that were previously unmanageable. Understanding them is the first step toward mastering the broader, more complex landscape of data science.
 
 ## Types of Data
-In data science, it is essential to understand the different types of data, as they require different approaches for processing and analysis. These types are categorized as structured, semi-structured, and unstructured data.
+In data science, it is essential to understand the different types of data, as they require different approaches for processing and analysis. These types are categorized as structured, semi-structured, and unstructured data. Each of these types of data presents unique challenges and opportunities for data scientists, and choosing the right tools and techniques for processing them is crucial for successful data analysis.
+
+![](./img/struc-unstruc.png)
 
 ### Structured Data
 Structured data is highly organized and easily searchable because it is stored in a fixed format, typically in tables with rows and columns. This type of data fits neatly into databases, such as SQL, where each piece of data is clearly defined and has a specific data type (e.g., integers, text, dates). Examples of structured data include customer information (name, address, phone number), sales transactions, and employee records. Structured data is easy to analyze using traditional data tools and algorithms.
 
+![](./img/struc-ex.png)
+
 ### Semi-Structured Data
 Semi-structured data doesn’t fit neatly into tables like structured data, but it still contains some elements of organization, such as tags or markers to separate different pieces of information. This data type may include a mix of structured and unstructured elements, which allows for more flexibility in storing and processing. A common example is XML or JSON files, where data is organized with tags but does not have the rigid structure of a relational database. Semi-structured data is often used in web data, social media posts, and emails.
+
+![](./img/semi-struc-ex.png)
 
 ### Unstructured Data
 Unstructured data refers to any data that doesn’t have a pre-defined format or organization. It can come in the form of text, images, videos, or even audio files. Unstructured data is the most difficult to analyze because it doesn’t fit neatly into traditional database systems. Examples of unstructured data include social media posts, customer feedback, emails, images, and videos. This type of data often requires advanced techniques such as natural language processing (NLP) and computer vision to extract meaningful information.
 
-Each of these types of data presents unique challenges and opportunities for data scientists, and choosing the right tools and techniques for processing them is crucial for successful data analysis.
+![](./img/unstruc.png)
 
 ## Data Science Careers
 As the demand for data-driven decision-making continues to grow across industries, the field of data science has expanded into various specialized careers. Below are some of the most common roles in the data science domain, each contributing to different aspects of working with data.

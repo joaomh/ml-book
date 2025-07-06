@@ -351,7 +351,7 @@ The `match-case` statement makes code for complex logic more explicit, readable,
 
 ## Summary and Next Steps
 
-In this outline, we've covered the pillars of conditionals (`if`, `else`, `elif`) and repetition structures (`for`, `while`), as well as the important loop control tools (`break`, `continue`).
+In this outline, we've covered the pillars of conditionals (`if`, `else`, `elif`) and repetition structures (`for`, `while`), as well as the important loop control tools (`break`, `continue`, `match`).
 
 I recommend the following activities:
 

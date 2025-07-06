@@ -34,6 +34,3 @@ For Big Data and Data Engineering
 For Python Progamming
 * {cite:p}`matthes2015python`
 * {cite:p}`ramalho2015fluent`
-
-
-
