@@ -8,7 +8,7 @@ options:
 chapters:
   - file: docs/01-intro/intro
     sections:
-      - file: docs/01-intro/01-basic-concepts/projects
+      - file: docs/01-intro/01-basic-concepts/projects.md
       - file: docs/01-intro/01-basic-concepts/basics
       - file: docs/01-intro/02-ambient/ambient
       

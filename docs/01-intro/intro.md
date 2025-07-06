@@ -31,7 +31,7 @@ We have a circle centered on (0,0) with radius $r$ and a square with side $2r$ l
 $ \frac{\text{area of circle}}{\text{area of square}}= \frac{\pi}{4} $
 
 With a very large number of generated points
-$$ \pi = 4\times\frac{\text{number of points inside the circle}}{\text{number of points inside square}} $$
+$ \pi = 4\times\frac{\text{number of points inside the circle}}{\text{number of points inside square}} $
 
 ```python
 import random
