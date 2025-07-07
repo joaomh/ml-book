@@ -24,12 +24,18 @@ The main references in Machine Learning/Artificial intelligence are:
 * {cite:p}`mitchell1997machine`
 * {cite:p}`hastie2009elements`
 * {cite:p}`russell2020artificial`
+* {cite:p}`bishop2016pattern`
+* {cite:p}`bishop2023deep`
+* {cite:p}`goodfellow2016deep`
+* {cite:p}`mello2018machine`
+* {cite:p}`han2011data`
 * {cite:p}`sutton2018reinforcement`
 
 For Big Data and Data Engineering
 
 * {cite:p}`chambers2018spark`
 * {cite:p}`white2012hadoop`
+* {cite:p}`reis2022fundamentals`
 
 For Python Progamming
 * {cite:p}`matthes2015python`
