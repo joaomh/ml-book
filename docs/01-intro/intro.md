@@ -118,19 +118,19 @@ $$
 $$
 
 
-For each input $x^{(i)}$ where $x^{(i)}\in\mathbb{R}$ we want to find a function $f'(x^{(i)})$ that give as $y^{(i)}$ * {cite:p}`hastie2009elements`.
+For each input $x^{(i)}$ where $x^{(i)}\in\mathbb{R}$ we want to find a function $f'(x^{(i)})$ that give as $y^{(i)}$ {cite:p}`hastie2009elements`.
 
 ## Task of Machine Learning
 
-* **Supervised Learning**: is a type of machine learning in which the algorithm learns from labeled data, that is, each input data point is paired with a corresponding output label. The goal is to learn a mapping from the input features to output labels, based on examples provided in the training data.
+* **Supervised Learning**: is a type of machine learning in which the algorithm learns from labeled data, that is, each input data point is paired with a corresponding output label. The goal is to learn a mapping from the input features to output labels, based on examples provided in the training data {cite:p}`bishop2016pattern`,{cite:p}`mello2018machine`.
 
 * **Examples**: spam filters, classifying images, house pricing, and sentiment analysis.
 
-* **Unsupervised learning**: is a type of machine learning in which the algorithm learns patterns and structures in the data without explicit supervision or labeled outputs. Instead, the algorithm seeks to uncover hidden relationships or groupings within the data.
+* **Unsupervised learning**: is a type of machine learning in which the algorithm learns patterns and structures in the data without explicit supervision or labeled outputs. Instead, the algorithm seeks to uncover hidden relationships or groupings within the data {cite:p}`hastie2009elements`, {cite:p}`garcia2015data`.
 
 * **Examples**: customer segmentation, anomaly detection, image compression
 
-* **Reinforcement learning**: is a type of machine learning where an agent learns to make sequential decisions by interacting with an environment. Unlike supervised and unsupervised learning, reinforcement learning does not rely on labeled examples or explicit guidance. Instead, the agent learns through trial and error, receiving feedback in the form of rewards or penalties based on its actions.
+* **Reinforcement learning**: is a type of machine learning where an agent learns to make sequential decisions by interacting with an environment. Unlike supervised and unsupervised learning, reinforcement learning does not rely on labeled examples or explicit guidance. Instead, the agent learns through trial and error, receiving feedback in the form of rewards or penalties based on its actions {cite:p}`sutton2018reinforcement`.
 
 * **Examples**: playing games, robotic manipulation, autonomous driving 
 
