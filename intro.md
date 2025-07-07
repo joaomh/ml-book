@@ -38,5 +38,6 @@ For Big Data and Data Engineering
 * {cite:p}`reis2022fundamentals`
 
 For Python Progamming
+* {cite:p}`python-docs`
 * {cite:p}`matthes2015python`
 * {cite:p}`ramalho2015fluent`
