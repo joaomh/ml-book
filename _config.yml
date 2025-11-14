@@ -1,9 +1,9 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: An Introduction to Machine Learning
+title: An Introduction to Machine Learning: Foundations and Applications
 author: João Manoel Herrera Pinheiro
-copyright: "2025"
+copyright: "2026"
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
