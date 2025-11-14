@@ -27,7 +27,7 @@ The contents of this book are licensed for free consumption under the following 
 This is an open-source material on machine learning, covering the foundations of machine learning and its new applications. The goal is to make it accessible to everyone, utilizing only free software. If you find this book valuable and wish to support it, you can become a member of my [YouTube channel](https://www.youtube.com/@2001Engenharia). However, if you are not ready to support me financially, you can still subscribe to my [YouTube channel](https://www.youtube.com/@2001Engenharia), give a star on [Github](https://github.com/joaomh/ml-book), or help by fixing typos, suggesting edits, or providing feedback.
 
 ## References
-In all sections, we will have other references to check out. The complete References and Biography are in the bibliography section.
+In all sections, we will have other references to check out, the complete References and Biography are in the bibliography section.
 
 The main references in Machine Learning are:
  
