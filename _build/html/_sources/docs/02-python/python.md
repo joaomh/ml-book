@@ -12,9 +12,9 @@
 
 ```python
 class Animal:
-    def __init__(self, nome):
-        self.nome = nome
-    def falar(self):
+    def __init__(self, name):
+        self.name = name
+    def talk(self):
         pass
 ```
 
@@ -24,17 +24,17 @@ class Animal:
 # Welcome program
 def main():
     # Data input
-    nome = input("Enter your name: ")
-    idade = int(input("Enter your age: "))
+    name = input("Enter your name: ")
+    age = int(input("Enter your age: "))
 
     # Conditional to check age
-    if idade >= 18:
-        mensagem = f"Hello, {nome}! You are an adult."
+    if age >= 18:
+        message = f"Hello, {name}! You are an adult."
     else:
-        mensagem = f"Hello, {nome}! You are a minor."
+        message = f"Hello, {name}! You are a minor."
 
     # Data output
-    print(mensagem)
+    print(message)
 
 # Call the main function
 main()
@@ -52,7 +52,7 @@ Hello, Joao! You are an adult.
 
 ```python
 lista = [1, 2, 3, 4]
-dobrado = list(map(lambda x: x * 2, lista))  # [2, 4, 6, 8]
+double_list = list(map(lambda x: x * 2, lista))  # [2, 4, 6, 8]
 ```
 
 Python is known for its ability to "glue" different systems or components together. For example, you can call C/C++ code using ctypes or Cython, or integrate Python with Java using Jython. This makes Python ideal for systems that combine various technologies.
@@ -64,11 +64,10 @@ class Exemplo:
     pass
 
 obj = Exemplo()
-obj.novo_atributo = 42  # Attribute created dynamically
+obj.new_attribute = 42  # Attribute created dynamically
 ```
 
-
 Here are some references.
- 
+* {cite:p}`python-docs`
 * {cite:p}`matthes2015python`
 * {cite:p}`ramalho2015fluent`

@@ -6,6 +6,16 @@ We'll navigate through the basics of math, statistics, and programming, providin
 
 What sets this guide apart are the hands-on experiences woven seamlessly into each main topic. Core exercises will sharpen your skills, and substantial projects will not only solidify your understanding but also serve as valuable assets in your professional portfolio. Whether you're aspiring to be a Data Scientist, Machine Learning Engineer, or simply aiming to augment your skills, this book offers a structured and engaging approach.
 
+## Citation
+```latex
+@book{herrera2026machine,
+  author    = {João Manoel Herrera Pinheiro},
+  title     = {An Introduction to Machine Learning: Foundations and Applications},
+  year      = {2026},
+  url       = {https://joaomh.github.io/ml-book/intro.html}
+}
+```
+
 Check out the content pages bundled with this book to see more.
 
 ```{tableofcontents}
@@ -17,23 +27,30 @@ The contents of this book are licensed for free consumption under the following 
 This is an open-source material on machine learning, covering the foundations of machine learning and its new applications. The goal is to make it accessible to everyone, utilizing only free software. If you find this book valuable and wish to support it, you can become a member of my [YouTube channel](https://www.youtube.com/@2001Engenharia). However, if you are not ready to support me financially, you can still subscribe to my [YouTube channel](https://www.youtube.com/@2001Engenharia), give a star on [Github](https://github.com/joaomh/ml-book), or help by fixing typos, suggesting edits, or providing feedback.
 
 ## References
-In all sections, we will have other references to check out. The complete References and Biography are in the bibliography section.
+In all sections, we will have other references to check out, the complete References and Biography are in the bibliography section.
 
-The main references in Machine Learning/Artificial intelligence are:
+The main references in Machine Learning are:
  
 * {cite:p}`mitchell1997machine`
 * {cite:p}`hastie2009elements`
 * {cite:p}`russell2020artificial`
+* {cite:p}`bishop2016pattern`
+* {cite:p}`bishop2023deep`
+* {cite:p}`prince2023understanding`
+* {cite:p}`pml1Book2022`
+* {cite:p}`pml2Book2023`
+* {cite:p}`goodfellow2016deep`
+* {cite:p}`mello2018machine`
+* {cite:p}`han2011data`
 * {cite:p}`sutton2018reinforcement`
 
 For Big Data and Data Engineering
 
 * {cite:p}`chambers2018spark`
 * {cite:p}`white2012hadoop`
+* {cite:p}`reis2022fundamentals`
 
 For Python Progamming
+* {cite:p}`python-docs`
 * {cite:p}`matthes2015python`
 * {cite:p}`ramalho2015fluent`
-
-
-

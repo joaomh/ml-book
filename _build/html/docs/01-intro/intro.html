@@ -421,8 +421,11 @@ document.write(`
 <p>The goal of this book is to help you to establish a problem and turn it into a machine learning problem, each section will have some big project to do, and for the subsection they will always have programming codes.</p>
 <section id="definition-of-machine-learning">
 <h2><span class="section-number">1.1. </span>Definition of Machine Learning<a class="headerlink" href="#definition-of-machine-learning" title="Link to this heading">#</a></h2>
-<p>In 1959 Arthur Samuel created one of the first definitions of</p>
-<p><em>“Machine Learning is the field of study that gives the computer the ability to learn without being explicitly programmed”.</em></p>
+<p>In 1959 Arthur Samuel created one of the first definitions of Machine Learning <span id="id1">[<a class="reference internal" href="../bibliography.html#id3" title="A. L. Samuel. Some studies in machine learning using the game of checkers. IBM Journal of Research and Development, 3(3):210-229, 1959. doi:10.1147/rd.33.0210.">Samuel, 1959</a>]</span> and <span id="id2">[<a class="reference internal" href="../bibliography.html#id4" title="A. L. Samuel. Some studies in machine learning using the game of checkers. ii—recent progress. IBM Journal of Research and Development, 11(6):601-617, 1967. doi:10.1147/rd.116.0601.">Samuel, 1967</a>]</span></p>
+<p><em>“A computer can be <strong>programmed</strong> so that it will <strong>learn to play</strong> a better game of checkers than can be played by the person who wrote the program”.</em></p>
+<p><em>“Programming computers to learn from experience should eventually eliminate the need for much of this <strong>detailed programming effort</strong>”.</em></p>
+<p>A common interpretation of these statements—often attributed to Arthur Samuel—is that:</p>
+<p><em>“Machine Learning is the field of study that gives the computer the ability to learn <strong>without being explicitly programmed</strong>”.</em></p>
 <p>So what does this mean? That means that we cannot hard-code the solutions to our problem with a bunch of if-else, for example, a machine needs to ‘learn’ without being tell-it.</p>
 <p>Suppose that you need to find the value of <span class="math notranslate nohighlight">\(\pi\)</span>, you can just write and code that would contain his value.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pi</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span><span class="mf">14159.</span><span class="o">..</span>
@@ -430,11 +433,10 @@ document.write(`
 </div>
 <p>Or you can use some data and create an algorithm that estimates this value. There is a way to use random points to calculate this value.</p>
 <p>We have a circle centered on (0,0) with radius <span class="math notranslate nohighlight">\(r\)</span> and a square with side <span class="math notranslate nohighlight">\(2r\)</span> let <span class="math notranslate nohighlight">\(r=1\)</span> The area of the circle is <span class="math notranslate nohighlight">\(\pi\)</span> and the area of the square is 4, so</p>
-<p><img alt="" src="docs/01-intro/img/monte.png" /></p>
-<div class="math notranslate nohighlight">
-\[ \frac{\text{area of circle}}{\text{area of square}}= \frac{\pi}{4} \]</div>
+<p><img alt="" src="../../_images/monte.png" /></p>
+<p><span class="math notranslate nohighlight">\( \frac{\text{area of circle}}{\text{area of square}}= \frac{\pi}{4} \)</span></p>
 <p>With a very large number of generated points
-$<span class="math notranslate nohighlight">\( \pi = 4\times\frac{\text{number of points inside the circle}}{\text{number of points inside square}} \)</span>$</p>
+<span class="math notranslate nohighlight">\( \pi = 4\times\frac{\text{number of points inside the circle}}{\text{number of points inside square}} \)</span></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
  
 <span class="n">n_max</span> <span class="o">=</span> <span class="mi">1000</span>
@@ -467,23 +469,24 @@ $<span class="math notranslate nohighlight">\( \pi = 4\times\frac{\text{number o
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14294</span>
 </pre></div>
 </div>
-<p>So instead of hard-code our value we create an algorithm that estimates this value using some math and probability; that is the idea of machine learning. In that case, we use Monte Carlo algorithms (NOT A MACHINE LEARNING) to create this example if you want to find out about this algorithm and Monte Carlo methods, the links are below.</p>
+<p>So instead of hard-code our value we create an <strong>algorithm</strong> that estimates this value using some <strong>math</strong> and <strong>probability</strong>; that is the idea of machine learning. In that case, we use Monte Carlo algorithms (NOT A MACHINE LEARNING!) to create this example if you want to find out about this algorithm and Monte Carlo methods, the links are below.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.sciencedirect.com/topics/economics-econometrics-and-finance/monte-carlo-simulation">Monte Carlo Simulation: an Overview</a></p></li>
 <li><p><a class="reference external" href="https://www.geeksforgeeks.org/estimating-value-pi-using-monte-carlo/">Estimating the value of Pi using Monte Carlo</a></p></li>
 </ul>
-<p><em>“A computer program is said to learn from experience <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> with respect to some class of task <span class="math notranslate nohighlight">\(\mathcal{T}\)</span> and perfomance measure <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>, if its performance at task <span class="math notranslate nohighlight">\(\mathcal{T}\)</span>, as measured by <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>, improves with experience <span class="math notranslate nohighlight">\(\mathcal{E}\)</span>”</em> <span id="id1">[<a class="reference internal" href="../bibliography.html#id4" title="S.J. Russell, S. Russell, and P. Norvig. Artificial Intelligence: A Modern Approach. Pearson series in artificial intelligence. Pearson, 2020. ISBN 9780134610993. URL: https://books.google.com.br/books?id=koFptAEACAAJ.">Russell <em>et al.</em>, 2020</a>]</span></p>
+<p>A more modern approach, presented by Mitchell <span id="id3">[<a class="reference internal" href="../bibliography.html#id2" title="Tom M Mitchell. Machine learning. Volume 1. McGraw-hill New York, 1997.">Mitchell, 1997</a>]</span>, defines learning as follows:</p>
+<p><em>“A computer program is said to learn from experience <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> with respect to some class of task <span class="math notranslate nohighlight">\(\mathcal{T}\)</span> and perfomance measure <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>, if its performance at task <span class="math notranslate nohighlight">\(\mathcal{T}\)</span>, as measured by <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>, improves with experience <span class="math notranslate nohighlight">\(\mathcal{E}\)</span>”</em></p>
 <p>There are some key concepts about this:</p>
-<p>Experience -&gt; Data</p>
+<p>Experience -&gt;  Data</p>
 <p>We need data for the algorithm to “learn”.</p>
 <p>Performance -&gt; Metric</p>
 <p>And we need some kind of Performance metric to measure, we need a goal to achieve.
-In each machine learning we may deal with different performance metrics, but in most cases, the performance measure is an error $<span class="math notranslate nohighlight">\(e_i = y_i - \hat{y_i}\)</span>$</p>
+In each machine learning we may deal with different performance metrics, but in most cases, the performance measure is an error <span class="math notranslate nohighlight">\(e_i = y_i - \hat{y_i}\)</span></p>
 </section>
 <section id="turing-test">
 <h2><span class="section-number">1.2. </span>Turing Test<a class="headerlink" href="#turing-test" title="Link to this heading">#</a></h2>
 <p>In 1950 Alan Turing proposed the Turing test “Can a machine think?”
-A computer passes the test if a human interrogator, after asking some written questions, cannot tell whether the written responses come from a person or a computer <span id="id2">[<a class="reference internal" href="../bibliography.html#id4" title="S.J. Russell, S. Russell, and P. Norvig. Artificial Intelligence: A Modern Approach. Pearson series in artificial intelligence. Pearson, 2020. ISBN 9780134610993. URL: https://books.google.com.br/books?id=koFptAEACAAJ.">Russell <em>et al.</em>, 2020</a>]</span>.</p>
+A computer passes the test if a human interrogator, after asking some written questions, cannot tell whether the written responses come from a person or a computer <span id="id4">[<a class="reference internal" href="../bibliography.html#id6" title="S.J. Russell, S. Russell, and P. Norvig. Artificial Intelligence: A Modern Approach. Pearson series in artificial intelligence. Pearson, 2020. ISBN 9780134610993. URL: https://books.google.com.br/books?id=koFptAEACAAJ.">Russell <em>et al.</em>, 2020</a>]</span>.</p>
 <p>The computer would need the following capabilities:</p>
 <ul class="simple">
 <li><p><strong>speech recognition</strong> to understand the voice of humans</p></li>
@@ -508,21 +511,21 @@ $<span class="math notranslate nohighlight">\(\{(\mathbf{x}^{(1)},y^{(1)}),(\mat
     input \rightarrow x^{(i)}\in\mathbb{R} \\
     output \rightarrow y^{(i)}\in\mathbb{R} 
 \end{split}\]</div>
-<p>For each input <span class="math notranslate nohighlight">\(x^{(i)}\)</span> where <span class="math notranslate nohighlight">\(x^{(i)}\in\mathbb{R}\)</span> we want to find a function <span class="math notranslate nohighlight">\(f'(x^{(i)})\)</span> that give as <span class="math notranslate nohighlight">\(y^{(i)}\)</span> * <span id="id3">[<a class="reference internal" href="../bibliography.html#id3" title="T. Hastie, R. Tibshirani, and J.H. Friedman. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. Springer series in statistics. Springer, 2009. ISBN 9780387848846. URL: https://books.google.com.br/books?id=eBSgoAEACAAJ.">Hastie <em>et al.</em>, 2009</a>]</span>.</p>
+<p>For each input <span class="math notranslate nohighlight">\(x^{(i)}\)</span> where <span class="math notranslate nohighlight">\(x^{(i)}\in\mathbb{R}\)</span> we want to find a function <span class="math notranslate nohighlight">\(f'(x^{(i)})\)</span> that give as <span class="math notranslate nohighlight">\(y^{(i)}\)</span> <span id="id5">[<a class="reference internal" href="../bibliography.html#id5" title="T. Hastie, R. Tibshirani, and J.H. Friedman. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. Springer series in statistics. Springer, 2009. ISBN 9780387848846. URL: https://books.google.com.br/books?id=eBSgoAEACAAJ.">Hastie <em>et al.</em>, 2009</a>]</span>.</p>
 </section>
 <section id="task-of-machine-learning">
 <h2><span class="section-number">1.4. </span>Task of Machine Learning<a class="headerlink" href="#task-of-machine-learning" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><strong>Supervised Learning</strong>: is a type of machine learning in which the algorithm learns from labeled data, that is, each input data point is paired with a corresponding output label. The goal is to learn a mapping from the input features to output labels, based on examples provided in the training data.</p></li>
+<li><p><strong>Supervised Learning</strong>: is a type of machine learning in which the algorithm learns from labeled data, that is, each input data point is paired with a corresponding output label. The goal is to learn a mapping from the input features to output labels, based on examples provided in the training data <span id="id6">[<a class="reference internal" href="../bibliography.html#id13" title="C.M. Bishop. Pattern Recognition and Machine Learning. Information Science and Statistics. Springer New York, 2016. ISBN 9781493938438. URL: https://books.google.com.br/books?id=kOXDtAEACAAJ.">Bishop, 2016</a>]</span>,<span id="id7">[<a class="reference internal" href="../bibliography.html#id15" title="Rodrigo Fernandes de Mello and Moacir Antonelli Ponti. Machine Learning: A Practical Approach on the Statistical Learning Theory. Springer International Publishing, Cham, 2018. ISBN 978-3-319-94988-8. URL: https://doi.org/10.1007/978-3-319-94989-5, doi:10.1007/978-3-319-94989-5.">de Mello and Ponti, 2018</a>]</span>.</p></li>
 <li><p><strong>Examples</strong>: spam filters, classifying images, house pricing, and sentiment analysis.</p></li>
-<li><p><strong>Unsupervised learning</strong>: is a type of machine learning in which the algorithm learns patterns and structures in the data without explicit supervision or labeled outputs. Instead, the algorithm seeks to uncover hidden relationships or groupings within the data.</p></li>
+<li><p><strong>Unsupervised learning</strong>: is a type of machine learning in which the algorithm learns patterns and structures in the data without explicit supervision or labeled outputs. Instead, the algorithm seeks to uncover hidden relationships or groupings within the data <span id="id8">[<a class="reference internal" href="../bibliography.html#id5" title="T. Hastie, R. Tibshirani, and J.H. Friedman. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. Springer series in statistics. Springer, 2009. ISBN 9780387848846. URL: https://books.google.com.br/books?id=eBSgoAEACAAJ.">Hastie <em>et al.</em>, 2009</a>]</span>, <span id="id9">[<a class="reference internal" href="../bibliography.html#id22" title="Salvador García, Julián Luengo, and Francisco Herrera. Data Preprocessing in Data Mining. Volume 72 of Intelligent Systems Reference Library. Springer International Publishing, Cham, 2015. ISBN 978-3-319-10246-7. URL: https://doi.org/10.1007/978-3-319-10247-4, doi:10.1007/978-3-319-10247-4.">García <em>et al.</em>, 2015</a>]</span>.</p></li>
 <li><p><strong>Examples</strong>: customer segmentation, anomaly detection, image compression</p></li>
-<li><p><strong>Reinforcement learning</strong>: is a type of machine learning where an agent learns to make sequential decisions by interacting with an environment. Unlike supervised and unsupervised learning, reinforcement learning does not rely on labeled examples or explicit guidance. Instead, the agent learns through trial and error, receiving feedback in the form of rewards or penalties based on its actions.</p></li>
+<li><p><strong>Reinforcement learning</strong>: is a type of machine learning where an agent learns to make sequential decisions by interacting with an environment. Unlike supervised and unsupervised learning, reinforcement learning does not rely on labeled examples or explicit guidance. Instead, the agent learns through trial and error, receiving feedback in the form of rewards or penalties based on its actions <span id="id10">[<a class="reference internal" href="../bibliography.html#id7" title="R.S. Sutton and A.G. Barto. Reinforcement Learning, second edition: An Introduction. Adaptive Computation and Machine Learning series. MIT Press, 2018. ISBN 9780262039246. URL: https://books.google.com.br/books?id=sWV0DwAAQBAJ.">Sutton and Barto, 2018</a>]</span>.</p></li>
 <li><p><strong>Examples</strong>: playing games, robotic manipulation, autonomous driving</p></li>
 </ul>
-<p><img alt="" src="../../_images/super_intro1.png" /></p>
+<p><img alt="" src="../../_images/super_intro.png" /></p>
 <p>Sometimes, and most of the projects in this book, you tread this kind of task separately, but in real life, they are just a means to solve a problem, sometimes your problem may require some part of supervised learning with unsupervised learning or an unsupervised learning with reinforcement, you can build a ‘hybrid’ model.</p>
-<p><img alt="" src="../../_images/draw1.png" /></p>
+<p><img alt="" src="../../_images/draw.png" /></p>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -620,7 +623,7 @@ By João Manoel Herrera Pinheiro
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>

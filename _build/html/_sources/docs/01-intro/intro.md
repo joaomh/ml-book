@@ -4,9 +4,15 @@ The goal of this book is to help you to establish a problem and turn it into a m
 
 ## Definition of Machine Learning
 
-In 1959 Arthur Samuel created one of the first definitions of 
+In 1959 Arthur Samuel created one of the first definitions of Machine Learning {cite:p}`Samuel5389202` and {cite:p}`Samuel5391906`
 
-*"Machine Learning is the field of study that gives the computer the ability to learn without being explicitly programmed".*
+*"A computer can be **programmed** so that it will **learn to play** a better game of checkers than can be played by the person who wrote the program".*
+
+*"Programming computers to learn from experience should eventually eliminate the need for much of this **detailed programming effort**".*
+
+A common interpretation of these statements—often attributed to Arthur Samuel—is that:
+
+*"Machine Learning is the field of study that gives the computer the ability to learn **without being explicitly programmed**".*
 
 So what does this mean? That means that we cannot hard-code the solutions to our problem with a bunch of if-else, for example, a machine needs to 'learn' without being tell-it. 
 
@@ -20,12 +26,12 @@ Or you can use some data and create an algorithm that estimates this value. Ther
 
 We have a circle centered on (0,0) with radius $r$ and a square with side $2r$ let $r=1$ The area of the circle is $\pi$ and the area of the square is 4, so
 
-![](./img/monte.png)
+![](./01-basic-concepts/img/monte.png)
 
-$$ \frac{\text{area of circle}}{\text{area of square}}= \frac{\pi}{4} $$
+$ \frac{\text{area of circle}}{\text{area of square}}= \frac{\pi}{4} $
 
 With a very large number of generated points
-$$ \pi = 4\times\frac{\text{number of points inside the circle}}{\text{number of points inside square}} $$
+$ \pi = 4\times\frac{\text{number of points inside the circle}}{\text{number of points inside square}} $
 
 ```python
 import random
@@ -61,24 +67,26 @@ print(pi)
 pi = 3.14294
 ```
 
-So instead of hard-code our value we create an algorithm that estimates this value using some math and probability; that is the idea of machine learning. In that case, we use Monte Carlo algorithms (NOT A MACHINE LEARNING) to create this example if you want to find out about this algorithm and Monte Carlo methods, the links are below.
+So instead of hard-code our value we create an **algorithm** that estimates this value using some **math** and **probability**; that is the idea of machine learning. In that case, we use Monte Carlo algorithms (NOT A MACHINE LEARNING!) to create this example if you want to find out about this algorithm and Monte Carlo methods, the links are below.
 
 * [Monte Carlo Simulation: an Overview](https://www.sciencedirect.com/topics/economics-econometrics-and-finance/monte-carlo-simulation)
 * [Estimating the value of Pi using Monte Carlo](https://www.geeksforgeeks.org/estimating-value-pi-using-monte-carlo/)
 
 
-*"A computer program is said to learn from experience $\mathcal{E}$ with respect to some class of task $\mathcal{T}$ and perfomance measure $\mathcal{P}$, if its performance at task $\mathcal{T}$, as measured by $\mathcal{P}$, improves with experience $\mathcal{E}$"* {cite:p}`russell2020artificial`
+A more modern approach, presented by Mitchell {cite:p}`mitchell1997machine`, defines learning as follows:
+
+*"A computer program is said to learn from experience $\mathcal{E}$ with respect to some class of task $\mathcal{T}$ and perfomance measure $\mathcal{P}$, if its performance at task $\mathcal{T}$, as measured by $\mathcal{P}$, improves with experience $\mathcal{E}$"*
 
 There are some key concepts about this:
 
-Experience -> Data
+Experience ->  Data
 
 We need data for the algorithm to "learn".
 
 Performance -> Metric
 
 And we need some kind of Performance metric to measure, we need a goal to achieve.
-In each machine learning we may deal with different performance metrics, but in most cases, the performance measure is an error $$e_i = y_i - \hat{y_i}$$
+In each machine learning we may deal with different performance metrics, but in most cases, the performance measure is an error $e_i = y_i - \hat{y_i}$
 
 ## Turing Test
 In 1950 Alan Turing proposed the Turing test "Can a machine think?"
@@ -110,19 +118,19 @@ $$
 $$
 
 
-For each input $x^{(i)}$ where $x^{(i)}\in\mathbb{R}$ we want to find a function $f'(x^{(i)})$ that give as $y^{(i)}$ * {cite:p}`hastie2009elements`.
+For each input $x^{(i)}$ where $x^{(i)}\in\mathbb{R}$ we want to find a function $f'(x^{(i)})$ that give as $y^{(i)}$ {cite:p}`hastie2009elements`.
 
 ## Task of Machine Learning
 
-* **Supervised Learning**: is a type of machine learning in which the algorithm learns from labeled data, that is, each input data point is paired with a corresponding output label. The goal is to learn a mapping from the input features to output labels, based on examples provided in the training data.
+* **Supervised Learning**: is a type of machine learning in which the algorithm learns from labeled data, that is, each input data point is paired with a corresponding output label. The goal is to learn a mapping from the input features to output labels, based on examples provided in the training data {cite:p}`bishop2016pattern`,{cite:p}`mello2018machine`.
 
 * **Examples**: spam filters, classifying images, house pricing, and sentiment analysis.
 
-* **Unsupervised learning**: is a type of machine learning in which the algorithm learns patterns and structures in the data without explicit supervision or labeled outputs. Instead, the algorithm seeks to uncover hidden relationships or groupings within the data.
+* **Unsupervised learning**: is a type of machine learning in which the algorithm learns patterns and structures in the data without explicit supervision or labeled outputs. Instead, the algorithm seeks to uncover hidden relationships or groupings within the data {cite:p}`hastie2009elements`, {cite:p}`garcia2015data`.
 
 * **Examples**: customer segmentation, anomaly detection, image compression
 
-* **Reinforcement learning**: is a type of machine learning where an agent learns to make sequential decisions by interacting with an environment. Unlike supervised and unsupervised learning, reinforcement learning does not rely on labeled examples or explicit guidance. Instead, the agent learns through trial and error, receiving feedback in the form of rewards or penalties based on its actions.
+* **Reinforcement learning**: is a type of machine learning where an agent learns to make sequential decisions by interacting with an environment. Unlike supervised and unsupervised learning, reinforcement learning does not rely on labeled examples or explicit guidance. Instead, the agent learns through trial and error, receiving feedback in the form of rewards or penalties based on its actions {cite:p}`sutton2018reinforcement`.
 
 * **Examples**: playing games, robotic manipulation, autonomous driving 
 
@@ -132,4 +140,3 @@ For each input $x^{(i)}$ where $x^{(i)}\in\mathbb{R}$ we want to find a function
 Sometimes, and most of the projects in this book, you tread this kind of task separately, but in real life, they are just a means to solve a problem, sometimes your problem may require some part of supervised learning with unsupervised learning or an unsupervised learning with reinforcement, you can build a 'hybrid' model.
 
 ![](./01-basic-concepts/img/draw.png)
-

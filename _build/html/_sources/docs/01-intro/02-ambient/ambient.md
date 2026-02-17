@@ -29,7 +29,7 @@ Anaconda is a free and open-source distribution of the Python and R programming 
 * When you need full control over your local environment.
 
 **Advantages:**
-* **Batteries Included:** Comes with almost all scientific computing libraries pre-installed.
+* **All Included:** Comes with almost all scientific computing libraries pre-installed.
 * **Robust Environment Management:** Conda is excellent for handling dependencies and isolating projects.
 * **Offline Capability:** Once installed, you don't need an internet connection to use most of its features.
 * **Performance:** Code runs locally on your machine's hardware.

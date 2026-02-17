@@ -411,9 +411,9 @@ document.write(`
 <p><strong>Python is a multi-paradigm programming language</strong>: This means that Python supports several programming styles or “paradigms.” A paradigm is a way of thinking about and structuring code. Python is not limited to a single style, allowing developers to choose the best paradigm for each situation.</p>
 <p><strong>Object-Oriented Programming (OOP)</strong>: Python allows the creation of classes and objects, encapsulation, inheritance, and polymorphism.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Animal</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nome</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="n">nome</span>
-    <span class="k">def</span> <span class="nf">falar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="k">def</span> <span class="nf">talk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span>
 </pre></div>
 </div>
@@ -421,17 +421,17 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Welcome program</span>
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Data input</span>
-    <span class="n">nome</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your name: &quot;</span><span class="p">)</span>
-    <span class="n">idade</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your age: &quot;</span><span class="p">))</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your name: &quot;</span><span class="p">)</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your age: &quot;</span><span class="p">))</span>
 
     <span class="c1"># Conditional to check age</span>
-    <span class="k">if</span> <span class="n">idade</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
-        <span class="n">mensagem</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">nome</span><span class="si">}</span><span class="s2">! You are an adult.&quot;</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">! You are an adult.&quot;</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">mensagem</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">nome</span><span class="si">}</span><span class="s2">! You are a minor.&quot;</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">! You are a minor.&quot;</span>
 
     <span class="c1"># Data output</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">mensagem</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 
 <span class="c1"># Call the main function</span>
 <span class="n">main</span><span class="p">()</span>
@@ -446,7 +446,7 @@ Hello, Joao! You are an adult.
 </div>
 <p><strong>Functional Programming</strong>: Python supports first-class functions (functions that can be passed as arguments), anonymous functions (<code class="docutils literal notranslate"><span class="pre">lambda</span></code>), and operations like <code class="docutils literal notranslate"><span class="pre">map</span></code>, <code class="docutils literal notranslate"><span class="pre">filter</span></code>, and <code class="docutils literal notranslate"><span class="pre">reduce</span></code>. Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="n">dobrado</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">lista</span><span class="p">))</span>  <span class="c1"># [2, 4, 6, 8]</span>
+<span class="n">double_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">lista</span><span class="p">))</span>  <span class="c1"># [2, 4, 6, 8]</span>
 </pre></div>
 </div>
 <p>Python is known for its ability to “glue” different systems or components together. For example, you can call C/C++ code using ctypes or Cython, or integrate Python with Java using Jython. This makes Python ideal for systems that combine various technologies.</p>
@@ -455,13 +455,14 @@ Hello, Joao! You are an adult.
     <span class="k">pass</span>
 
 <span class="n">obj</span> <span class="o">=</span> <span class="n">Exemplo</span><span class="p">()</span>
-<span class="n">obj</span><span class="o">.</span><span class="n">novo_atributo</span> <span class="o">=</span> <span class="mi">42</span>  <span class="c1"># Attribute created dynamically</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">new_attribute</span> <span class="o">=</span> <span class="mi">42</span>  <span class="c1"># Attribute created dynamically</span>
 </pre></div>
 </div>
 <p>Here are some references.</p>
 <ul class="simple">
-<li><p><span id="id1">[<a class="reference internal" href="../bibliography.html#id8" title="E. Matthes. Python Crash Course: A Hands-On, Project-Based Introduction to Programming. No Starch Press, 2015. ISBN 9781593276034.">Matthes, 2015</a>]</span></p></li>
-<li><p><span id="id2">[<a class="reference internal" href="../bibliography.html#id9" title="L. Ramalho. Fluent Python: Clear, Concise, and Effective Programming. O'Reilly Media, 2015. ISBN 9781491946251.">Ramalho, 2015</a>]</span></p></li>
+<li><p><span id="id1">[<a class="reference internal" href="../bibliography.html#id24" title="Python Software Foundation. Python 3 documentation. 2024. Accessed: 2025-07-07. URL: https://docs.python.org/3/.">Python Software Foundation, 2024</a>]</span></p></li>
+<li><p><span id="id2">[<a class="reference internal" href="../bibliography.html#id10" title="E. Matthes. Python Crash Course: A Hands-On, Project-Based Introduction to Programming. No Starch Press, 2015. ISBN 9781593276034.">Matthes, 2015</a>]</span></p></li>
+<li><p><span id="id3">[<a class="reference internal" href="../bibliography.html#id11" title="L. Ramalho. Fluent Python: Clear, Concise, and Effective Programming. O'Reilly Media, 2015. ISBN 9781491946251.">Ramalho, 2015</a>]</span></p></li>
 </ul>
 <div class="toctree-wrapper compound">
 </div>
@@ -541,7 +542,7 @@ By João Manoel Herrera Pinheiro
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>
