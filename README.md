@@ -2,6 +2,18 @@
 
 This repository holds the Jupyter Book source for An Introduction to Machine Learning.
 
+## Citation
+You are free to cite this book.
+
+```latex
+@book{herrera2026machine,
+  author    = {João Manoel Herrera Pinheiro},
+  title     = {An Introduction to Machine Learning: Foundations and Applications},
+  year      = {2026},
+  url       = {https://joaomh.github.io/ml-book/intro.html}
+}
+```
+
 ## To make a change to the book and update `https://joaomh.github.io/ml-book/`
 
 1. Get your copy of this repository:

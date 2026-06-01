@@ -7,6 +7,8 @@ We'll navigate through the basics of math, statistics, and programming, providin
 What sets this guide apart are the hands-on experiences woven seamlessly into each main topic. Core exercises will sharpen your skills, and substantial projects will not only solidify your understanding but also serve as valuable assets in your professional portfolio. Whether you're aspiring to be a Data Scientist, Machine Learning Engineer, or simply aiming to augment your skills, this book offers a structured and engaging approach.
 
 ## Citation
+You are free to cite this book.
+
 ```latex
 @book{herrera2026machine,
   author    = {João Manoel Herrera Pinheiro},
