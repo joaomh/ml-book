@@ -19,7 +19,7 @@ chapters:
       - file: docs/02-python/control-flow/control-flow
       - file: docs/02-python/func/func
       - file: docs/02-python/input-output/input-output
-      - file: docs/02-python/data-structures/data-structures
+      # - file: docs/02-python/data-structures/data-structures
   - file: docs/03-big-data/data
   - file: docs/04-prep/prep
   - file: docs/05-supervised/supervised
