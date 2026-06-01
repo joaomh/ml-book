@@ -37,9 +37,10 @@ jobs:
         with:
           path: _build/.jupyter_cache
           key: jupyter-book-cache-${{ hashFiles('requirements.txt') }}
-      - name: Debug MyST files
+      - name: Debug environment
         run: |
-          find . -name "myst.yml"
+          jupyter-book --version
+          pip freeze | grep -iE "jupyter|myst|sphinx"
       - name: Build the book
         run: |
           jupyter-book build .
