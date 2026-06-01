@@ -3,14 +3,14 @@
 
 format: jb-book
 root: intro
-# options:
-#   numbered: True
+options:
+  numbered: True
 chapters:
-  # - file: docs/01-intro/intro
-  #   sections:
-  #     - file: docs/01-intro/01-basic-concepts/projects
-  #     - file: docs/01-intro/01-basic-concepts/basics
-  #     - file: docs/01-intro/02-ambient/ambient
+  - file: docs/01-intro/intro
+    sections:
+      - file: docs/01-intro/01-basic-concepts/projects
+      - file: docs/01-intro/01-basic-concepts/basics
+      - file: docs/01-intro/02-ambient/ambient
   - file: docs/02-python/python
     sections:
       - file: docs/02-python/basics
